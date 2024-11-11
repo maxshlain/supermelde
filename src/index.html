@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermeled</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<h2>Fill in the Form</h2>
+<form id="userForm" onsubmit="return false;">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email"><br><br>
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments"></textarea><br><br>
+    <button id="submitBtn" type="submit">Generate PDF</button>
+</form>
+
+<py-script>
+from js import document, window
+from pyodide.ffi import create_proxy
+
+def generate_pdf(event):
+    # Retrieve form values
+    name = document.getElementById("name").value
+    email = document.getElementById("email").value
+    comments = document.getElementById("comments").value
+
+    # Create a new PDF document
+    pdf = window.jspdf.jsPDF()
+
+    # Add text to the PDF
+    pdf.text(10, 10, f"Name: {name}")
+    pdf.text(10, 20, f"Email: {email}")
+    pdf.text(10, 30, f"Comments: {comments}")
+
+    # Save the PDF
+    pdf.save("form.pdf")
+
+# Create a proxy for the generate_pdf function
+generate_pdf_proxy = create_proxy(generate_pdf)
+
+# Add event listener to the submit button
+document.getElementById("submitBtn").addEventListener("click", generate_pdf_proxy)
+</py-script>
+
+</body>
+</html>
