@@ -3,51 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supermeled</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <title>PDF Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
+    <form id="pdfForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments"></textarea><br><br>
+        <button type="submit" id="submitBtn">Generate PDF</button>
+    </form>
 
-<h2>Fill in the Form</h2>
-<form id="userForm" onsubmit="return false;">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br><br>
-    <label for="email">Email:</label><br>
-    <input type="text" id="email" name="email"><br><br>
-    <label for="comments">Comments:</label><br>
-    <textarea id="comments" name="comments"></textarea><br><br>
-    <button id="submitBtn" type="submit">Generate PDF</button>
-</form>
+    <script type="text/javascript">
+    async function generate_pdf(event) {
+        event.preventDefault();
 
-<py-script>
-from js import document, window
-from pyodide.ffi import create_proxy
+        // Retrieve form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const comments = document.getElementById("comments").value;
 
-def generate_pdf(event):
-    # Retrieve form values
-    name = document.getElementById("name").value
-    email = document.getElementById("email").value
-    comments = document.getElementById("comments").value
+        // Fetch the existing PDF
+        const existingPdfBytes = await fetch('explore/meldezettel_orig.pdf').then(res => res.arrayBuffer());
 
-    # Create a new PDF document
-    pdf = window.jspdf.jsPDF()
+        // Load the existing PDF into pdf-lib
+        const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
 
-    # Add text to the PDF
-    pdf.text(10, 10, f"Name: {name}")
-    pdf.text(10, 20, f"Email: {email}")
-    pdf.text(10, 30, f"Comments: {comments}")
+        // Get the first page of the PDF
+        const pages = pdfDoc.getPages();
+        const firstPage = pages[0];
 
-    # Save the PDF
-    pdf.save("form.pdf")
+        // Add text to the first page
+        firstPage.drawText(`Name: ${name}`, { x: 10, y: 700 });
+        firstPage.drawText(`Email: ${email}`, { x: 10, y: 680 });
+        firstPage.drawText(`Comments: ${comments}`, { x: 10, y: 660 });
 
-# Create a proxy for the generate_pdf function
-generate_pdf_proxy = create_proxy(generate_pdf)
+        // Serialize the PDFDocument to bytes (a Uint8Array)
+        const pdfBytes = await pdfDoc.save();
 
-# Add event listener to the submit button
-document.getElementById("submitBtn").addEventListener("click", generate_pdf_proxy)
-</py-script>
+        // Create a Blob from the PDF bytes
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
 
+        // Create a link element
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'form.pdf';
+
+        // Append the link to the body
+        document.body.appendChild(link);
+
+        // Programmatically click the link to trigger the download
+        link.click();
+
+        // Remove the link from the document
+        document.body.removeChild(link);
+    }
+
+    // Add event listener to the submit button
+    document.getElementById("submitBtn").addEventListener("click", generate_pdf);
+    </script>
 </body>
 </html>
