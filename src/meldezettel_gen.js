@@ -19,6 +19,9 @@ document.addEventListener('alpine:init', () => {
                 generatePdf: 'PDF generieren'
             }
         },
+        coordinates: {
+            familyName: { x: 40, y: 735 }
+        },
         setLanguage(lang) {
             this.language = lang;
             this.showForm = true;
@@ -47,10 +50,9 @@ document.addEventListener('alpine:init', () => {
             // Add the first page to the new PDF document
             newPdfDoc.addPage(firstPage);
 
-            // Add text to the first page
-            firstPage.drawText(`Name: ${name}`, { x: 10, y: 700 });
-            firstPage.drawText(`Email: ${email}`, { x: 10, y: 680 });
-            firstPage.drawText(`Comments: ${comments}`, { x: 10, y: 660 });
+            // draw familyName on its coordinates
+            const { familyName: family_name_coord } = this.coordinates;
+            firstPage.drawText(name, { x: family_name_coord.x, y: family_name_coord.y });
 
             // Serialize the new PDFDocument to bytes (a Uint8Array)
             const pdfBytes = await newPdfDoc.save();
