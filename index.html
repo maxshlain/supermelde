@@ -12,15 +12,21 @@
 </head>
 
 <body>
-    <form id="pdfForm" x-data="pdfFormHandler">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" x-model="name"><br><br>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" x-model="email"><br><br>
-        <label for="comments">Comments:</label>
-        <textarea id="comments" name="comments" x-model="comments"></textarea><br><br>
-        <button type="submit" id="submitBtn" @click.prevent="generatePdf">Generate PDF</button>
-    </form>
+    <div x-data="pdfFormHandler">
+        <div x-show="!showForm">
+            <button @click="setLanguage('en')">🇬🇧 English</button>
+            <button @click="setLanguage('de')">🇩🇪 Deutsch</button>
+        </div>
+        <form id="pdfForm" x-show="showForm">
+            <label for="name" x-text="getLabel('name')"></label>
+            <input type="text" id="name" name="name" x-model="name"><br><br>
+            <label for="email" x-text="getLabel('email')"></label>
+            <input type="text" id="email" name="email" x-model="email"><br><br>
+            <label for="comments" x-text="getLabel('comments')"></label>
+            <textarea id="comments" name="comments" x-model="comments"></textarea><br><br>
+            <button type="submit" id="submitBtn" @click.prevent="generatePdf" x-text="getLabel('generatePdf')"></button>
+        </form>
+    </div>
 </body>
 
 </html>

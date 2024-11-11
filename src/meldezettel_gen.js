@@ -3,6 +3,29 @@ document.addEventListener('alpine:init', () => {
         name: '',
         email: '',
         comments: '',
+        language: 'en',
+        showForm: false,
+        labels: {
+            en: {
+                name: 'Name',
+                email: 'Email',
+                comments: 'Comments',
+                generatePdf: 'Generate PDF'
+            },
+            de: {
+                name: 'Name',
+                email: 'E-Mail',
+                comments: 'Kommentare',
+                generatePdf: 'PDF generieren'
+            }
+        },
+        setLanguage(lang) {
+            this.language = lang;
+            this.showForm = true;
+        },
+        getLabel(key) {
+            return this.labels[this.language][key];
+        },
         async generatePdf() {
             // Retrieve form values
             const name = this.name;
