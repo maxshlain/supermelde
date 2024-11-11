@@ -7,24 +7,20 @@
     <title>Supermelde</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.4.2/cdn.min.js" defer></script>
     <script src="src/meldezettel_gen.js"></script>
 </head>
 
 <body>
-    <form id="pdfForm">
+    <form id="pdfForm" x-data="pdfFormHandler">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <input type="text" id="name" name="name" x-model="name"><br><br>
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" id="email" name="email" x-model="email"><br><br>
         <label for="comments">Comments:</label>
-        <textarea id="comments" name="comments"></textarea><br><br>
-        <button type="submit" id="submitBtn">Generate PDF</button>
+        <textarea id="comments" name="comments" x-model="comments"></textarea><br><br>
+        <button type="submit" id="submitBtn" @click.prevent="generatePdf">Generate PDF</button>
     </form>
-
-    <script type="text/javascript">
-        // Add event listener to the submit button
-        document.getElementById("submitBtn").addEventListener("click", generate_pdf);
-    </script>
 </body>
 
 </html>
