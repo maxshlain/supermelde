@@ -1,4 +1,3 @@
-
 async function generate_pdf(event) {
     event.preventDefault();
 
@@ -13,17 +12,22 @@ async function generate_pdf(event) {
     // Load the existing PDF into pdf-lib
     const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
 
-    // Get the first page of the PDF
-    const pages = pdfDoc.getPages();
-    const firstPage = pages[0];
+    // Create a new PDF document
+    const newPdfDoc = await PDFLib.PDFDocument.create();
+
+    // Get the first page of the existing PDF
+    const [firstPage] = await newPdfDoc.copyPages(pdfDoc, [0]);
+
+    // Add the first page to the new PDF document
+    newPdfDoc.addPage(firstPage);
 
     // Add text to the first page
     firstPage.drawText(`Name: ${name}`, { x: 10, y: 700 });
     firstPage.drawText(`Email: ${email}`, { x: 10, y: 680 });
     firstPage.drawText(`Comments: ${comments}`, { x: 10, y: 660 });
 
-    // Serialize the PDFDocument to bytes (a Uint8Array)
-    const pdfBytes = await pdfDoc.save();
+    // Serialize the new PDFDocument to bytes (a Uint8Array)
+    const pdfBytes = await newPdfDoc.save();
 
     // Create a Blob from the PDF bytes
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
