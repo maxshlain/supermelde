@@ -1,4 +1,1 @@
-# pdfrw
-pymupdf
-
-pdfrw
+pypdf

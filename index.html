@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supermelde</title>
+    <title>Meldezettel Form Filler</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.4.2/cdn.min.js" defer></script>
-    <script src="src/meldezettel_gen.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
-
 <body>
-    <div x-data="pdfFormHandler">
-        <div x-show="!showForm">
-            <button @click="setLanguage('en')">🇬🇧 English</button>
-            <button @click="setLanguage('de')">🇩🇪 Deutsch</button>
-        </div>
-        <form id="pdfForm" x-show="showForm">
-            <label for="name" x-text="getLabel('name')"></label>
-            <input type="text" id="name" name="name" x-model="name"><br><br>
-            <label for="email" x-text="getLabel('email')"></label>
-            <input type="text" id="email" name="email" x-model="email"><br><br>
-            <label for="comments" x-text="getLabel('comments')"></label>
-            <textarea id="comments" name="comments" x-model="comments"></textarea><br><br>
-            <button type="submit" id="submitBtn" @click.prevent="generatePdf" x-text="getLabel('generatePdf')"></button>
+    <div class="form-container">
+        <h1>Meldezettel Form Filler</h1>
+        
+        <form id="meldezettelForm">
+            <div class="form-group">
+                <label for="familyName">FAMILIENNAME (in Blockschrift), AKAD. GRAD</label>
+                <input type="text" id="familyName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">VORNAME lt. Geburtsurkunde</label>
+                <input type="text" id="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="previousName">Familienname vor der ersten Eheschließung</label>
+                <input type="text" id="previousName">
+            </div>
+
+            <button type="submit">Fill and Download Meldezettel</button>
         </form>
+
+        <div id="status"></div>
     </div>
 </body>
-
 </html>
