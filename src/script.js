@@ -11,17 +11,6 @@ async function fillForm(formData) {
         // Get the form from the document
         const form = pdfDoc.getForm();
 
-        // Fill in the form fields
-        // Note: These field names should match the actual field names in your PDF
-        // You might need to inspect your PDF to get the exact field names
-        const fields = form.getFields();
-        fields.forEach(field => {
-            const field_name = field.getName();
-            if (field_name === 'Geschlecht') {
-                console.log('field:', field);
-            }
-        });
-
         // Fill the form fields using their names
         const the_field_name = 'Familienname (in Blockschrift), Akad. Grad (abgekürzt)';
         const select_field_name = 'Geschlecht';
@@ -34,12 +23,6 @@ async function fillForm(formData) {
                 }
             });
 
-            // form.getTextField('FAMILIENNAME').setText(formData.familyName.toUpperCase());
-
-            // form.getTextField('VORNAME').setText(formData.firstName);
-            // if (formData.previousName) {
-            //     form.getTextField('VORHERIGER_NAME').setText(formData.previousName);
-            // }
         } catch (e) {
             console.error('Error filling specific field:', e);
         }
