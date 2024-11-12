@@ -27,8 +27,13 @@ async function fillForm(formData) {
             console.error('Error filling specific field:', e);
         }
 
+        // create new doc with only first page of the original
+        const newPdfDoc = await PDFLib.PDFDocument.create();
+        const [copiedPage] = await newPdfDoc.copyPages(pdfDoc, [0]);
+        newPdfDoc.addPage(copiedPage);
+        const pdfBytes = await newPdfDoc.save();
+
         // Save and download the filled PDF
-        const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
