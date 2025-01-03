@@ -7,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <link rel="stylesheet" href="src/styles.css">
     <script src="src/script.js" defer></script>
+    <script src="src/models/form_data.js" defer></script>
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <div class="form-container">
@@ -15,7 +17,7 @@
         <form id="meldezettelForm">
             <div class="form-group">
                 <label for="familyName">FAMILIENNAME (in Blockschrift), AKAD. GRAD</label>
-                <input type="text" id="familyName" required>
+                <input type="text" id="familyName" value="Izumrud">
             </div>
 
             <div class="form-group">
@@ -26,6 +28,26 @@
             <div class="form-group">
                 <label for="previousName">Familienname vor der ersten Eheschließung</label>
                 <input type="text" id="previousName">
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate">GEBURTSDATUM</label>
+                <input type="date" id="birthDate">
+            </div>
+
+            <div class="form-group">
+                <label for="address">ADRESSE</label>
+                <input type="text" id="address">
+            </div>
+
+            <div class="form-group">
+                <label for="city">STADT</label>
+                <input type="text" id="city">
+            </div>
+
+            <div class="form-group">
+                <label for="postalCode">POSTLEITZAHL</label>
+                <input type="text" id="postalCode">
             </div>
 
             <button type="submit">Fill and Download Meldezettel</button>

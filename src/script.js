@@ -11,16 +11,24 @@ async function fillForm(formData) {
         // Get the form from the document
         const form = pdfDoc.getForm();
 
-        // Fill the form fields using their names
-        const the_field_name = 'Familienname (in Blockschrift), Akad. Grad (abgekürzt)';
-        const select_field_name = 'Geschlecht';
-        try {
-            form.getTextField(the_field_name).setText(formData.familyName.toUpperCase());
+        const mapper = new RegistrationFormMapper();
 
-            form.getFields().forEach(field => {
-                if (field.getName() === select_field_name) {
-                    field.select('inter');
+        // Fill the form fields using their names
+        // const the_field_name = 'Familienname (in Blockschrift), Akad. Grad (abgekürzt)';
+        // const select_field_name = 'Geschlecht';
+        try {
+            // form.getTextField(the_field_name).setText(formData.familyName.toUpperCase());
+
+            form.getFields().forEach(current_field => {
+                current_field_name = current_field.getName();
+                // console.log(current_field_name);
+                if (current_field_name === mapper.getPdfField("lastName")) {
+                    current_field.setText(formData.lastName);
                 }
+
+                // if (field.getName() === select_field_name) {
+                //     field.select('inter');
+                // }
             });
 
         } catch (e) {
@@ -63,10 +71,12 @@ function showStatus(message, type) {
 
 document.getElementById('meldezettelForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = {
-        familyName: document.getElementById('familyName').value,
+    const formData = new FormData({
+        lastName: document.getElementById('familyName').value,
         firstName: document.getElementById('firstName').value,
         previousName: document.getElementById('previousName').value
-    };
+
+    });
+
     await fillForm(formData);
 });
