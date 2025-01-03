@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meldezettel Form Filler</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --background-color: #f3f4f6;
+            --text-color: #1f2937;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .language-selector {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .flag-button {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .flag-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .flag {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .help-icon {
+            margin-left: 0.5rem;
+            cursor: help;
+            color: #6b7280;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .progress-bar {
+            height: 0.5rem;
+            background: var(--border-color);
+            border-radius: 0.25rem;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #374151;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            max-width: 200px;
+            z-index: 10;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="app">
+            <div id="languageSelector" class="language-selector">
+                <h1 style="margin-bottom: 2rem">Select Your Language</h1>
+                <button class="flag-button" data-language="en">
+                    <span class="flag">🇬🇧</span>
+                    <span>English</span>
+                </button>
+                <button class="flag-button" data-language="de">
+                    <span class="flag">🇩🇪</span>
+                    <span>Deutsch</span>
+                </button>
+                <button class="flag-button" data-language="es">
+                    <span class="flag">🇪🇸</span>
+                    <span>Español</span>
+                </button>
+            </div>
+
+            <div id="formContainer" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+
+                <form id="meldezettelForm">
+                    <div class="form-step active" data-step="1">
+                        <h2 class="step-title">Personal Information</h2>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Family Name
+                                <span class="help-icon" data-tooltip="Enter your last name in CAPITAL letters (e.g., SMITH)">?</span>
+                            </label>
+                            <input type="text" class="form-input" name="familyName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                First Name
+                                <span class="help-icon" data-tooltip="Enter your first name as shown in your passport">?</span>
+                            </label>
+                            <input type="text" class="form-input" name="firstName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="2">
+                        <h2 class="step-title">Passport Information</h2>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Passport Number
+                                <span class="help-icon" data-tooltip="Enter your passport number exactly as shown">?</span>
+                            </label>
+                            <input type="text" class="form-input" name="passportNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Nationality
+                                <span class="help-icon" data-tooltip="Your current citizenship">?</span>
+                            </label>
+                            <input type="text" class="form-input" name="nationality" required>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="3">
+                        <h2 class="step-title">Address Information</h2>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Street Address
+                                <span class="help-icon" data-tooltip="Enter your street name and house number">?</span>
+                            </label>
+                            <input type="text" class="form-input" name="street" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Postal Code
+                                <span class="help-icon" data-tooltip="Enter your postal code">?</span>
+                            </label>
+                            <input type="text" class="form-input" name="postalCode" required>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" disabled>Previous</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = {
+                currentStep: 1,
+                totalSteps: 3,
+                selectedLanguage: null,
+
+                translations: {
+                    en: {
+                        next: 'Next',
+                        previous: 'Previous',
+                        generate: 'Generate PDF'
+                    },
+                    de: {
+                        next: 'Weiter',
+                        previous: 'Zurück',
+                        generate: 'PDF erstellen'
+                    },
+                    es: {
+                        next: 'Siguiente',
+                        previous: 'Anterior',
+                        generate: 'Generar PDF'
+                    }
+                },
+
+                init() {
+                    this.attachEventListeners();
+                    this.setupTooltips();
+                },
+
+                attachEventListeners() {
+                    // Language selection
+                    document.querySelectorAll('.flag-button').forEach(button => {
+                        button.addEventListener('click', (e) => {
+                            this.selectedLanguage = e.currentTarget.dataset.language;
+                            this.startForm();
+                        });
+                    });
+
+                    // Navigation buttons
+                    document.getElementById('prevBtn').addEventListener('click', () => this.navigate(-1));
+                    document.getElementById('nextBtn').addEventListener('click', () => this.navigate(1));
+
+                    // Form submission
+                    document.getElementById('meldezettelForm').addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.generatePDF();
+                    });
+                },
+
+                setupTooltips() {
+                    document.querySelectorAll('.help-icon').forEach(icon => {
+                        icon.addEventListener('mouseenter', (e) => {
+                            const tooltip = document.createElement('div');
+                            tooltip.className = 'tooltip';
+                            tooltip.textContent = e.target.dataset.tooltip;
+                            document.body.appendChild(tooltip);
+
+                            const rect = e.target.getBoundingClientRect();
+                            tooltip.style.top = rect.bottom + 5 + 'px';
+                            tooltip.style.left = rect.left + 'px';
+                            tooltip.style.display = 'block';
+                        });
+
+                        icon.addEventListener('mouseleave', () => {
+                            const tooltip = document.querySelector('.tooltip');
+                            if (tooltip) {
+                                tooltip.remove();
+                            }
+                        });
+                    });
+                },
+
+                startForm() {
+                    document.getElementById('languageSelector').style.display = 'none';
+                    document.getElementById('formContainer').style.display = 'block';
+                    this.updateProgress();
+                },
+
+                navigate(direction) {
+                    const newStep = this.currentStep + direction;
+                    if (newStep < 1 || newStep > this.totalSteps) return;
+
+                    document.querySelector(`.form-step[data-step="${this.currentStep}"]`).classList.remove('active');
+                    document.querySelector(`.form-step[data-step="${newStep}"]`).classList.add('active');
+
+                    this.currentStep = newStep;
+                    this.updateNavButtons();
+                    this.updateProgress();
+
+                    // submit form if it's the last step
+                    if (this.currentStep === this.totalSteps) {
+                        alert('Sending subtmit');
+                        // document.getElementById('meldezettelForm').submit();
+                        this.generatePDF();
+                    }
+                },
+
+                updateNavButtons() {
+                    const prevBtn = document.getElementById('prevBtn');
+                    const nextBtn = document.getElementById('nextBtn');
+
+                    prevBtn.disabled = this.currentStep === 1;
+                    nextBtn.textContent = this.currentStep === this.totalSteps ? 
+                        this.translations[this.selectedLanguage].generate : 
+                        this.translations[this.selectedLanguage].next;
+                },
+
+                updateProgress() {
+                    const progress = ((this.currentStep - 1) / (this.totalSteps - 1)) * 100;
+                    document.getElementById('progressBar').style.width = progress + '%';
+                },
+
+                async generatePDF() {
+                    alert('Generating PDF...');
+                },
+                async generatePDF2() {
+                    alert('Generating PDF...');
+                    const formData = new FormData(document.getElementById('meldezettelForm'));
+                    debugger;
+                    const data = Object.fromEntries(formData.entries());
+
+                    try {
+                        const response = await fetch('meldezettel_orig.pdf');
+                        const pdfBytes = await response.arrayBuffer();
+                        const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes);
+                        const form = pdfDoc.getForm();
+
+                        // Fill form fields
+                        form.getTextField('Familienname').setText(data.familyName.toUpperCase());
+                        form.getTextField('Vorname').setText(data.firstName);
+                        // Add more fields as needed
+
+                        const filledPdfBytes = await pdfDoc.save();
+                        const blob = new Blob([filledPdfBytes], { type: 'application/pdf' });
+                        const url = URL.createObjectURL(blob);
+                        
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = 'filled_meldezettel.pdf';
+                        link.click();
+                        
+                        URL.revokeObjectURL(url);
+                    } catch (error) {
+                        console.error('Error generating PDF:', error);
+                        alert('Error generating PDF. Please try again.');
+                    }
+                }
+            };
+
+            app.init();
+        });
+    </script>
+</body>
+</html>
