@@ -11,7 +11,7 @@ async function fillForm(formData) {
         // Get the form from the document
         const form = pdfDoc.getForm();
 
-        const mapper = new RegistrationFormMapper();
+        const mapper = new FormMapper();
 
         // Fill the form fields using their names
         // const the_field_name = 'Familienname (in Blockschrift), Akad. Grad (abgekürzt)';
