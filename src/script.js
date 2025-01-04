@@ -1,3 +1,32 @@
+function on_page_load() {
+    set_form_labels_and_values();
+}
+
+async function set_form_labels_and_values() {
+    const labelConfig = new LabelConfig();
+    await labelConfig.loadConfig();
+    
+    const defaultValues = new Map([
+        ['city', 'Netanya'],
+        ['address', 'Hertzel 16']
+    ]);
+
+    // Set labels
+    labelConfig.forEach((labelText, fieldId) => {
+        const labelElement = document.querySelector(`label[for="${fieldId}"]`);
+        if (labelElement) {
+            labelElement.textContent = labelText;
+        }
+    });
+
+    // Set default values
+    defaultValues.forEach((value, fieldId) => {
+        const inputElement = document.getElementById(fieldId);
+        if (inputElement) {
+            inputElement.value = value;
+        }
+    });
+}
 
 async function fillForm(formData) {
     try {
@@ -79,4 +108,8 @@ document.getElementById('meldezettelForm').addEventListener('submit', async (e) 
     });
 
     await fillForm(formData);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    on_page_load();
 });
