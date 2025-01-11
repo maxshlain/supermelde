@@ -10,7 +10,9 @@
     <script src="src/models/form_data.js" defer></script>
     <script src="src/models/form_mapper.js" defer></script>
     <script src="src/config/labels.json" type="application/json"></script>
+    <script src="src/config/values.json" type="application/json"></script>
     <script src="src/models/label_config.js" defer></script>
+    <script src="src/models/values_config.js" defer></script>
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
@@ -19,8 +21,8 @@
         
         <form id="meldezettelForm">
             <div class="form-group">
-                <label for="familyName">FAMILIENNAME (in Blockschrift), AKAD. GRAD</label>
-                <input type="text" id="familyName" value="Izumrud">
+                <label for="lastName">FAMILIENNAME (in Blockschrift), AKAD. GRAD</label>
+                <input type="text" id="lastName" value="Izumrud">
             </div>
 
             <div class="form-group">
@@ -29,8 +31,13 @@
             </div>
 
             <div class="form-group">
-                <label for="previousName">Familienname vor der ersten Eheschließung</label>
-                <input type="text" id="previousName">
+                <label for="lastNameBeforeMarriage">Familienname vor der ersten Eheschließung</label>
+                <input type="text" id="lastNameBeforeMarriage">
+            </div>
+
+            <div class="form-group">
+                <label for="otherName">Sonstiger Name nach fremdem Namensrecht z.B. Vatersname siehe auch Rückseite</label>
+                <input type="text" id="otherName">
             </div>
 
             <div class="form-group">

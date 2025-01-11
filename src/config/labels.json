@@ -1,5 +1,10 @@
 {
-    "_formHeader": "Melzettel 77",
+    "_formHeader": "Melzettel Registration Form",
+    "lastName": "Last Name",
+    "firstName": "First Name",
+    "lastNameBeforeMarriage": "Last Name Before Marriage",
+    "otherName": "Other Name",
+    "block": "----------------------------------------------",
     "previousName": "33Familienname vor der ersten Eheschließung",
     "city": "44Gorod3",
     "address": "7Adres"

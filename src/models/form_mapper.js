@@ -53,9 +53,3 @@ class FormMapper {
       return this.fieldMap[dtoFieldName] || null;
     }
   }
-  
-//   // Example usage:
-//   const mapper = new RegistrationFormMapper();
-//   console.log(mapper.getFieldMap()); // Print the full mapping
-//   console.log(mapper.getPdfField("lastName")); // Get the corresponding PDF field for "lastName"
-  

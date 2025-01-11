@@ -1,17 +1,14 @@
 function on_page_load() {
-    set_form_labels_and_values();
+    set_labels();
+    set_values();
 }
 
-async function set_form_labels_and_values() {
+async function set_labels() {
 
     const labelConfig = new LabelConfig();
     await labelConfig.loadConfig();
-    
-    const defaultValues = new Map([
-        ['city', 'Netanya'],
-        ['address', 'Hertzel 16']
-    ]);
 
+    // Set form header
     const h = document.getElementsByClassName('_formHeader')[0]
     h.textContent = labelConfig.getLabel('_formHeader');
 
@@ -22,9 +19,15 @@ async function set_form_labels_and_values() {
             labelElement.textContent = labelText;
         }
     });
+}
+
+async function set_values() {
+    
+    const valuesConfig = new ValuesConfig();
+    await valuesConfig.loadConfig();
 
     // Set default values
-    defaultValues.forEach((value, fieldId) => {
+    valuesConfig.forEach((value, fieldId) => {
         const inputElement = document.getElementById(fieldId);
         if (inputElement) {
             inputElement.value = value;
@@ -105,9 +108,9 @@ function showStatus(message, type) {
 document.getElementById('meldezettelForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData({
-        lastName: document.getElementById('familyName').value,
+        lastName: document.getElementById('lastName').value,
         firstName: document.getElementById('firstName').value,
-        previousName: document.getElementById('previousName').value
+        // previousName: document.getElementById('previousName').value
 
     });
 
