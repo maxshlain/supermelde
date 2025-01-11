@@ -3,6 +3,7 @@ function on_page_load() {
 }
 
 async function set_form_labels_and_values() {
+
     const labelConfig = new LabelConfig();
     await labelConfig.loadConfig();
     
@@ -10,6 +11,9 @@ async function set_form_labels_and_values() {
         ['city', 'Netanya'],
         ['address', 'Hertzel 16']
     ]);
+
+    const h = document.getElementsByClassName('_formHeader')[0]
+    h.textContent = labelConfig.getLabel('_formHeader');
 
     // Set labels
     labelConfig.forEach((labelText, fieldId) => {

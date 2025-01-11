@@ -6,7 +6,7 @@ class LabelConfig {
 
     async loadConfig() {
         try {
-            const response = await fetch('/src/config/labels.json');
+            const response = await fetch('src/config/labels.json');
             const data = await response.json();
             this.labelConfig = new Map(Object.entries(data));
         } catch (error) {
