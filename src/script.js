@@ -1,6 +1,6 @@
 function on_page_load() {
     set_labels();
-    set_values();
+    set_default_values();
 }
 
 async function set_labels() {
@@ -21,7 +21,7 @@ async function set_labels() {
     });
 }
 
-async function set_values() {
+async function set_default_values() {
     
     const valuesConfig = new ValuesConfig();
     await valuesConfig.loadConfig();
