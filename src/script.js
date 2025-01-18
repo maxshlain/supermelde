@@ -44,7 +44,8 @@ function build_form_data_from_document() {
         lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
         otherName: document.getElementById('otherName').value,
         dateOfBirth: document.getElementById('dateOfBirth').value,
-        gender: document.getElementById('gender').value
+        gender: document.getElementById('gender').value,
+        religionOrCommunity: document.getElementById('religionOrCommunity').value
     });
     return formData;
 }
@@ -55,6 +56,7 @@ function dateToAustrian(date) {
 }
 
 function fixGenderValue(gender_value) {
+    // the form values and the presented values are different
     if (gender_value === 'männlich') {
         return 'männlich';
     }
@@ -110,6 +112,9 @@ function set_form_values(form, formData) {
                 gender_value = formData.gender;
                 fixed_value = fixGenderValue(gender_value);
                 current_field.select(fixed_value);
+            }
+            else if (current_field_name === mapper.getPdfField("religionOrCommunity")) {
+                current_field.setText(formData.religionOrCommunity);
             }
         });
     } catch (e) {
