@@ -49,17 +49,19 @@ async function fillForm(formData) {
 
         const mapper = new FormMapper();
 
-        // Fill the form fields using their names
-        // const the_field_name = 'Familienname (in Blockschrift), Akad. Grad (abgekürzt)';
-        // const select_field_name = 'Geschlecht';
         try {
-            // form.getTextField(the_field_name).setText(formData.familyName.toUpperCase());
 
             form.getFields().forEach(current_field => {
                 current_field_name = current_field.getName();
                 // console.log(current_field_name);
                 if (current_field_name === mapper.getPdfField("lastName")) {
                     current_field.setText(formData.lastName);
+                }
+                else if (current_field_name === mapper.getPdfField("firstName")) {
+                    current_field.setText(formData.firstName);
+                }
+                else if (current_field_name === mapper.getPdfField("lastNameBeforeMarriage")) {
+                    current_field.setText(formData.lastNameBeforeMarriage);
                 }
 
                 // if (field.getName() === select_field_name) {
@@ -110,8 +112,7 @@ document.getElementById('meldezettelForm').addEventListener('submit', async (e) 
     const formData = new FormData({
         lastName: document.getElementById('lastName').value,
         firstName: document.getElementById('firstName').value,
-        // previousName: document.getElementById('previousName').value
-
+        lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
     });
 
     await fillForm(formData);
