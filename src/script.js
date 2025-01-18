@@ -35,6 +35,11 @@ async function set_default_values() {
     });
 }
 
+function dateToAustrian(date) {
+    const [year, month, day] = date.split('-');
+    return `${day}.${month}.${year}`;
+}
+
 function set_form_values(form, formData) {
     const mapper = new FormMapper();
 
@@ -52,6 +57,10 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("otherName")) {
                 current_field.setText(formData.otherName);
+            }
+            else if (current_field_name === mapper.getPdfField("dateOfBirth")) {
+                austrian_date = dateToAustrian(formData.dateOfBirth);
+                current_field.setText(austrian_date);
             }
         });
     } catch (e) {
@@ -111,11 +120,16 @@ function showStatus(message, type) {
 
 document.getElementById('meldezettelForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // const debug_value = document.getElementById('birthDate').value;
+    // alert(debug_value);
+
     const formData = new FormData({
         lastName: document.getElementById('lastName').value,
         firstName: document.getElementById('firstName').value,
         lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
         otherName: document.getElementById('otherName').value,
+        dateOfBirth: document.getElementById('dateOfBirth').value,
     });
 
     await fillForm(formData);
