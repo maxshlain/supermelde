@@ -63,6 +63,9 @@ async function fillForm(formData) {
                 else if (current_field_name === mapper.getPdfField("lastNameBeforeMarriage")) {
                     current_field.setText(formData.lastNameBeforeMarriage);
                 }
+                else if (current_field_name === mapper.getPdfField("otherName")) {
+                    current_field.setText(formData.otherName);
+                }
 
                 // if (field.getName() === select_field_name) {
                 //     field.select('inter');
@@ -113,6 +116,7 @@ document.getElementById('meldezettelForm').addEventListener('submit', async (e) 
         lastName: document.getElementById('lastName').value,
         firstName: document.getElementById('firstName').value,
         lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
+        otherName: document.getElementById('otherName').value,
     });
 
     await fillForm(formData);
