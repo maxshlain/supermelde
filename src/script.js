@@ -35,6 +35,31 @@ async function set_default_values() {
     });
 }
 
+function set_form_values(form, formData) {
+    const mapper = new FormMapper();
+
+    try {
+        form.getFields().forEach(current_field => {
+            current_field_name = current_field.getName();
+            if (current_field_name === mapper.getPdfField("lastName")) {
+                current_field.setText(formData.lastName);
+            }
+            else if (current_field_name === mapper.getPdfField("firstName")) {
+                current_field.setText(formData.firstName);
+            }
+            else if (current_field_name === mapper.getPdfField("lastNameBeforeMarriage")) {
+                current_field.setText(formData.lastNameBeforeMarriage);
+            }
+            else if (current_field_name === mapper.getPdfField("otherName")) {
+                current_field.setText(formData.otherName);
+            }
+        });
+    } catch (e) {
+        console.error('Error filling specific field:', e);
+        throw e;
+    }
+}
+
 async function fillForm(formData) {
     try {
         // Load the PDF with form fields
@@ -47,34 +72,8 @@ async function fillForm(formData) {
         // Get the form from the document
         const form = pdfDoc.getForm();
 
-        const mapper = new FormMapper();
-
-        try {
-
-            form.getFields().forEach(current_field => {
-                current_field_name = current_field.getName();
-                // console.log(current_field_name);
-                if (current_field_name === mapper.getPdfField("lastName")) {
-                    current_field.setText(formData.lastName);
-                }
-                else if (current_field_name === mapper.getPdfField("firstName")) {
-                    current_field.setText(formData.firstName);
-                }
-                else if (current_field_name === mapper.getPdfField("lastNameBeforeMarriage")) {
-                    current_field.setText(formData.lastNameBeforeMarriage);
-                }
-                else if (current_field_name === mapper.getPdfField("otherName")) {
-                    current_field.setText(formData.otherName);
-                }
-
-                // if (field.getName() === select_field_name) {
-                //     field.select('inter');
-                // }
-            });
-
-        } catch (e) {
-            console.error('Error filling specific field:', e);
-        }
+        // Merge form data into the PDF
+        set_form_values(form, formData);
 
         // create new doc with only first page of the original
         const newPdfDoc = await PDFLib.PDFDocument.create();
