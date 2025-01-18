@@ -54,6 +54,36 @@ function dateToAustrian(date) {
     return `${day}.${month}.${year}`;
 }
 
+function fixGenderValue(gender_value) {
+    if (gender_value === 'männlich') {
+        return 'männlich';
+    }
+
+    if (gender_value === 'weiblich') {
+        return 'weiblich';
+    }
+
+    // select divers prints offen
+    // select inter prints divers
+    // select offen prints inter
+
+    if (gender_value === 'divers') {
+        return 'inter';
+    }
+
+    if (gender_value === 'inter') {
+        return 'offen';
+    }
+
+    if (gender_value === 'offen') {
+        return 'divers';
+    }
+
+    if (gender_value === 'keine') {
+        return 'keine Angabe';
+    }
+}
+
 function set_form_values(form, formData) {
     const mapper = new FormMapper();
 
@@ -78,13 +108,8 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("gender")) {
                 gender_value = formData.gender;
-
-                if (gender_value === 'keine') {
-                    current_field.select('keine Angabe');
-                }
-                else {
-                    current_field.select
-                }
+                fixed_value = fixGenderValue(gender_value);
+                current_field.select(fixed_value);
             }
         });
     } catch (e) {
