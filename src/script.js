@@ -45,7 +45,8 @@ function build_form_data_from_document() {
         otherName: document.getElementById('otherName').value,
         dateOfBirth: document.getElementById('dateOfBirth').value,
         gender: document.getElementById('gender').value,
-        religionOrCommunity: document.getElementById('religionOrCommunity').value
+        religionOrCommunity: document.getElementById('religionOrCommunity').value,
+        placeOfBirth: document.getElementById('placeOfBirth').value,
     });
     return formData;
 }
@@ -115,6 +116,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("religionOrCommunity")) {
                 current_field.setText(formData.religionOrCommunity);
+            }
+            else if (current_field_name === mapper.getPdfField("placeOfBirth")) {
+                current_field.setText(formData.placeOfBirth);
             }
         });
     } catch (e) {
