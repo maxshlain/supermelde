@@ -4,5 +4,7 @@
     "lastNameBeforeMarriage": "Livanov",
     "otherName": "Шерлок Холмс",
     "dateOfBirth": "1854-01-06",
+    "gender": "keine",
+    "gender_options": "männlich, weiblich, divers, keine",
     "block": "----------------------------------------------"
 }

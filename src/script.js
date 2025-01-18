@@ -35,6 +35,20 @@ async function set_default_values() {
     });
 }
 
+function build_form_data_from_document() {
+    // const debug_value = document.getElementById('gender').value;
+    // alert(debug_value);
+    const formData = new FormData({
+        lastName: document.getElementById('lastName').value,
+        firstName: document.getElementById('firstName').value,
+        lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
+        otherName: document.getElementById('otherName').value,
+        dateOfBirth: document.getElementById('dateOfBirth').value,
+        gender: document.getElementById('gender').value
+    });
+    return formData;
+}
+
 function dateToAustrian(date) {
     const [year, month, day] = date.split('-');
     return `${day}.${month}.${year}`;
@@ -61,6 +75,16 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("dateOfBirth")) {
                 austrian_date = dateToAustrian(formData.dateOfBirth);
                 current_field.setText(austrian_date);
+            }
+            else if (current_field_name === mapper.getPdfField("gender")) {
+                gender_value = formData.gender;
+
+                if (gender_value === 'keine') {
+                    current_field.select('keine Angabe');
+                }
+                else {
+                    current_field.select
+                }
             }
         });
     } catch (e) {
@@ -120,18 +144,7 @@ function showStatus(message, type) {
 
 document.getElementById('meldezettelForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    // const debug_value = document.getElementById('birthDate').value;
-    // alert(debug_value);
-
-    const formData = new FormData({
-        lastName: document.getElementById('lastName').value,
-        firstName: document.getElementById('firstName').value,
-        lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
-        otherName: document.getElementById('otherName').value,
-        dateOfBirth: document.getElementById('dateOfBirth').value,
-    });
-
+    const formData = build_form_data_from_document();
     await fillForm(formData);
 });
 

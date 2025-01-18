@@ -48,18 +48,15 @@
             </div>
 
             <div class="form-group">
-                <label for="address">ADRESSE</label>
-                <input type="text" id="address">
-            </div>
-
-            <div class="form-group">
-                <label for="city">STADT</label>
-                <input type="text" id="city">
-            </div>
-
-            <div class="form-group">
-                <label for="postalCode">POSTLEITZAHL</label>
-                <input type="text" id="postalCode">
+                <label for="gender">Geschlecht</label>
+                <select id="gender" name="gender">
+                    <option value="männlich">männlich</option> <!--  male -->
+                    <option value="weiblich">weiblich</option> <!--  female -->
+                    <option value="divers">divers</option>     <!--  diverse -->
+                    <option value="inter">inter</option>       <!--  intersex -->
+                    <option value="offen">offen</option>       <!--  open -->
+                    <option value="keine">keine</option>       <!--  no_statement -->
+                </select>
             </div>
 
             <button type="submit">Fill and Download Meldezettel</button>
