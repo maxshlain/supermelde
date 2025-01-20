@@ -11,6 +11,7 @@ class FormMapper {
         placeOfBirth: "Geburtsort lt. Reisedokument (bei österr. Staatsbürgern auch lt. Geburtsurkunde); Bundesland (Inland) und Staat (Ausland)", // Geburtsort
         maritalStatus: "Familienstand", // Familienstand
         nationality: "Staatsangehörigkeit", // Staatsangehörigkeit
+        nameOfState: "Name des Staates", // Name des Staates
         documentType: "Reisedokument bei Fremden / Art des Dokuments", // Reisedokument Art
         documentNumber: "Reisedokument bei Fremden / Nummer", // Reisedokument Nummer
         documentIssueDate: "Reisedokument bei Fremden / Ausstellungsdatum", // Reisedokument Ausstellungsdatum

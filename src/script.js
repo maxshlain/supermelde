@@ -48,11 +48,17 @@ function build_form_data_from_document() {
         religionOrCommunity: document.getElementById('religionOrCommunity').value,
         placeOfBirth: document.getElementById('placeOfBirth').value,
         isAustrian: document.getElementById('isAustrian').value,
+        nameOfState: document.getElementById('nameOfState').value,
     });
 }
 
 function set_form_values(form, formData) {
     const mapper = new FormMapper();
+
+    // all_fields = form.getFields();
+    // all_fields.forEach(current_field => { 
+    //     console.info(current_field.getName())
+    // });
 
     try {
         form.getFields().forEach(current_field => {
@@ -91,6 +97,9 @@ function set_form_values(form, formData) {
                 } else {
                     current_field.select('anderer Staat');
                 }
+            }
+            else if (current_field_name === mapper.getPdfField("nameOfState")) {
+                current_field.setText(formData.nameOfState);
             }
         });
     } catch (e) {
