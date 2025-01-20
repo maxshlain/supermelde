@@ -36,9 +36,9 @@ async function set_default_values() {
 }
 
 function build_form_data_from_document() {
-    // const debug_value = document.getElementById('gender').value;
+    // const debug_value = document.getElementById('isAustrian').value;
     // alert(debug_value);
-    const formData = new FormData({
+    return new FormData({
         lastName: document.getElementById('lastName').value,
         firstName: document.getElementById('firstName').value,
         lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value,
@@ -47,44 +47,8 @@ function build_form_data_from_document() {
         gender: document.getElementById('gender').value,
         religionOrCommunity: document.getElementById('religionOrCommunity').value,
         placeOfBirth: document.getElementById('placeOfBirth').value,
+        isAustrian: document.getElementById('isAustrian').value,
     });
-    return formData;
-}
-
-function dateToAustrian(date) {
-    const [year, month, day] = date.split('-');
-    return `${day}.${month}.${year}`;
-}
-
-function fixGenderValue(gender_value) {
-    // the form values and the presented values are different
-    if (gender_value === 'männlich') {
-        return 'männlich';
-    }
-
-    if (gender_value === 'weiblich') {
-        return 'weiblich';
-    }
-
-    // select divers prints offen
-    // select inter prints divers
-    // select offen prints inter
-
-    if (gender_value === 'divers') {
-        return 'inter';
-    }
-
-    if (gender_value === 'inter') {
-        return 'offen';
-    }
-
-    if (gender_value === 'offen') {
-        return 'divers';
-    }
-
-    if (gender_value === 'keine') {
-        return 'keine Angabe';
-    }
 }
 
 function set_form_values(form, formData) {
@@ -120,10 +84,55 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("placeOfBirth")) {
                 current_field.setText(formData.placeOfBirth);
             }
+            else if (current_field_name === mapper.getPdfField("nationality")) {
+                const isAustrian = formData.isAustrian;
+                if (isAustrian === 'ja') {
+                    current_field.select('Österreich');
+                } else {
+                    current_field.select('anderer Staat');
+                }
+            }
         });
     } catch (e) {
         console.error('Error filling specific field:', e);
         throw e;
+    }
+}
+
+
+function dateToAustrian(date) {
+    const [year, month, day] = date.split('-');
+    return `${day}.${month}.${year}`;
+}
+
+function fixGenderValue(gender_value) {
+    // the form values and the presented values are different
+    if (gender_value === 'männlich') {
+        return 'männlich';
+    }
+
+    if (gender_value === 'weiblich') {
+        return 'weiblich';
+    }
+
+    // select divers prints offen
+    // select inter prints divers
+    // select offen prints inter
+
+    if (gender_value === 'divers') {
+        return 'inter';
+    }
+
+    if (gender_value === 'inter') {
+        return 'offen';
+    }
+
+    if (gender_value === 'offen') {
+        return 'divers';
+    }
+
+    if (gender_value === 'keine') {
+        return 'keine Angabe';
     }
 }
 

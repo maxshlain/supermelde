@@ -8,5 +8,7 @@
     "gender_options": "männlich, weiblich, divers, keine",
     "religionOrCommunity": "Anglikaner",
     "placeOfBirth": "The Empire of Great Britain",
+    "citizenship": "British",
+    "isAustrian": "ja",
     "block": "----------------------------------------------"
 }

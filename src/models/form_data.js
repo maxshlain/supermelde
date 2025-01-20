@@ -19,6 +19,7 @@ class FormData {
         // Familienstand
         maritalStatus = "",
         // Staatsangehörigkeit
+        isAustrian = "",
         nationality = "",
         // Reisedokument Art
         documentType = "",
@@ -92,6 +93,7 @@ class FormData {
         this.religionOrCommunity = religionOrCommunity;
         this.placeOfBirth = placeOfBirth;
         this.maritalStatus = maritalStatus;
+        this.isAustrian = isAustrian;
         this.nationality = nationality;
         this.documentType = documentType;
         this.documentNumber = documentNumber;
