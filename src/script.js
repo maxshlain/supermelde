@@ -47,6 +47,7 @@ function build_form_data_from_document() {
         gender: document.getElementById('gender').value,
         religionOrCommunity: document.getElementById('religionOrCommunity').value,
         placeOfBirth: document.getElementById('placeOfBirth').value,
+        maritalStatus: document.getElementById('maritalStatus').value,
         isAustrian: document.getElementById('isAustrian').value,
         nameOfState: document.getElementById('nameOfState').value,
     });
@@ -89,6 +90,15 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("placeOfBirth")) {
                 current_field.setText(formData.placeOfBirth);
+            }
+            else if (current_field_name === mapper.getPdfField("maritalStatus")) {
+                const selectedStatus = formData.maritalStatus;
+                current_field.select(selectedStatus);
+                // if (selectedStatus === 'ledig') {
+                //     current_field.select('ledig');
+                // } else if (selectedStatus === 'verheiratet') {
+                //     current_field.select('ledig');
+                // }
             }
             else if (current_field_name === mapper.getPdfField("nationality")) {
                 const isAustrian = formData.isAustrian;
