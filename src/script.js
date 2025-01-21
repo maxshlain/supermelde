@@ -51,6 +51,7 @@ function build_form_data_from_document() {
         isAustrian: document.getElementById('isAustrian').value,
         nameOfState: document.getElementById('nameOfState').value,
         documentType: document.getElementById('documentType').value,
+        documentNumber: document.getElementById('documentNumber').value,
     });
 }
 
@@ -109,6 +110,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("documentType")) {
                 current_field.setText(formData.documentType);
+            }
+            else if (current_field_name === mapper.getPdfField("documentNumber")) {
+                current_field.setText(formData.documentNumber);
             }
         });
     } catch (e) {
