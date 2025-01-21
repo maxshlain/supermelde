@@ -50,6 +50,7 @@ function build_form_data_from_document() {
         maritalStatus: document.getElementById('maritalStatus').value,
         isAustrian: document.getElementById('isAustrian').value,
         nameOfState: document.getElementById('nameOfState').value,
+        documentType: document.getElementById('documentType').value,
     });
 }
 
@@ -94,11 +95,6 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("maritalStatus")) {
                 const selectedStatus = formData.maritalStatus;
                 current_field.select(selectedStatus);
-                // if (selectedStatus === 'ledig') {
-                //     current_field.select('ledig');
-                // } else if (selectedStatus === 'verheiratet') {
-                //     current_field.select('ledig');
-                // }
             }
             else if (current_field_name === mapper.getPdfField("nationality")) {
                 const isAustrian = formData.isAustrian;
@@ -110,6 +106,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("nameOfState")) {
                 current_field.setText(formData.nameOfState);
+            }
+            else if (current_field_name === mapper.getPdfField("documentType")) {
+                current_field.setText(formData.documentType);
             }
         });
     } catch (e) {
