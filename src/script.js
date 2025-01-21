@@ -61,7 +61,7 @@ function build_form_data_from_document() {
 }
 
 function set_field_text(field, text) {
-    field.setFontSize(12); 
+    field.setFontSize(12);
     field.setText(text);
 }
 
@@ -99,10 +99,10 @@ function set_form_values(form, formData) {
                 current_field.select(fixed_value);
             }
             else if (current_field_name === mapper.getPdfField("religionOrCommunity")) {
-                current_field.setText(formData.religionOrCommunity);
+                set_field_text(current_field, formData.religionOrCommunity);
             }
             else if (current_field_name === mapper.getPdfField("placeOfBirth")) {
-                current_field.setText(formData.placeOfBirth);
+                set_field_text(current_field, formData.placeOfBirth);
             }
             else if (current_field_name === mapper.getPdfField("maritalStatus")) {
                 const selectedStatus = formData.maritalStatus;
@@ -117,20 +117,20 @@ function set_form_values(form, formData) {
                 }
             }
             else if (current_field_name === mapper.getPdfField("nameOfState")) {
-                current_field.setText(formData.nameOfState);
+                set_field_text(current_field, formData.nameOfState);
             }
             else if (current_field_name === mapper.getPdfField("documentType")) {
-                current_field.setText(formData.documentType);
+                set_field_text(current_field, formData.documentType);
             }
             else if (current_field_name === mapper.getPdfField("documentNumber")) {
-                current_field.setText(formData.documentNumber);
+                set_field_text(current_field, formData.documentNumber)
             }
             else if (current_field_name === mapper.getPdfField("documentIssueDate")) {
                 const documentIssueDateAustrian = dateToAustrian(formData.documentIssueDate);
-                current_field.setText(documentIssueDateAustrian);
+                set_field_text(current_field, documentIssueDateAustrian)
             }
             else if (current_field_name === mapper.getPdfField("documentIssuingAuthority")) {
-                current_field.setText(formData.documentIssuingAuthority);
+                set_field_text(current_field, formData.documentIssuingAuthority);
             }
         });
     } catch (e) {
