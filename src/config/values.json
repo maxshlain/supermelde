@@ -14,5 +14,6 @@
     "documentType": "Reisepass",
     "documentNumber": "123456789",
     "documentIssueDate": "1891-12-31",
+    "documentIssuingAuthority": "Scotland Yard",
     "block": "----------------------------------------------"
 }
