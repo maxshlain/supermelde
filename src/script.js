@@ -60,6 +60,11 @@ function build_form_data_from_document() {
     });
 }
 
+function set_field_text(field, text) {
+    field.setFontSize(12); 
+    field.setText(text);
+}
+
 
 function set_form_values(form, formData) {
     const mapper = new FormMapper();
@@ -73,21 +78,20 @@ function set_form_values(form, formData) {
         form.getFields().forEach(current_field => {
             current_field_name = current_field.getName();
             if (current_field_name === mapper.getPdfField("lastName")) {
-                //current_field.setFontSize(24); 
-                current_field.setText(formData.lastName);
+                set_field_text(current_field, formData.lastName);
             }
             else if (current_field_name === mapper.getPdfField("firstName")) {
-                current_field.setText(formData.firstName);
+                set_field_text(current_field, formData.firstName);
             }
             else if (current_field_name === mapper.getPdfField("lastNameBeforeMarriage")) {
-                current_field.setText(formData.lastNameBeforeMarriage);
+                set_field_text(current_field, formData.lastNameBeforeMarriage);
             }
             else if (current_field_name === mapper.getPdfField("otherName")) {
-                current_field.setText(formData.otherName);
+                set_field_text(current_field, formData.otherName);
             }
             else if (current_field_name === mapper.getPdfField("dateOfBirth")) {
                 austrian_date = dateToAustrian(formData.dateOfBirth);
-                current_field.setText(austrian_date);
+                set_field_text(current_field, austrian_date);
             }
             else if (current_field_name === mapper.getPdfField("gender")) {
                 gender_value = formData.gender;
