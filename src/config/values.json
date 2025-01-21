@@ -17,5 +17,7 @@
     "documentIssuingAuthority": "Scotland Yard",
     "block1": "----------------------------------------------",
     "registrationStreet": "Baker Street",
+    "registrationHouseNumber": "221B",
+    "registrationStaircase": "4",
     "block2": "----------------------------------------------"
 }

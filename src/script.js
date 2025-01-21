@@ -58,12 +58,16 @@ function build_form_data_from_document() {
         documentIssueDate: document.getElementById('documentIssueDate').value,
         documentIssuingAuthority: document.getElementById('documentIssuingAuthority').value,
         registrationStreet: document.getElementById('registrationStreet').value,
+        registrationHouseNumber: document.getElementById('registrationHouseNumber').value,
+        registrationStaircase: document.getElementById('registrationStaircase').value
     });
 }
 
+
 function set_field_text(field, text) {
     field.setFontSize(14);
-    field.setText(text);
+    const padded = ' ' + text;
+    field.setText(padded);
 }
 
 
@@ -136,6 +140,12 @@ function set_form_values(form, formData) {
             // REGISTRATION BLOCK
             else if (current_field_name === mapper.getPdfField("registrationStreet")) {
                 set_field_text(current_field, formData.registrationStreet);
+            }
+            else if (current_field_name === mapper.getPdfField("registrationHouseNumber")) {
+                set_field_text(current_field, formData.registrationHouseNumber);
+            }
+            else if (current_field_name === mapper.getPdfField("registrationStaircase")) {
+                set_field_text(current_field, formData.registrationStaircase);
             }
         });
     } catch (e) {
