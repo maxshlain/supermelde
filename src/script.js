@@ -52,6 +52,7 @@ function build_form_data_from_document() {
         nameOfState: document.getElementById('nameOfState').value,
         documentType: document.getElementById('documentType').value,
         documentNumber: document.getElementById('documentNumber').value,
+        documentIssueDate: document.getElementById('documentIssueDate').value,
     });
 }
 
@@ -113,6 +114,10 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("documentNumber")) {
                 current_field.setText(formData.documentNumber);
+            }
+            else if (current_field_name === mapper.getPdfField("documentIssueDate")) {
+                const documentIssueDateAustrian = dateToAustrian(formData.documentIssueDate);
+                current_field.setText(documentIssueDateAustrian);
             }
         });
     } catch (e) {
