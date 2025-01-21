@@ -3,6 +3,7 @@ function on_page_load() {
     set_default_values();
 }
 
+
 async function set_labels() {
 
     const labelConfig = new LabelConfig();
@@ -21,6 +22,7 @@ async function set_labels() {
     });
 }
 
+
 async function set_default_values() {
     
     const valuesConfig = new ValuesConfig();
@@ -34,6 +36,7 @@ async function set_default_values() {
         }
     });
 }
+
 
 function build_form_data_from_document() {
     // const debug_value = document.getElementById('isAustrian').value;
@@ -56,6 +59,7 @@ function build_form_data_from_document() {
         documentIssuingAuthority: document.getElementById('documentIssuingAuthority').value,
     });
 }
+
 
 function set_form_values(form, formData) {
     const mapper = new FormMapper();
@@ -136,6 +140,7 @@ function dateToAustrian(date) {
     return `${day}.${month}.${year}`;
 }
 
+
 function fixGenderValue(gender_value) {
     // the form values and the presented values are different
     if (gender_value === 'männlich') {
@@ -166,6 +171,7 @@ function fixGenderValue(gender_value) {
         return 'keine Angabe';
     }
 }
+
 
 async function fillForm(formData) {
     try {
@@ -216,11 +222,13 @@ function showStatus(message, type) {
     }, 5000);
 }
 
+
 document.getElementById('meldezettelForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = build_form_data_from_document();
     await fillForm(formData);
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     on_page_load();
