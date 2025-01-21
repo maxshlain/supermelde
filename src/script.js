@@ -73,6 +73,7 @@ function set_form_values(form, formData) {
         form.getFields().forEach(current_field => {
             current_field_name = current_field.getName();
             if (current_field_name === mapper.getPdfField("lastName")) {
+                //current_field.setFontSize(24); 
                 current_field.setText(formData.lastName);
             }
             else if (current_field_name === mapper.getPdfField("firstName")) {
@@ -176,7 +177,7 @@ function fixGenderValue(gender_value) {
 async function fillForm(formData) {
     try {
         // Load the PDF with form fields
-        const formUrl = 'https://maxshlain.github.io/supermelde/explore/meldezettel_orig.pdf';
+        const formUrl = 'https://maxshlain.github.io/supermelde/src/meldezettel.pdf';
         const existingPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
         
         // Load the PDF document
