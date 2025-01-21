@@ -16,6 +16,7 @@ class FormMapper {
         documentNumber: "Reisedokument bei Fremden / Nummer", // Reisedokument Nummer
         documentIssueDate: "Reisedokument bei Fremden / Ausstellungsdatum", // Reisedokument Ausstellungsdatum
         documentIssuingAuthority: "Reisedokument bei Fremden / ausstellende Behörde, Staat", // Reisedokument ausstellende Behörde
+
         registrationStreet: "Anmeldung der Unterkunft in Straße (Platz) bzw. Ort ohne Straßennamen", // Anmeldung der Unterkunft Straße
         registrationHouseNumber: "Anmeldung der Unterkunft in Haus Nr", // Anmeldung der Unterkunft Haus Nr
         registrationStaircase: "Anmeldung der Unterkunft in Stiege", // Anmeldung der Unterkunft Stiege

@@ -57,11 +57,12 @@ function build_form_data_from_document() {
         documentNumber: document.getElementById('documentNumber').value,
         documentIssueDate: document.getElementById('documentIssueDate').value,
         documentIssuingAuthority: document.getElementById('documentIssuingAuthority').value,
+        registrationStreet: document.getElementById('registrationStreet').value,
     });
 }
 
 function set_field_text(field, text) {
-    field.setFontSize(12);
+    field.setFontSize(14);
     field.setText(text);
 }
 
@@ -131,6 +132,10 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("documentIssuingAuthority")) {
                 set_field_text(current_field, formData.documentIssuingAuthority);
+            }
+            // REGISTRATION BLOCK
+            else if (current_field_name === mapper.getPdfField("registrationStreet")) {
+                set_field_text(current_field, formData.registrationStreet);
             }
         });
     } catch (e) {
