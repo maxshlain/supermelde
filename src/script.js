@@ -64,7 +64,8 @@ function build_form_data_from_document() {
         registrationPostalCode: document.getElementById('registrationPostalCode').value,
         registrationMunicipality: document.getElementById('registrationMunicipality').value,
         isMainResidence: document.getElementById('isMainResidence').value,
-        previousResidenceStreet: document.getElementById('previousResidenceStreet').value
+        previousResidenceStreet: document.getElementById('previousResidenceStreet').value,
+        previousResidenceHouseNumber: document.getElementById('previousResidenceHouseNumber').value
     });
 }
 
@@ -153,7 +154,6 @@ function set_form_values(form, formData) {
                 set_field_text(current_field, formData.registrationStaircase);
             }
             else if (current_field_name === mapper.getPdfField("registrationApartmentNumber")) {
-                console.log(formData.registrationApartmentNumber);
                 set_field_text(current_field, formData.registrationApartmentNumber);
             }
             else if (current_field_name === mapper.getPdfField("registrationPostalCode")) {
@@ -168,6 +168,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("previousResidenceStreet")) {
                 set_field_text(current_field, formData.previousResidenceStreet);
+            }
+            else if (current_field_name === mapper.getPdfField("previousResidenceHouseNumber")) {
+                set_field_text(current_field, formData.previousResidenceHouseNumber);
             }
         });
     } catch (e) {
