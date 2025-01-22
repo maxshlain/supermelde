@@ -23,5 +23,7 @@
     "registrationPostalCode": "1020",
     "registrationMunicipality": "London",
     "isMainResidence": "nein",
-    "block2": "----------------------------------------------"
+    "block2": "----------------------------------------------",
+    "previousResidenceStreet": "Parker Avenue",
+    "block3": "----------------------------------------------"
 }
