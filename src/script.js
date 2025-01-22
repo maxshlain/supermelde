@@ -59,7 +59,8 @@ function build_form_data_from_document() {
         documentIssuingAuthority: document.getElementById('documentIssuingAuthority').value,
         registrationStreet: document.getElementById('registrationStreet').value,
         registrationHouseNumber: document.getElementById('registrationHouseNumber').value,
-        registrationStaircase: document.getElementById('registrationStaircase').value
+        registrationStaircase: document.getElementById('registrationStaircase').value,
+        registrationApartmentNumber: document.getElementById('registrationApartmentNumber').value
     });
 }
 
@@ -147,6 +148,10 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("registrationStaircase")) {
                 set_field_text(current_field, formData.registrationStaircase);
             }
+            else if (current_field_name === mapper.getPdfField("registrationApartmentNumber")) {
+                console.log(formData.registrationApartmentNumber);
+                set_field_text(current_field, formData.registrationApartmentNumber);
+            }
         });
     } catch (e) {
         console.error('Error filling specific field:', e);
@@ -195,6 +200,9 @@ function fixGenderValue(gender_value) {
 
 async function fillForm(formData) {
     try {
+
+        //console.log(formData);
+
         // Load the PDF with form fields
         const formUrl = 'https://maxshlain.github.io/supermelde/src/meldezettel.pdf';
         const existingPdfBytes = await fetch(formUrl).then(res => res.arrayBuffer());
