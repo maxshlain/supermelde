@@ -65,7 +65,8 @@ function build_form_data_from_document() {
         registrationMunicipality: document.getElementById('registrationMunicipality').value,
         isMainResidence: document.getElementById('isMainResidence').value,
         previousResidenceStreet: document.getElementById('previousResidenceStreet').value,
-        previousResidenceHouseNumber: document.getElementById('previousResidenceHouseNumber').value
+        previousResidenceHouseNumber: document.getElementById('previousResidenceHouseNumber').value,
+        previousResidenceStaircase: document.getElementById('previousResidenceStaircase').value
     });
 }
 
@@ -171,6 +172,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("previousResidenceHouseNumber")) {
                 set_field_text(current_field, formData.previousResidenceHouseNumber);
+            }
+            else if (current_field_name === mapper.getPdfField("previousResidenceStaircase")) {
+                set_field_text(current_field, formData.previousResidenceStaircase);
             }
         });
     } catch (e) {
