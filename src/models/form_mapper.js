@@ -23,7 +23,9 @@ class FormMapper {
         registrationApartmentNumber: "Anmeldung der Unterkunft in Tür Nr", // Anmeldung der Unterkunft Tür Nr
         registrationPostalCode: "Annmeldung der Unterkunft in Postleitzahl", // Anmeldung der Unterkunft PLZ
         registrationMunicipality: "Anmeldung der Unterkunft in Ortsgemeinde, Bundesland", // Anmeldung der Unterkunft Ortsgemeinde
+        
         isMainResidence: "Ist diese Unterkunft Hauptwohnsitz", // Hauptwohnsitz
+        
         previousResidenceStreet: "wenn nein, Hauptwohnsitz bleibt in Straße (Platz) bzw. Ort ohne Straßennamen", // Hauptwohnsitz bleibt Straße
         previousResidenceHouseNumber: "wenn nein, Hauptwohnsitz bleibt in Haus Nr", // Hauptwohnsitz bleibt Haus Nr
         previousResidenceStaircase: "wenn nein, Hauptwohnsitz bleibt in Stiege", // Hauptwohnsitz bleibt Stiege
