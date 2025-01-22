@@ -60,7 +60,8 @@ function build_form_data_from_document() {
         registrationStreet: document.getElementById('registrationStreet').value,
         registrationHouseNumber: document.getElementById('registrationHouseNumber').value,
         registrationStaircase: document.getElementById('registrationStaircase').value,
-        registrationApartmentNumber: document.getElementById('registrationApartmentNumber').value
+        registrationApartmentNumber: document.getElementById('registrationApartmentNumber').value,
+        registrationPostalCode: document.getElementById('registrationPostalCode').value
     });
 }
 
@@ -151,6 +152,9 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("registrationApartmentNumber")) {
                 console.log(formData.registrationApartmentNumber);
                 set_field_text(current_field, formData.registrationApartmentNumber);
+            }
+            else if (current_field_name === mapper.getPdfField("registrationPostalCode")) {
+                set_field_text(current_field, formData.registrationPostalCode);
             }
         });
     } catch (e) {
