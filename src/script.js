@@ -70,7 +70,8 @@ function build_form_data_from_document() {
         previousResidenceApartmentNumber: document.getElementById('previousResidenceApartmentNumber').value,
         previousResidencePostalCode: document.getElementById('previousResidencePostalCode').value,
         previousResidenceMunicipality: document.getElementById('previousResidenceMunicipality').value,
-        movedFromAbroad: document.getElementById('movedFromAbroad').value
+        movedFromAbroad: document.getElementById('movedFromAbroad').value,
+        previousCountry: document.getElementById('previousCountry').value
     });
 }
 
@@ -192,6 +193,9 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("movedFromAbroad")) {
                 const movedFromAbroad = formData.movedFromAbroad;
                 current_field.select(movedFromAbroad);
+            }
+            else if (current_field_name === mapper.getPdfField("previousCountry")) {
+                set_field_text(current_field, formData.previousCountry);
             }
         });
     } catch (e) {
