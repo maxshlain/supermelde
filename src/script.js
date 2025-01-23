@@ -79,7 +79,8 @@ function build_form_data_from_document() {
         deregistrationPostalCode: document.getElementById('deregistrationPostalCode').value,
         deregistrationMunicipality: document.getElementById('deregistrationMunicipality').value,
         movedAbroad: document.getElementById('movedAbroad').value,
-        futureCountry: document.getElementById('futureCountry').value
+        futureCountry: document.getElementById('futureCountry').value,
+        landlordName: document.getElementById('landlordName').value
     });
 }
 
@@ -103,7 +104,8 @@ function set_form_values(form, formData) {
         form.getFields().forEach(current_field => {
             current_field_name = current_field.getName();
             if (current_field_name === mapper.getPdfField("lastName")) {
-                set_field_text(current_field, formData.lastName);
+                const capitalized = capitalize(formData.lastName);
+                set_field_text(current_field, capitalized);
             }
             else if (current_field_name === mapper.getPdfField("firstName")) {
                 set_field_text(current_field, formData.firstName);
@@ -230,6 +232,10 @@ function set_form_values(form, formData) {
             else if (current_field_name === mapper.getPdfField("futureCountry")) {
                 set_field_text(current_field, formData.futureCountry);
             }
+            else if (current_field_name === mapper.getPdfField("landlordName")) {
+                const capitalized = capitalize(formData.landlordName);
+                set_field_text(current_field, capitalized);
+            }
         });
     } catch (e) {
         console.error('Error filling specific field:', e);
@@ -237,6 +243,9 @@ function set_form_values(form, formData) {
     }
 }
 
+function capitalize(str) {
+    return str.toUpperCase();
+}
 
 function dateToAustrian(date) {
     const [year, month, day] = date.split('-');
