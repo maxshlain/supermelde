@@ -71,7 +71,8 @@ function build_form_data_from_document() {
         previousResidencePostalCode: document.getElementById('previousResidencePostalCode').value,
         previousResidenceMunicipality: document.getElementById('previousResidenceMunicipality').value,
         movedFromAbroad: document.getElementById('movedFromAbroad').value,
-        previousCountry: document.getElementById('previousCountry').value
+        previousCountry: document.getElementById('previousCountry').value,
+        deregistrationStreet: document.getElementById('deregistrationStreet').value
     });
 }
 
@@ -196,6 +197,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("previousCountry")) {
                 set_field_text(current_field, formData.previousCountry);
+            }
+            else if (current_field_name === mapper.getPdfField("deregistrationStreet")) {
+                set_field_text(current_field, formData.deregistrationStreet);
             }
         });
     } catch (e) {
