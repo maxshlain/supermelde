@@ -73,7 +73,8 @@ function build_form_data_from_document() {
         movedFromAbroad: document.getElementById('movedFromAbroad').value,
         previousCountry: document.getElementById('previousCountry').value,
         deregistrationStreet: document.getElementById('deregistrationStreet').value,
-        deregistrationHouseNumber: document.getElementById('deregistrationHouseNumber').value
+        deregistrationHouseNumber: document.getElementById('deregistrationHouseNumber').value,
+        deregistrationStaircase: document.getElementById('deregistrationStaircase').value
     });
 }
 
@@ -204,6 +205,9 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("deregistrationHouseNumber")) {
                 set_field_text(current_field, formData.deregistrationHouseNumber);
+            }
+            else if (current_field_name === mapper.getPdfField("deregistrationStaircase")) {
+                set_field_text(current_field, formData.deregistrationStaircase);
             }
         });
     } catch (e) {
