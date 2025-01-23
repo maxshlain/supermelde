@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Form with Gender Dropdown and Hint Icons</title>
+  <!-- Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Alpine.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-md" x-data="{ submitted: false }">
+    <h2 class="text-2xl mb-6 text-center">Contact Us</h2>
+    
+    <!-- Success Message -->
+    <div 
+      x-show="submitted" 
+      class="mb-4 text-green-600 text-center"
+      x-transition
+    >
+      Thank you for your message! We'll get back to you soon.
+    </div>
+    
+    <form 
+      action="https://formspree.io/f/your-form-id" 
+      method="POST" 
+      @submit.prevent="submitted = true; $el.reset();"
+    >
+      <!-- Name Field -->
+      <div class="mb-4 relative" x-data="{ open: false }">
+        <label class="block text-gray-700 flex items-center" for="name">
+          Name
+          <!-- Hint Icon -->
+          <button 
+            type="button" 
+            class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+            @click="open = !open"
+            aria-haspopup="true"
+            :aria-expanded="open"
+          >
+            <!-- Info Icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-9-3a1 1 0 112 0v2a1 1 0 11-2 0V7zm2 6a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </label>
+        <!-- Tooltip -->
+        <div 
+          x-show="open" 
+          @click.away="open = false" 
+          class="absolute left-0 mt-1 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10"
+          x-transition
+        >
+          <strong>Name:</strong> Your first, private name. Like 'John' in 'John Doe'.
+        </div>
+        <input 
+          type="text" 
+          id="name"
+          name="name"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1" 
+          placeholder="Your Name" 
+          required
+        >
+      </div>
+      
+      <!-- Email Field -->
+      <div class="mb-4 relative" x-data="{ open: false }">
+        <label class="block text-gray-700 flex items-center" for="email">
+          Email
+          <!-- Hint Icon -->
+          <button 
+            type="button" 
+            class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+            @click="open = !open"
+            aria-haspopup="true"
+            :aria-expanded="open"
+          >
+            <!-- Info Icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-9-3a1 1 0 112 0v2a1 1 0 11-2 0V7zm2 6a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </label>
+        <!-- Tooltip -->
+        <div 
+          x-show="open" 
+          @click.away="open = false" 
+          class="absolute left-0 mt-1 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10"
+          x-transition
+        >
+          <strong>Email:</strong> Your active email address. Like 'john.doe@example.com'.
+        </div>
+        <input 
+          type="email" 
+          id="email"
+          name="_replyto"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1" 
+          placeholder="Your Email" 
+          required
+        >
+      </div>
+      
+      <!-- Gender Dropdown -->
+      <div class="mb-4 relative" x-data="{ open: false }">
+        <label class="block text-gray-700 flex items-center" for="gender">
+          Gender
+          <!-- Hint Icon -->
+          <button 
+            type="button" 
+            class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+            @click="open = !open"
+            aria-haspopup="true"
+            :aria-expanded="open"
+          >
+            <!-- Info Icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-9-3a1 1 0 112 0v2a1 1 0 11-2 0V7zm2 6a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </label>
+        <!-- Tooltip -->
+        <div 
+          x-show="open" 
+          @click.away="open = false" 
+          class="absolute left-0 mt-1 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10"
+          x-transition
+        >
+          <strong>Gender:</strong> Select your gender identity. Options include 'Female', 'Male', 'Non-Binary', or 'Prefer not to say'.
+        </div>
+        <select 
+          id="gender"
+          name="gender"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1" 
+          required
+        >
+          <option value="" disabled selected>Select your gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="non-binary">Non-Binary</option>
+          <option value="prefer-not-to-say">Prefer not to say</option>
+        </select>
+      </div>
+      
+      <!-- Message Field -->
+      <div class="mb-4 relative" x-data="{ open: false }">
+        <label class="block text-gray-700 flex items-center" for="message">
+          Message
+          <!-- Hint Icon -->
+          <button 
+            type="button" 
+            class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+            @click="open = !open"
+            aria-haspopup="true"
+            :aria-expanded="open"
+          >
+            <!-- Info Icon (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-9-3a1 1 0 112 0v2a1 1 0 11-2 0V7zm2 6a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </label>
+        <!-- Tooltip -->
+        <div 
+          x-show="open" 
+          @click.away="open = false" 
+          class="absolute left-0 mt-1 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10"
+          x-transition
+        >
+          <strong>Message:</strong> Share your thoughts, questions, or feedback. For example, "I love your website!"
+        </div>
+        <textarea 
+          id="message"
+          name="message"
+          class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mt-1" 
+          rows="4" 
+          placeholder="Your Message" 
+          required
+        ></textarea>
+      </div>
+      
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</body>
+</html>
