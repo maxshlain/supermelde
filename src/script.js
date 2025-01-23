@@ -75,7 +75,9 @@ function build_form_data_from_document() {
         deregistrationStreet: document.getElementById('deregistrationStreet').value,
         deregistrationHouseNumber: document.getElementById('deregistrationHouseNumber').value,
         deregistrationStaircase: document.getElementById('deregistrationStaircase').value,
-        deregistrationApartmentNumber: document.getElementById('deregistrationApartmentNumber').value
+        deregistrationApartmentNumber: document.getElementById('deregistrationApartmentNumber').value,
+        deregistrationPostalCode: document.getElementById('deregistrationPostalCode').value,
+        deregistrationMunicipality: document.getElementById('deregistrationMunicipality').value
     });
 }
 
@@ -212,6 +214,12 @@ function set_form_values(form, formData) {
             }
             else if (current_field_name === mapper.getPdfField("deregistrationApartmentNumber")) {
                 set_field_text(current_field, formData.deregistrationApartmentNumber);
+            }
+            else if (current_field_name === mapper.getPdfField("deregistrationPostalCode")) {
+                set_field_text(current_field, formData.deregistrationPostalCode);
+            }
+            else if (current_field_name === mapper.getPdfField("deregistrationMunicipality")) {
+                set_field_text(current_field, formData.deregistrationMunicipality);
             }
         });
     } catch (e) {
