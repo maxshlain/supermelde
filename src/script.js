@@ -345,6 +345,35 @@ document.getElementById('meldezettelForm').addEventListener('submit', async (e) 
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    on_page_load();
+document.addEventListener('DOMContentLoaded', function() {
+    const languageButtons = document.querySelectorAll('.language-button');
+    const nextButton = document.querySelector('.next-button');
+    let selectedLanguage = null;
+
+    // Handle language selection
+    languageButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active state from all buttons
+            languageButtons.forEach(btn => btn.style.borderColor = '#e0e0e0');
+            // Set active state on clicked button
+            this.style.borderColor = '#007bff';
+            selectedLanguage = this.dataset.language;
+        });
+    });
+
+    // Handle next button click
+    nextButton.addEventListener('click', function() {
+        if (!selectedLanguage) {
+            alert('Please select a language');
+            return;
+        }
+        
+        // Hide language card and show the form
+        document.getElementById('languageCard').style.display = 'none';
+        document.getElementById('meldezettelForm').style.display = 'block';
+        
+        // Set the selected language
+        document.documentElement.lang = selectedLanguage;
+        // TODO: Update form labels based on selected language
+    });
 });

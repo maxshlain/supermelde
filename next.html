@@ -8,26 +8,28 @@
 </head>
 <body>
     <div class="wizard-container">
-        <div class="language-selector">
-            <button class="language-btn active" onclick="changeLanguage('en')">English</button>
-            <button class="language-btn" onclick="changeLanguage('de')">Deutsch</button>
+        <!-- Language Selection Card -->
+        <div class="wizard-card" id="languageCard">
+            <h2>Welcome to Supermelde</h2>
+            <p>Please select your preferred language</p>
+            
+            <div class="language-selector">
+                <button class="language-button" data-language="en">
+                    <img src="assets/gb-flag.svg" alt="English">
+                    <span>English</span>
+                </button>
+                <button class="language-button" data-language="de">
+                    <img src="assets/de-flag.svg" alt="Deutsch">
+                    <span>Deutsch</span>
+                </button>
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="next-button" id="nextButton" disabled>Next</button>
+            </div>
         </div>
 
-        <form id="registrationForm" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required>
-                <div class="tooltip">Your first name as written in your passport, like 'Elon' for Elon Musk</div>
-            </div>
-
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required>
-                <div class="tooltip">Your last name as written in your passport, like 'Musk' for Elon Musk</div>
-            </div>
-
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+        <!-- Other cards will be added here -->
     </div>
 
     <script src="next/translations.js"></script>

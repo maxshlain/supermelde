@@ -20,6 +20,7 @@ pdf-lib library to fill the PDF form
 The project is hosted  on github pages and everything is merged and published from the main branch
 
 # PROJECT STRUCTURE
+- index.html + src folder: old site version. do not touch them, use them for reference
 - next.html : all the html code
 - next/script.js: all the javascript code
 - next/style.css: all the css code
