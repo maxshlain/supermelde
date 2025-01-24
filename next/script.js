@@ -23,7 +23,23 @@ function handleSubmit(event) {
 document.addEventListener('DOMContentLoaded', function() {
     const languageButtons = document.querySelectorAll('.language-button');
     const nextButton = document.getElementById('nextButton');
+    const welcomeHeader = document.querySelector('.wizard-card h2');
+    const selectText = document.querySelector('.wizard-card p');
     let selectedLanguage = null;
+
+    function updateCardLanguage(lang) {
+        // Update all text content based on selected language
+        welcomeHeader.textContent = translations[lang].welcome;
+        selectText.textContent = translations[lang].selectLanguage;
+        nextButton.textContent = translations[lang].nextButton;
+        
+        // Update language button texts
+        document.querySelector('[data-language="en"] span').textContent = translations[lang].english;
+        document.querySelector('[data-language="de"] span').textContent = translations[lang].german;
+        
+        // Update document language
+        document.documentElement.lang = lang;
+    }
 
     // Handle language selection
     languageButtons.forEach(button => {
@@ -37,6 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Store selected language
             selectedLanguage = this.dataset.language;
             
+            // Update card language
+            updateCardLanguage(selectedLanguage);
+            
             // Enable next button
             nextButton.disabled = false;
         });
@@ -48,10 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Set the selected language
-        document.documentElement.lang = selectedLanguage;
-        
         // TODO: Hide current card and show next card
-        // TODO: Load translations for the selected language
+        // The language is already set, so we can proceed to the next card
     });
 }); 
