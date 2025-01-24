@@ -10,6 +10,7 @@ A tool to simplify the Vienna city registration process by helping users fill ou
 ## Development Mode
 
 You can load the form with pre-filled sample data by adding the `default_values=1` parameter to the URL:
+https://maxshlain.github.io/supermelde/next.html?default_values=1
 http://localhost:8000/next.html?default_values=1
 
 ## Original Form Reference
