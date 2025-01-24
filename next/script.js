@@ -1,3 +1,39 @@
+async function loadDefaultValues() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const defaultValuesSet = urlParams.get('default_values');
+    
+    if (defaultValuesSet === '1') {
+        try {
+            const response = await fetch('assets/values_1.json');
+            const defaultValues = await response.json();
+            return defaultValues;
+        } catch (error) {
+            console.error('Error loading default values:', error);
+        }
+    }
+    return null;
+}
+
+function applyDefaultValues(values) {
+    if (!values) return;
+
+    // Set language
+    const languageButton = document.querySelector(`[data-language="${values.language}"]`);
+    if (languageButton) {
+        languageButton.click();
+    }
+
+    // Set form values
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+    
+    if (firstName) firstName.value = values.firstName;
+    if (lastName) lastName.value = values.lastName;
+    
+    // Trigger validation
+    validatePersonalInfo();
+}
+
 function changeLanguage(lang) {
     // Update active button state
     document.querySelectorAll('.language-btn').forEach(btn => {
@@ -20,7 +56,7 @@ function handleSubmit(event) {
     alert('Submitted!');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const languageButtons = document.querySelectorAll('.language-button');
     const nextButton = document.getElementById('nextButton');
     const backButton = document.getElementById('backButton');
@@ -118,4 +154,10 @@ document.addEventListener('DOMContentLoaded', function() {
             lastName: lastName.value.trim()
         });
     });
+
+    // Load and apply default values if specified
+    const defaultValues = await loadDefaultValues();
+    if (defaultValues) {
+        applyDefaultValues(defaultValues);
+    }
 }); 
