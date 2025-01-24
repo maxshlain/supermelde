@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update all text content based on selected language
         welcomeHeader.textContent = translations[lang].welcome;
         selectText.textContent = translations[lang].selectLanguage;
-        nextButton.textContent = translations[lang].nextButton;
+        nextButton.textContent = translations[lang].startButton;
         
         // Update language button texts
         document.querySelector('[data-language="en"] span').textContent = translations[lang].english;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#firstName').nextElementSibling.textContent = translations[lang].firstNameTooltip;
         document.querySelector('#lastName').nextElementSibling.textContent = translations[lang].lastNameTooltip;
         backButton.textContent = translations[lang].back;
-        personalNextButton.textContent = translations[lang].next;
+        personalNextButton.textContent = translations[lang].nextButton;
     }
 
     // Validate personal info inputs

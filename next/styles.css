@@ -83,6 +83,10 @@ body {
     margin-top: 2.5rem;
 }
 
+.start-navigation {
+    justify-content: flex-end;
+}
+
 .next-button {
     background: #007bff;
     color: white;
