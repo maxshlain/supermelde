@@ -1,4 +1,7 @@
 const translations = {
+    // --------------------------------------------------------------- //
+    //                     English (en)                                //
+    // --------------------------------------------------------------- //
     en: {
         // Language selector card
         welcome: "Welcome to Supermelde",
@@ -45,6 +48,10 @@ const translations = {
         religionOrCommunity: "Religion or Community",
         religionOrCommunityTooltip: "Your religious affiliation or community membership"
     },
+
+    // --------------------------------------------------------------- //
+    //                     German (de)                                 //
+    // --------------------------------------------------------------- //
     de: {
         // Language selector card
         welcome: "Willkommen bei Supermelde",
