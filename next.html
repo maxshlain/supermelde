@@ -42,27 +42,31 @@
             <p>Please enter your name exactly as it appears in your passport</p>
             
             <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName" class="required">Last Name</label>
                 <input type="text" id="lastName" required>
                 <div class="tooltip">Your last name as written in your passport, like 'Musk' for Elon Musk</div>
             </div>
 
             <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName" class="required">First Name</label>
                 <input type="text" id="firstName" required>
                 <div class="tooltip">Your first name as written in your passport, like 'Elon' for Elon Musk</div>
             </div>
 
             <div class="form-group">
-                <label for="lastNameBeforeMarriage">Last Name Before Marriage</label>
+                <label for="lastNameBeforeMarriage" class="optional">Last Name Before Marriage</label>
                 <input type="text" id="lastNameBeforeMarriage">
                 <div class="tooltip">Your last name before your first marriage, if different from current last name</div>
             </div>
 
             <div class="form-group">
-                <label for="otherName">Other Name</label>
+                <label for="otherName" class="optional">Other Name</label>
                 <input type="text" id="otherName">
                 <div class="tooltip">Any other names you use, like father's name or other legally recognized names</div>
+            </div>
+
+            <div class="required-fields-note">
+                <span>*</span> Required fields
             </div>
 
             <div class="wizard-navigation">
@@ -79,13 +83,13 @@
             <p>Please enter your birth information exactly as it appears in your passport</p>
             
             <div class="form-group">
-                <label for="dateOfBirth">Date of Birth</label>
+                <label for="dateOfBirth" class="required">Date of Birth</label>
                 <input type="date" id="dateOfBirth" required>
                 <div class="tooltip">Your date of birth as written in your passport</div>
             </div>
 
             <div class="form-group">
-                <label for="gender">Gender</label>
+                <label for="gender" class="required">Gender</label>
                 <select id="gender" required>
                     <option value="" disabled selected>Select gender</option>
                     <option value="männlich">Male</option>
@@ -96,6 +100,10 @@
                     <option value="keine">No Statement</option>
                 </select>
                 <div class="tooltip">Your gender as registered in official documents</div>
+            </div>
+
+            <div class="required-fields-note">
+                <span>*</span> Required fields
             </div>
 
             <div class="wizard-navigation">

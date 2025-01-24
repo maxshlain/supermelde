@@ -327,4 +327,35 @@ body {
     .start-navigation {
         flex-direction: row;
     }
+}
+
+/* Add styles for required field labels */
+.form-group label.required::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Optional field style */
+.form-group label.optional::after {
+    content: " (optional)";
+    color: #6c757d;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+/* Add explanation for required fields at the bottom of forms */
+.required-fields-note {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+    text-align: left;
+    max-width: calc(100% - 5rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.required-fields-note span {
+    color: #dc3545;
+    font-weight: bold;
 } 
