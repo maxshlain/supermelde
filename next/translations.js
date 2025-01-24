@@ -52,7 +52,17 @@ const translations = {
         citizenshipTitle: "Citizenship",
         citizenshipSubtitle: "Please enter your citizenship information exactly as it appears in your passport",
         placeOfBirth: "Place of Birth",
-        placeOfBirthTooltip: "Your place of birth as written in your passport, including city and country"
+        placeOfBirthTooltip: "Your place of birth as written in your passport, including city and country",
+        maritalStatus: "Marital Status",
+        maritalStatusTooltip: "Your current marital status",
+        maritalStatusSelectPrompt: "Select marital status",
+        maritalStatusOptions: {
+            single: "Single",
+            married: "Married",
+            divorced: "Divorced",
+            widowed: "Widowed",
+            registeredPartnership: "Registered Partnership"
+        }
     },
 
     // --------------------------------------------------------------- //
@@ -108,6 +118,16 @@ const translations = {
         citizenshipTitle: "Staatsbürgerschaft",
         citizenshipSubtitle: "Bitte geben Sie Ihre Staatsbürgerschaftsinformationen genau wie im Reisepass ein",
         placeOfBirth: "Geburtsort",
-        placeOfBirthTooltip: "Ihr Geburtsort wie im Reisepass angegeben, einschließlich Stadt und Land"
+        placeOfBirthTooltip: "Ihr Geburtsort wie im Reisepass angegeben, einschließlich Stadt und Land",
+        maritalStatus: "Familienstand",
+        maritalStatusTooltip: "Ihr aktueller Familienstand",
+        maritalStatusSelectPrompt: "Familienstand auswählen",
+        maritalStatusOptions: {
+            single: "Ledig",
+            married: "Verheiratet",
+            divorced: "Geschieden",
+            widowed: "Verwitwet",
+            registeredPartnership: "Eingetragene Partnerschaft"
+        }
     }
 }; 

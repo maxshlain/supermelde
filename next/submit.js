@@ -139,5 +139,9 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.placeOfBirth) {
             setFieldText(current_field, formData.placeOfBirth);
         }
+        else if (current_field_name == fields.maritalStatus) {
+            const selectedStatus = formData.maritalStatus;
+            current_field.select(selectedStatus);
+        }
     });
 }

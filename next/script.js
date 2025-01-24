@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const citizenshipBackButton = document.getElementById('citizenshipBackButton');
     const citizenshipNextButton = document.getElementById('citizenshipNextButton');
     const placeOfBirth = document.getElementById('placeOfBirth');
+    const maritalStatus = document.getElementById('maritalStatus');
 
     function updateCardLanguage(lang) {
         // Update all text content based on selected language
@@ -165,6 +166,21 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         // Update birth details button to show "Next" instead of "Submit"
         birthDetailsNextButton.textContent = translations[lang].next;
+
+        // Update marital status field
+        document.querySelector('label[for="maritalStatus"]').textContent = translations[lang].maritalStatus;
+        document.querySelector('#maritalStatus').nextElementSibling.textContent = translations[lang].maritalStatusTooltip;
+        
+        // Update marital status options
+        const maritalStatusSelect = document.getElementById('maritalStatus');
+        maritalStatusSelect.innerHTML = `
+            <option value="" disabled selected>${translations[lang].maritalStatusSelectPrompt}</option>
+            <option value="ledig">${translations[lang].maritalStatusOptions.single}</option>
+            <option value="verheiratet">${translations[lang].maritalStatusOptions.married}</option>
+            <option value="geschieden">${translations[lang].maritalStatusOptions.divorced}</option>
+            <option value="verwitwet">${translations[lang].maritalStatusOptions.widowed}</option>
+            <option value="eingetragene Partnerschaft">${translations[lang].maritalStatusOptions.registeredPartnership}</option>
+        `;
     }
 
     // Validate personal info inputs
@@ -282,7 +298,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             dateOfBirth: dateOfBirth.value,
             gender: gender.value,
             religionOrCommunity: religionOrCommunity.value,
-            placeOfBirth: placeOfBirth.value.trim()
+            placeOfBirth: placeOfBirth.value.trim(),
+            maritalStatus: maritalStatus.value
         };
         
         handleFormSubmit(formData);
@@ -295,15 +312,16 @@ document.addEventListener('DOMContentLoaded', async function() {
             citizenshipNextButton.textContent = translations[selectedLanguage].submit;
             return;
         }
-        const isValid = placeOfBirth.value.trim() !== '';
+        const isValid = placeOfBirth.value.trim() !== '' && maritalStatus.value !== '';
         citizenshipNextButton.disabled = !isValid;
         
         // Always show "Submit" on the last card
         citizenshipNextButton.textContent = translations[selectedLanguage].submit;
     }
 
-    // Add input listener
+    // Add input listeners
     placeOfBirth.addEventListener('input', validateCitizenship);
+    maritalStatus.addEventListener('change', validateCitizenship);
 
     // Load and apply default values if specified
     const defaultValues = await loadDefaultValues();
