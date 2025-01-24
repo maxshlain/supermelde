@@ -225,9 +225,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             gender: gender.value
         };
         
-        // Show submission alert
-        alert('Form submitted successfully!');
-        console.log('Form data:', formData);
+        // Call the submit handler
+        handleFormSubmit(formData);
     });
 
     // Load and apply default values if specified
