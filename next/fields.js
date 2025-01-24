@@ -1,11 +1,16 @@
 const fields = {
+    // first card
     lastName: "Familienname (in Blockschrift), Akad. Grad (abgekürzt)", // Familienname
     firstName: "Vorname lt. Geburtsurkunde (bei Fremden laut Reisedokument)", // Vorname
     lastNameBeforeMarriage: "Familienname vor der ersten Eheschließung/Eingetragenen Partnerschaft", // Familienname vor der ersten Eheschließung
     otherName: "Sonstiger Name nach fremdem Namensrecht z.B. Vatersname siehe auch Rückseite", // Sonstiger Name
+
+    // second card
     dateOfBirth: "Geburtsdatum", // Geburtsdatum
     gender: "Geschlecht", // Geschlecht
     religionOrCommunity: "Gesetzlich anerkannte Kirche oder Religionsgesellschaft/Bekenntnisgemeinschaft", // Kirche oder Religionsgemeinschaft
+    
+    // next
     placeOfBirth: "Geburtsort lt. Reisedokument (bei österr. Staatsbürgern auch lt. Geburtsurkunde); Bundesland (Inland) und Staat (Ausland)", // Geburtsort
     maritalStatus: "Familienstand", // Familienstand
     nationality: "Staatsangehörigkeit", // Staatsangehörigkeit

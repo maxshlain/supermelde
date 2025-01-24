@@ -29,7 +29,11 @@ const translations = {
             inter: "Inter",
             open: "Open",
             noStatement: "No Statement"
-        }
+        },
+        lastNameBeforeMarriage: "Last Name Before Marriage",
+        lastNameBeforeMarriageTooltip: "Your last name before your first marriage, if different from current last name",
+        otherName: "Other Name",
+        otherNameTooltip: "Any other names you use, like father's name or other legally recognized names",
     },
     de: {
         firstName: "Vorname",
@@ -61,6 +65,10 @@ const translations = {
             inter: "Inter",
             open: "Offen",
             noStatement: "Keine Angabe"
-        }
+        },
+        lastNameBeforeMarriage: "Familienname vor der Eheschließung",
+        lastNameBeforeMarriageTooltip: "Ihr Familienname vor Ihrer ersten Eheschließung, falls abweichend vom aktuellen Nachnamen",
+        otherName: "Sonstiger Name",
+        otherNameTooltip: "Andere Namen, die Sie verwenden, z.B. Vatersname oder andere rechtlich anerkannte Namen",
     }
 }; 

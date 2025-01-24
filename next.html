@@ -42,15 +42,27 @@
             <p>Please enter your name exactly as it appears in your passport</p>
             
             <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" required>
+                <div class="tooltip">Your last name as written in your passport, like 'Musk' for Elon Musk</div>
+            </div>
+
+            <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" id="firstName" required>
                 <div class="tooltip">Your first name as written in your passport, like 'Elon' for Elon Musk</div>
             </div>
 
             <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" required>
-                <div class="tooltip">Your last name as written in your passport, like 'Musk' for Elon Musk</div>
+                <label for="lastNameBeforeMarriage">Last Name Before Marriage</label>
+                <input type="text" id="lastNameBeforeMarriage">
+                <div class="tooltip">Your last name before your first marriage, if different from current last name</div>
+            </div>
+
+            <div class="form-group">
+                <label for="otherName">Other Name</label>
+                <input type="text" id="otherName">
+                <div class="tooltip">Any other names you use, like father's name or other legally recognized names</div>
             </div>
 
             <div class="wizard-navigation">

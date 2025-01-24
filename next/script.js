@@ -30,9 +30,13 @@ function applyDefaultValues(values) {
     // Set form values
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
+    const lastNameBeforeMarriage = document.getElementById('lastNameBeforeMarriage');
+    const otherName = document.getElementById('otherName');
     
     if (firstName) firstName.value = values.firstName;
     if (lastName) lastName.value = values.lastName;
+    if (lastNameBeforeMarriage) lastNameBeforeMarriage.value = values.lastNameBeforeMarriage;
+    if (otherName) otherName.value = values.otherName;
     
     // Set birth details values
     if (dateOfBirth) dateOfBirth.value = values.dateOfBirth;
@@ -85,6 +89,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Input elements
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
+    const lastNameBeforeMarriage = document.getElementById('lastNameBeforeMarriage');
+    const otherName = document.getElementById('otherName');
 
     // Add new card elements
     const birthDetailsCard = document.getElementById('birthDetailsCard');
@@ -116,6 +122,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.querySelector('label[for="lastName"]').textContent = translations[lang].lastName;
         document.querySelector('#firstName').nextElementSibling.textContent = translations[lang].firstNameTooltip;
         document.querySelector('#lastName').nextElementSibling.textContent = translations[lang].lastNameTooltip;
+        document.querySelector('label[for="lastNameBeforeMarriage"]').textContent = translations[lang].lastNameBeforeMarriage;
+        document.querySelector('label[for="otherName"]').textContent = translations[lang].otherName;
+        document.querySelector('#lastNameBeforeMarriage').nextElementSibling.textContent = translations[lang].lastNameBeforeMarriageTooltip;
+        document.querySelector('#otherName').nextElementSibling.textContent = translations[lang].otherNameTooltip;
         backButton.textContent = translations[lang].back;
         personalNextButton.textContent = translations[lang].nextButton;
 
@@ -236,6 +246,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             language: selectedLanguage,
             firstName: firstName.value.trim(),
             lastName: lastName.value.trim(),
+            lastNameBeforeMarriage: lastNameBeforeMarriage.value.trim(),
+            otherName: otherName.value.trim(),
             dateOfBirth: dateOfBirth.value,
             gender: gender.value
         };

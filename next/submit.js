@@ -73,6 +73,11 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.firstName) {
             setFieldText(current_field, formData.firstName);
         }
+        else if (current_field_name == fields.lastNameBeforeMarriage) {
+            setFieldText(current_field, formData.lastNameBeforeMarriage);
+        }
+        else if (current_field_name == fields.otherName) {
+            setFieldText(current_field, formData.otherName);
+        }
     });
-
 }
