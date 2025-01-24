@@ -10,7 +10,11 @@ const translations = {
         nextButton: "Next",
         english: "English",
         german: "German",
-        siteExplanation: "Get the meldezettel form filled correctly and quickly. All data stays on your device"
+        siteExplanation: "Get the meldezettel form filled correctly and quickly. All data stays on your device",
+        personalInfoTitle: "Personal Information",
+        personalInfoSubtitle: "Please enter your name exactly as it appears in your passport",
+        back: "Back",
+        next: "Next"
     },
     de: {
         firstName: "Vorname",
@@ -23,6 +27,10 @@ const translations = {
         nextButton: "Weiter",
         english: "Englisch",
         german: "Deutsch",
-        siteExplanation: "Füllen Sie das Meldezettel-Formular korrekt und schnell aus. Alle Daten bleiben auf Ihrem Gerät"
+        siteExplanation: "Füllen Sie das Meldezettel-Formular korrekt und schnell aus. Alle Daten bleiben auf Ihrem Gerät",
+        personalInfoTitle: "Persönliche Informationen",
+        personalInfoSubtitle: "Bitte geben Sie Ihren Namen genau wie im Reisepass ein",
+        back: "Zurück",
+        next: "Weiter"
     }
 }; 

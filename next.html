@@ -31,7 +31,28 @@
             </div>
         </div>
 
-        <!-- Other cards will be added here -->
+        <!-- Personal Info Card -->
+        <div class="wizard-card" id="personalCard" style="display: none;">
+            <h2>Personal Information</h2>
+            <p>Please enter your name exactly as it appears in your passport</p>
+            
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" required>
+                <div class="tooltip">Your first name as written in your passport, like 'Elon' for Elon Musk</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" required>
+                <div class="tooltip">Your last name as written in your passport, like 'Musk' for Elon Musk</div>
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="back-button" id="backButton">Back</button>
+                <button class="next-button" id="personalNextButton" disabled>Next</button>
+            </div>
+        </div>
     </div>
 
     <script src="next/translations.js"></script>
