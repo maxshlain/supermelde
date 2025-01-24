@@ -1,3 +1,5 @@
+let isDefaultValuesMode = false;
+
 async function loadDefaultValues() {
     const urlParams = new URLSearchParams(window.location.search);
     const defaultValuesSet = urlParams.get('default_values');
@@ -16,6 +18,8 @@ async function loadDefaultValues() {
 
 function applyDefaultValues(values) {
     if (!values) return;
+    
+    isDefaultValuesMode = true;  // Set the flag when applying default values
 
     // Set language
     const languageButton = document.querySelector(`[data-language="${values.language}"]`);
@@ -34,11 +38,13 @@ function applyDefaultValues(values) {
     if (dateOfBirth) dateOfBirth.value = values.dateOfBirth;
     if (gender) {
         gender.value = values.gender;
-        validateBirthDetails();
     }
-    
-    // Trigger validation
-    validatePersonalInfo();
+
+    // Enable all buttons in default values mode
+    nextButton.disabled = false;
+    personalNextButton.disabled = false;
+    birthDetailsNextButton.disabled = false;
+    birthDetailsNextButton.textContent = translations[values.language]?.submit || 'Submit';
 }
 
 function changeLanguage(lang) {
@@ -141,12 +147,21 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Validate personal info inputs
     function validatePersonalInfo() {
+        if (isDefaultValuesMode) {
+            personalNextButton.disabled = false;
+            return;
+        }
         const isValid = firstName.value.trim() !== '' && lastName.value.trim() !== '';
         personalNextButton.disabled = !isValid;
     }
 
     // Validate birth details inputs
     function validateBirthDetails() {
+        if (isDefaultValuesMode) {
+            birthDetailsNextButton.disabled = false;
+            birthDetailsNextButton.textContent = translations[selectedLanguage]?.submit || 'Submit';
+            return;
+        }
         const isValid = dateOfBirth.value && gender.value;
         birthDetailsNextButton.disabled = !isValid;
         
@@ -186,7 +201,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Handle next button click
     nextButton.addEventListener('click', function() {
-        if (!selectedLanguage) return;
+        if (!isDefaultValuesMode && !selectedLanguage) return;
         
         languageCard.style.display = 'none';
         personalCard.style.display = 'block';
@@ -200,7 +215,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Handle personal next button click
     personalNextButton.addEventListener('click', function() {
-        if (!firstName.value.trim() || !lastName.value.trim()) return;
+        if (!isDefaultValuesMode && (!firstName.value.trim() || !lastName.value.trim())) return;
         
         personalCard.style.display = 'none';
         birthDetailsCard.style.display = 'block';
@@ -214,7 +229,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Handle birth details next button click
     birthDetailsNextButton.addEventListener('click', function() {
-        if (!dateOfBirth.value || !gender.value) return;
+        if (!isDefaultValuesMode && (!dateOfBirth.value || !gender.value)) return;
         
         // Collect all form data
         const formData = {
