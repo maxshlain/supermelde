@@ -53,15 +53,6 @@ async function handleFormSubmit(formData) {
     }
 }
 
-function fillPdfFields(form, formData) {
-    form.getFields().forEach(current_field => {
-        const current_field_name = current_field.getName();
-        if (current_field_name == fields.firstName) {
-            setFieldText(current_field, formData.firstName);
-        }
-    });
-
-}
 
 // Helper function to set text field with proper formatting
 function setFieldText(field, text) {
@@ -69,4 +60,19 @@ function setFieldText(field, text) {
     field.setFontSize(11);
     const padded = ' ' + text; // Add slight padding from the left
     field.setText(padded);
+}
+
+
+function fillPdfFields(form, formData) {
+    form.getFields().forEach(current_field => {
+        const current_field_name = current_field.getName();
+        if (current_field_name == fields.lastName) {
+            const capitalized = formData.lastName.toUpperCase();
+            setFieldText(current_field, capitalized);
+        }
+        else if (current_field_name == fields.firstName) {
+            setFieldText(current_field, formData.firstName);
+        }
+    });
+
 }
