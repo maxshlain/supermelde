@@ -50,7 +50,9 @@ const translations = {
 
         // Third card - Citizenship
         citizenshipTitle: "Citizenship",
-        citizenshipSubtitle: "Please enter your citizenship information exactly as it appears in your passport"
+        citizenshipSubtitle: "Please enter your citizenship information exactly as it appears in your passport",
+        placeOfBirth: "Place of Birth",
+        placeOfBirthTooltip: "Your place of birth as written in your passport, including city and country"
     },
 
     // --------------------------------------------------------------- //
@@ -104,6 +106,8 @@ const translations = {
 
         // Third card - Citizenship
         citizenshipTitle: "Staatsbürgerschaft",
-        citizenshipSubtitle: "Bitte geben Sie Ihre Staatsbürgerschaftsinformationen genau wie im Reisepass ein"
+        citizenshipSubtitle: "Bitte geben Sie Ihre Staatsbürgerschaftsinformationen genau wie im Reisepass ein",
+        placeOfBirth: "Geburtsort",
+        placeOfBirthTooltip: "Ihr Geburtsort wie im Reisepass angegeben, einschließlich Stadt und Land"
     }
 }; 

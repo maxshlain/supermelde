@@ -135,5 +135,9 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.religionOrCommunity) {
             setFieldText(current_field, formData.religionOrCommunity);
         }
+        // third card
+        else if (current_field_name == fields.placeOfBirth) {
+            setFieldText(current_field, formData.placeOfBirth);
+        }
     });
 }

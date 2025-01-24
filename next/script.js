@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const citizenshipCard = document.getElementById('citizenshipCard');
     const citizenshipBackButton = document.getElementById('citizenshipBackButton');
     const citizenshipNextButton = document.getElementById('citizenshipNextButton');
+    const placeOfBirth = document.getElementById('placeOfBirth');
 
     function updateCardLanguage(lang) {
         // Update all text content based on selected language
@@ -157,6 +158,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Update citizenship card
         document.querySelector('#citizenshipCard h2').textContent = translations[lang].citizenshipTitle;
         document.querySelector('#citizenshipCard p').textContent = translations[lang].citizenshipSubtitle;
+        document.querySelector('label[for="placeOfBirth"]').textContent = translations[lang].placeOfBirth;
+        document.querySelector('#placeOfBirth').nextElementSibling.textContent = translations[lang].placeOfBirthTooltip;
         citizenshipBackButton.textContent = translations[lang].back;
         citizenshipNextButton.textContent = translations[lang].submit;
 
@@ -278,11 +281,29 @@ document.addEventListener('DOMContentLoaded', async function() {
             otherName: otherName.value.trim(),
             dateOfBirth: dateOfBirth.value,
             gender: gender.value,
-            religionOrCommunity: religionOrCommunity.value
+            religionOrCommunity: religionOrCommunity.value,
+            placeOfBirth: placeOfBirth.value.trim()
         };
         
         handleFormSubmit(formData);
     });
+
+    // Add validation for citizenship
+    function validateCitizenship() {
+        if (isDefaultValuesMode) {
+            citizenshipNextButton.disabled = false;
+            citizenshipNextButton.textContent = translations[selectedLanguage].submit;
+            return;
+        }
+        const isValid = placeOfBirth.value.trim() !== '';
+        citizenshipNextButton.disabled = !isValid;
+        
+        // Always show "Submit" on the last card
+        citizenshipNextButton.textContent = translations[selectedLanguage].submit;
+    }
+
+    // Add input listener
+    placeOfBirth.addEventListener('input', validateCitizenship);
 
     // Load and apply default values if specified
     const defaultValues = await loadDefaultValues();
