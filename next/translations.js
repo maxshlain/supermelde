@@ -1,21 +1,32 @@
 const translations = {
     en: {
-        firstName: "First Name",
-        lastName: "Last Name",
-        firstNameTooltip: "Your first name as written in your passport, like 'Elon' for Elon Musk",
-        lastNameTooltip: "Your last name as written in your passport, like 'Musk' for Elon Musk",
-        submit: "Submit",
+        // Language selector card
         welcome: "Welcome to Supermelde",
         selectLanguage: "Please select your preferred language",
-        nextButton: "Next",
         startButton: "Start",
         english: "English",
         german: "German",
         siteExplanation: "Get the meldezettel form filled correctly and quickly. All data stays on your device",
-        personalInfoTitle: "Personal Information",
-        personalInfoSubtitle: "Please enter your name exactly as it appears in your passport",
+
+        // Navigation buttons
         back: "Back",
         next: "Next",
+        nextButton: "Next",
+        submit: "Submit",
+
+        // First card - Personal Information
+        personalInfoTitle: "Personal Information",
+        personalInfoSubtitle: "Please enter your name exactly as it appears in your passport",
+        firstName: "First Name",
+        lastName: "Last Name",
+        firstNameTooltip: "Your first name as written in your passport, like 'Elon' for Elon Musk",
+        lastNameTooltip: "Your last name as written in your passport, like 'Musk' for Elon Musk",
+        lastNameBeforeMarriage: "Last Name Before Marriage",
+        lastNameBeforeMarriageTooltip: "Your last name before your first marriage, if different from current last name",
+        otherName: "Other Name",
+        otherNameTooltip: "Any other names you use, like father's name or other legally recognized names",
+
+        // Second card - Birth Details
         birthDetailsTitle: "Birth Details",
         birthDetailsSubtitle: "Please enter your birth information exactly as it appears in your passport",
         dateOfBirth: "Date of Birth",
@@ -31,30 +42,37 @@ const translations = {
             open: "Open",
             noStatement: "No Statement"
         },
-        lastNameBeforeMarriage: "Last Name Before Marriage",
-        lastNameBeforeMarriageTooltip: "Your last name before your first marriage, if different from current last name",
-        otherName: "Other Name",
-        otherNameTooltip: "Any other names you use, like father's name or other legally recognized names",
         religionOrCommunity: "Religion or Community",
         religionOrCommunityTooltip: "Your religious affiliation or community membership"
     },
     de: {
-        firstName: "Vorname",
-        lastName: "Nachname",
-        firstNameTooltip: "Ihr Vorname wie im Reisepass geschrieben, z.B. 'Elon' für Elon Musk",
-        lastNameTooltip: "Ihr Nachname wie im Reisepass geschrieben, z.B. 'Musk' für Elon Musk",
-        submit: "Absenden",
+        // Language selector card
         welcome: "Willkommen bei Supermelde",
         selectLanguage: "Bitte wählen Sie Ihre bevorzugte Sprache",
-        nextButton: "Weiter",
         startButton: "Starten",
         english: "Englisch",
         german: "Deutsch",
         siteExplanation: "Füllen Sie das Meldezettel-Formular korrekt und schnell aus. Alle Daten bleiben auf Ihrem Gerät",
-        personalInfoTitle: "Persönliche Informationen",
-        personalInfoSubtitle: "Bitte geben Sie Ihren Namen genau wie im Reisepass ein",
+
+        // Navigation buttons
         back: "Zurück",
         next: "Weiter",
+        nextButton: "Weiter",
+        submit: "Absenden",
+
+        // First card - Personal Information
+        personalInfoTitle: "Persönliche Informationen",
+        personalInfoSubtitle: "Bitte geben Sie Ihren Namen genau wie im Reisepass ein",
+        firstName: "Vorname",
+        lastName: "Nachname",
+        firstNameTooltip: "Ihr Vorname wie im Reisepass geschrieben, z.B. 'Elon' für Elon Musk",
+        lastNameTooltip: "Ihr Nachname wie im Reisepass geschrieben, z.B. 'Musk' für Elon Musk",
+        lastNameBeforeMarriage: "Familienname vor der Eheschließung",
+        lastNameBeforeMarriageTooltip: "Ihr Familienname vor Ihrer ersten Eheschließung, falls abweichend vom aktuellen Nachnamen",
+        otherName: "Sonstiger Name",
+        otherNameTooltip: "Andere Namen, die Sie verwenden, z.B. Vatersname oder andere rechtlich anerkannte Namen",
+
+        // Second card - Birth Details
         birthDetailsTitle: "Geburtsdaten",
         birthDetailsSubtitle: "Bitte geben Sie Ihre Geburtsinformationen genau wie im Reisepass ein",
         dateOfBirth: "Geburtsdatum",
@@ -70,10 +88,6 @@ const translations = {
             open: "Offen",
             noStatement: "Keine Angabe"
         },
-        lastNameBeforeMarriage: "Familienname vor der Eheschließung",
-        lastNameBeforeMarriageTooltip: "Ihr Familienname vor Ihrer ersten Eheschließung, falls abweichend vom aktuellen Nachnamen",
-        otherName: "Sonstiger Name",
-        otherNameTooltip: "Andere Namen, die Sie verwenden, z.B. Vatersname oder andere rechtlich anerkannte Namen",
         religionOrCommunity: "Religion oder Gemeinschaft",
         religionOrCommunityTooltip: "Ihre Religionszugehörigkeit oder Gemeinschaftsmitgliedschaft"
     }
