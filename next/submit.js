@@ -54,15 +54,9 @@ async function handleFormSubmit(formData) {
 }
 
 function fillPdfFields(form, formData) {
-    // Fill the first name field
-    const firstNameFileldName = 'Vorname lt. Geburtsurkunde (bei Fremden laut Reisedokument)';
-    // const firstNameField = form.getTextField('Vorname lt. Geburtsurkunde (bei Fremden laut Reisedokument)');
-    // setFieldText(firstNameField, formData.firstName);
-
     form.getFields().forEach(current_field => {
         const current_field_name = current_field.getName();
-        //console.info(current_field_name)
-        if (current_field_name == firstNameFileldName) {
+        if (current_field_name == fields.firstName) {
             setFieldText(current_field, formData.firstName);
         }
     });
