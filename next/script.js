@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('[data-language="en"] span').textContent = translations[lang].english;
         document.querySelector('[data-language="de"] span').textContent = translations[lang].german;
         
+        // Update explanation text
+        document.querySelector('.site-explanation').textContent = translations[lang].siteExplanation;
+        
         // Update document language
         document.documentElement.lang = lang;
     }

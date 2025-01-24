@@ -137,4 +137,14 @@ input[type="text"] {
 
 .submit-btn:hover {
     background: #218838;
+}
+
+.site-explanation {
+    display: block;
+    margin: 2rem auto;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 80%;
+    text-align: center;
 } 
