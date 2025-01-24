@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     });
 
-    // Handle next button click
+    // Handle next button click (language to personal)
     nextButton.addEventListener('click', function() {
         if (!isDefaultValuesMode && !selectedLanguage) return;
         
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         personalCard.style.display = 'block';
     });
 
-    // Handle back button click
+    // Handle back button click (personal to language)
     backButton.addEventListener('click', function() {
         personalCard.style.display = 'none';
         languageCard.style.display = 'block';
@@ -222,12 +222,20 @@ document.addEventListener('DOMContentLoaded', async function() {
     personalNextButton.addEventListener('click', function() {
         if (!isDefaultValuesMode && (!firstName.value.trim() || !lastName.value.trim())) return;
         
+        // Update progress
+        document.querySelector('#personalCard .progress-step').classList.remove('active');
+        document.querySelector('#personalCard .progress-step').classList.add('completed');
+        
         personalCard.style.display = 'none';
         birthDetailsCard.style.display = 'block';
     });
 
     // Handle birth details back button click
     birthDetailsBackButton.addEventListener('click', function() {
+        // Update progress
+        document.querySelector('#birthDetailsCard .progress-step:first-child').classList.remove('completed');
+        document.querySelector('#birthDetailsCard .progress-step:first-child').classList.add('active');
+        
         birthDetailsCard.style.display = 'none';
         personalCard.style.display = 'block';
     });
