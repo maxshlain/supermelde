@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const birthDetailsNextButton = document.getElementById('birthDetailsNextButton');
     const dateOfBirth = document.getElementById('dateOfBirth');
     const gender = document.getElementById('gender');
+    const religionOrCommunity = document.getElementById('religionOrCommunity');
 
     function updateCardLanguage(lang) {
         // Update all text content based on selected language
@@ -136,6 +137,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.querySelector('label[for="gender"]').textContent = translations[lang].gender;
         document.querySelector('#dateOfBirth').nextElementSibling.textContent = translations[lang].dateOfBirthTooltip;
         document.querySelector('#gender').nextElementSibling.textContent = translations[lang].genderTooltip;
+        document.querySelector('label[for="religionOrCommunity"]').textContent = translations[lang].religionOrCommunity;
+        document.querySelector('#religionOrCommunity').nextElementSibling.textContent = translations[lang].religionOrCommunityTooltip;
 
         // Update gender options
         const genderSelect = document.getElementById('gender');
@@ -241,7 +244,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     birthDetailsNextButton.addEventListener('click', function() {
         if (!isDefaultValuesMode && (!dateOfBirth.value || !gender.value)) return;
         
-        // Collect all form data
         const formData = {
             language: selectedLanguage,
             firstName: firstName.value.trim(),
@@ -249,10 +251,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             lastNameBeforeMarriage: lastNameBeforeMarriage.value.trim(),
             otherName: otherName.value.trim(),
             dateOfBirth: dateOfBirth.value,
-            gender: gender.value
+            gender: gender.value,
+            religionOrCommunity: religionOrCommunity.value
         };
         
-        // Call the submit handler
         handleFormSubmit(formData);
     });
 

@@ -34,6 +34,8 @@ const translations = {
         lastNameBeforeMarriageTooltip: "Your last name before your first marriage, if different from current last name",
         otherName: "Other Name",
         otherNameTooltip: "Any other names you use, like father's name or other legally recognized names",
+        religionOrCommunity: "Religion or Community",
+        religionOrCommunityTooltip: "Your religious affiliation or community membership"
     },
     de: {
         firstName: "Vorname",
@@ -70,5 +72,7 @@ const translations = {
         lastNameBeforeMarriageTooltip: "Ihr Familienname vor Ihrer ersten Eheschließung, falls abweichend vom aktuellen Nachnamen",
         otherName: "Sonstiger Name",
         otherNameTooltip: "Andere Namen, die Sie verwenden, z.B. Vatersname oder andere rechtlich anerkannte Namen",
+        religionOrCommunity: "Religion oder Gemeinschaft",
+        religionOrCommunityTooltip: "Ihre Religionszugehörigkeit oder Gemeinschaftsmitgliedschaft"
     }
 }; 

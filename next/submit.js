@@ -79,5 +79,8 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.otherName) {
             setFieldText(current_field, formData.otherName);
         }
+        else if (current_field_name == fields.religionOrCommunity) {
+            setFieldText(current_field, formData.religionOrCommunity);
+        }
     });
 }
