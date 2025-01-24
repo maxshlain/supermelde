@@ -92,6 +92,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     const gender = document.getElementById('gender');
     const religionOrCommunity = document.getElementById('religionOrCommunity');
 
+    // Add new elements
+    const citizenshipCard = document.getElementById('citizenshipCard');
+    const citizenshipBackButton = document.getElementById('citizenshipBackButton');
+    const citizenshipNextButton = document.getElementById('citizenshipNextButton');
+
     function updateCardLanguage(lang) {
         // Update all text content based on selected language
         welcomeHeader.textContent = translations[lang].welcome;
@@ -148,6 +153,15 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (dateOfBirth?.value && gender?.value) {
             birthDetailsNextButton.textContent = translations[lang].submit;
         }
+
+        // Update citizenship card
+        document.querySelector('#citizenshipCard h2').textContent = translations[lang].citizenshipTitle;
+        document.querySelector('#citizenshipCard p').textContent = translations[lang].citizenshipSubtitle;
+        citizenshipBackButton.textContent = translations[lang].back;
+        citizenshipNextButton.textContent = translations[lang].submit;
+
+        // Update birth details button to show "Next" instead of "Submit"
+        birthDetailsNextButton.textContent = translations[lang].next;
     }
 
     // Validate personal info inputs
@@ -244,6 +258,18 @@ document.addEventListener('DOMContentLoaded', async function() {
     birthDetailsNextButton.addEventListener('click', function() {
         if (!isDefaultValuesMode && (!dateOfBirth.value || !gender.value)) return;
         
+        birthDetailsCard.style.display = 'none';
+        citizenshipCard.style.display = 'block';
+    });
+
+    // Handle citizenship back button
+    citizenshipBackButton.addEventListener('click', function() {
+        citizenshipCard.style.display = 'none';
+        birthDetailsCard.style.display = 'block';
+    });
+
+    // Handle citizenship next button (final submit)
+    citizenshipNextButton.addEventListener('click', function() {
         const formData = {
             language: selectedLanguage,
             firstName: firstName.value.trim(),

@@ -41,6 +41,7 @@
             <div class="progress-indicator">
                 <div class="progress-step active">1</div>
                 <div class="progress-step">2</div>
+                <div class="progress-step">3</div>
             </div>
             <h2>Personal Information</h2>
             <p>Please enter your name exactly as it appears in your passport</p>
@@ -86,6 +87,7 @@
             <div class="progress-indicator">
                 <div class="progress-step completed">1</div>
                 <div class="progress-step active">2</div>
+                <div class="progress-step">3</div>
             </div>
             <h2>Birth Details</h2>
             <p>Please enter your birth information exactly as it appears in your passport</p>
@@ -125,7 +127,32 @@
                 <button class="next-button" id="birthDetailsNextButton" disabled>Next</button>
             </div>
         </div>
-    </div>
+
+        <!-- --------------------------------------------------------------- -->
+        <!--                     Citizenship Card                            -->
+        <!-- --------------------------------------------------------------- -->
+        <div class="wizard-card" id="citizenshipCard" style="display: none;">
+            <div class="progress-indicator">
+                <div class="progress-step completed">1</div>
+                <div class="progress-step completed">2</div>
+                <div class="progress-step active">3</div>
+            </div>
+            <h2>Citizenship</h2>
+            <p>Please enter your citizenship information exactly as it appears in your passport</p>
+
+            <div class="required-fields-note">
+                <span>*</span> Required fields
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="back-button" id="citizenshipBackButton">Back</button>
+                <button class="next-button" id="citizenshipNextButton">Submit</button>
+            </div>
+        </div>
+
+    <!-- End of wizard-container -->
+    </div> <!-- End of wizard-container -->
+    <!-- End of wizard-container -->
 
     <!-- Add PDF-lib before our scripts -->
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>

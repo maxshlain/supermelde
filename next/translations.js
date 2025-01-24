@@ -46,7 +46,11 @@ const translations = {
             noStatement: "No Statement"
         },
         religionOrCommunity: "Religion or Community",
-        religionOrCommunityTooltip: "Your religious affiliation or community membership"
+        religionOrCommunityTooltip: "Your religious affiliation or community membership",
+
+        // Third card - Citizenship
+        citizenshipTitle: "Citizenship",
+        citizenshipSubtitle: "Please enter your citizenship information exactly as it appears in your passport"
     },
 
     // --------------------------------------------------------------- //
@@ -96,6 +100,10 @@ const translations = {
             noStatement: "Keine Angabe"
         },
         religionOrCommunity: "Religion oder Gemeinschaft",
-        religionOrCommunityTooltip: "Ihre Religionszugehörigkeit oder Gemeinschaftsmitgliedschaft"
+        religionOrCommunityTooltip: "Ihre Religionszugehörigkeit oder Gemeinschaftsmitgliedschaft",
+
+        // Third card - Citizenship
+        citizenshipTitle: "Staatsbürgerschaft",
+        citizenshipSubtitle: "Bitte geben Sie Ihre Staatsbürgerschaftsinformationen genau wie im Reisepass ein"
     }
 }; 
