@@ -32,11 +32,15 @@ function applyDefaultValues(values) {
     const lastName = document.getElementById('lastName');
     const lastNameBeforeMarriage = document.getElementById('lastNameBeforeMarriage');
     const otherName = document.getElementById('otherName');
+    const dateOfBirth = document.getElementById('dateOfBirth');
+    const gender = document.getElementById('gender');
+    const religionOrCommunity = document.getElementById('religionOrCommunity');
     
     if (firstName) firstName.value = values.firstName;
     if (lastName) lastName.value = values.lastName;
     if (lastNameBeforeMarriage) lastNameBeforeMarriage.value = values.lastNameBeforeMarriage;
     if (otherName) otherName.value = values.otherName;
+    if (religionOrCommunity) religionOrCommunity.value = values.religionOrCommunity;
     
     // Set birth details values
     if (dateOfBirth) dateOfBirth.value = values.dateOfBirth;

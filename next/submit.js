@@ -54,10 +54,46 @@ async function handleFormSubmit(formData) {
 }
 
 
+function fixGenderValue(gender_value) {
+    // the form values and the presented values are different
+    if (gender_value === 'männlich') {
+        return 'männlich';
+    }
+
+    if (gender_value === 'weiblich') {
+        return 'weiblich';
+    }
+
+    // select divers prints offen
+    // select inter prints divers
+    // select offen prints inter
+
+    if (gender_value === 'divers') {
+        return 'inter';
+    }
+
+    if (gender_value === 'inter') {
+        return 'offen';
+    }
+
+    if (gender_value === 'offen') {
+        return 'divers';
+    }
+
+    if (gender_value === 'keine') {
+        return 'keine Angabe';
+    }
+}
+
+function dateToAustrian(date) {
+    const [year, month, day] = date.split('-');
+    return `${day}.${month}.${year}`;
+}
+
 // Helper function to set text field with proper formatting
 function setFieldText(field, text) {
     if (!text) return;
-    field.setFontSize(11);
+    field.setFontSize(14);
     const padded = ' ' + text; // Add slight padding from the left
     field.setText(padded);
 }
@@ -66,6 +102,13 @@ function setFieldText(field, text) {
 function fillPdfFields(form, formData) {
     form.getFields().forEach(current_field => {
         const current_field_name = current_field.getName();
+
+        // debug
+        // if (current_field_name == fields.dateOfBirth) {
+        //     debugger;
+        // }
+
+        // first card
         if (current_field_name == fields.lastName) {
             const capitalized = formData.lastName.toUpperCase();
             setFieldText(current_field, capitalized);
@@ -78,6 +121,16 @@ function fillPdfFields(form, formData) {
         }
         else if (current_field_name == fields.otherName) {
             setFieldText(current_field, formData.otherName);
+        }
+        // second card
+        else if (current_field_name == fields.dateOfBirth) {
+            austrian_date = dateToAustrian(formData.dateOfBirth);
+            setFieldText(current_field, austrian_date);
+        }
+        else if (current_field_name == fields.gender) {
+            gender_value = formData.gender;
+            fixed_value = fixGenderValue(gender_value);
+            current_field.select(fixed_value);
         }
         else if (current_field_name == fields.religionOrCommunity) {
             setFieldText(current_field, formData.religionOrCommunity);
