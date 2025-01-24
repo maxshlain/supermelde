@@ -191,8 +191,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         const nationalitySelect = document.getElementById('nationality');
         nationalitySelect.innerHTML = `
             <option value="" disabled selected>${translations[lang].nationalitySelectPrompt}</option>
-            <option value="ja">${translations[lang].nationalityOptions.yes}</option>
-            <option value="nein">${translations[lang].nationalityOptions.no}</option>
+            <option value="Österreich">${translations[lang].nationalityOptions.yes}</option>
+            <option value="anderer Staat">${translations[lang].nationalityOptions.no}</option>
         `;
     }
 
