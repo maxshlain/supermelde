@@ -23,3 +23,14 @@ The project is hosted  on github pages and everything is merged and published fr
 - next.html : all the html code
 - next/script.js: all the javascript code
 - next/style.css: all the css code
+
+# USER JOURNEY
+The site offers kind of 'wizard'
+Wizard conists of several cards
+All cards are hidden except of the current
+Each card contains only few fields to be filed
+Below the card will be two buttons: backwards and forward
+When on last card, the forward button will become 'Submit'
+
+# Wizard cards
+- Language selector: display german and british flags that will symbolize english and german languages. Hide the 'backwards' button
