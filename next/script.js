@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const citizenshipNextButton = document.getElementById('citizenshipNextButton');
     const placeOfBirth = document.getElementById('placeOfBirth');
     const maritalStatus = document.getElementById('maritalStatus');
+    const nationality = document.getElementById('nationality');
 
     function updateCardLanguage(lang) {
         // Update all text content based on selected language
@@ -180,6 +181,18 @@ document.addEventListener('DOMContentLoaded', async function() {
             <option value="geschieden">${translations[lang].maritalStatusOptions.divorced}</option>
             <option value="verwitwet">${translations[lang].maritalStatusOptions.widowed}</option>
             <option value="eingetragene Partnerschaft">${translations[lang].maritalStatusOptions.registeredPartnership}</option>
+        `;
+
+        // Update nationality field
+        document.querySelector('label[for="nationality"]').textContent = translations[lang].nationality;
+        document.querySelector('#nationality').nextElementSibling.textContent = translations[lang].nationalityTooltip;
+        
+        // Update nationality options
+        const nationalitySelect = document.getElementById('nationality');
+        nationalitySelect.innerHTML = `
+            <option value="" disabled selected>${translations[lang].nationalitySelectPrompt}</option>
+            <option value="ja">${translations[lang].nationalityOptions.yes}</option>
+            <option value="nein">${translations[lang].nationalityOptions.no}</option>
         `;
     }
 
@@ -299,7 +312,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             gender: gender.value,
             religionOrCommunity: religionOrCommunity.value,
             placeOfBirth: placeOfBirth.value.trim(),
-            maritalStatus: maritalStatus.value
+            maritalStatus: maritalStatus.value,
+            nationality: nationality.value.trim()
         };
         
         handleFormSubmit(formData);
@@ -312,7 +326,9 @@ document.addEventListener('DOMContentLoaded', async function() {
             citizenshipNextButton.textContent = translations[selectedLanguage].submit;
             return;
         }
-        const isValid = placeOfBirth.value.trim() !== '' && maritalStatus.value !== '';
+        const isValid = placeOfBirth.value.trim() !== '' && 
+                       maritalStatus.value !== '' && 
+                       nationality.value.trim() !== '';
         citizenshipNextButton.disabled = !isValid;
         
         // Always show "Submit" on the last card
@@ -322,6 +338,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Add input listeners
     placeOfBirth.addEventListener('input', validateCitizenship);
     maritalStatus.addEventListener('change', validateCitizenship);
+    nationality.addEventListener('input', validateCitizenship);
 
     // Load and apply default values if specified
     const defaultValues = await loadDefaultValues();

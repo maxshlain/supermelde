@@ -143,5 +143,14 @@ function fillPdfFields(form, formData) {
             const selectedStatus = formData.maritalStatus;
             current_field.select(selectedStatus);
         }
+        else if (current_field_name == fields.nationality) {
+            //current_field.select(formData.nationality);  // Will select 'ja' or 'nein'
+            const isAustrian = formData.nationality;
+            if (isAustrian === 'ja') {
+                current_field.select('Österreich');
+            } else {
+                current_field.select('anderer Staat');
+            }
+        }
     });
 }

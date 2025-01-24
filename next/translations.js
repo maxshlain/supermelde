@@ -62,6 +62,13 @@ const translations = {
             divorced: "Divorced",
             widowed: "Widowed",
             registeredPartnership: "Registered Partnership"
+        },
+        nationality: "Austrian Citizenship",
+        nationalityTooltip: "Are you an Austrian citizen?",
+        nationalitySelectPrompt: "Select citizenship status",
+        nationalityOptions: {
+            yes: "Yes, I am an Austrian citizen",
+            no: "No, I am not an Austrian citizen"
         }
     },
 
@@ -128,6 +135,13 @@ const translations = {
             divorced: "Geschieden",
             widowed: "Verwitwet",
             registeredPartnership: "Eingetragene Partnerschaft"
+        },
+        nationality: "Österreichische Staatsbürgerschaft",
+        nationalityTooltip: "Sind Sie österreichischer Staatsbürger?",
+        nationalitySelectPrompt: "Staatsbürgerschaft auswählen",
+        nationalityOptions: {
+            yes: "Ja, ich bin österreichischer Staatsbürger",
+            no: "Nein, ich bin kein österreichischer Staatsbürger"
         }
     }
 }; 
