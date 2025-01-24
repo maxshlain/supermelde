@@ -27,25 +27,13 @@ function applyDefaultValues(values) {
         languageButton.click();
     }
 
-    // Set form values
-    const firstName = document.getElementById('firstName');
-    const lastName = document.getElementById('lastName');
-    const lastNameBeforeMarriage = document.getElementById('lastNameBeforeMarriage');
-    const otherName = document.getElementById('otherName');
-    const dateOfBirth = document.getElementById('dateOfBirth');
-    const gender = document.getElementById('gender');
-    const religionOrCommunity = document.getElementById('religionOrCommunity');
-    
-    if (firstName) firstName.value = values.firstName;
-    if (lastName) lastName.value = values.lastName;
-    if (lastNameBeforeMarriage) lastNameBeforeMarriage.value = values.lastNameBeforeMarriage;
-    if (otherName) otherName.value = values.otherName;
-    if (religionOrCommunity) religionOrCommunity.value = values.religionOrCommunity;
-    
-    // Set birth details values
-    if (dateOfBirth) dateOfBirth.value = values.dateOfBirth;
-    if (gender) {
-        gender.value = values.gender;
+    // iterate over each field in the values object
+    for (const [fieldId, value] of Object.entries(values)) {
+
+        const inputElement = document.getElementById(fieldId)
+        if (inputElement) {
+            inputElement.value = value;
+        }
     }
 
     // Enable all buttons in default values mode
@@ -147,7 +135,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Update gender options
         const genderSelect = document.getElementById('gender');
         genderSelect.innerHTML = `
-            <option value="" disabled selected>Select gender</option>
+            <option value="" disabled selected>${translations[lang].genderSelectPrompt}</option>
             <option value="männlich">${translations[lang].genderOptions.male}</option>
             <option value="weiblich">${translations[lang].genderOptions.female}</option>
             <option value="divers">${translations[lang].genderOptions.diverse}</option>

@@ -22,6 +22,7 @@ const translations = {
         dateOfBirthTooltip: "Your date of birth as written in your passport",
         gender: "Gender",
         genderTooltip: "Your gender as registered in official documents",
+        genderSelectPrompt: "Please select your gender",
         genderOptions: {
             male: "Male",
             female: "Female",
@@ -60,6 +61,7 @@ const translations = {
         dateOfBirthTooltip: "Ihr Geburtsdatum wie im Reisepass angegeben",
         gender: "Geschlecht",
         genderTooltip: "Ihr Geschlecht wie in offiziellen Dokumenten registriert",
+        genderSelectPrompt: "Bitte wählen Sie Ihr Geschlecht",
         genderOptions: {
             male: "Männlich",
             female: "Weiblich",
