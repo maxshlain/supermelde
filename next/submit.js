@@ -17,21 +17,36 @@ async function handleFormSubmit(formData) {
         
         // Save the modified document
         const pdfBytes = await newPdfDoc.save();
-        
-        // Create a blob and download the file
+
+        // Create blob and download using a more reliable method
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'meldezettel_filled.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
+        
+        // Use a more reliable download method
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            // For IE
+            window.navigator.msSaveOrOpenBlob(blob, 'meldezettel_filled.pdf');
+        } else {
+            // For modern browsers
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'meldezettel_filled.pdf';
+            
+            // Make link invisible
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            
+            // Use timeout to ensure proper cleanup
+            setTimeout(() => {
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+        }
 
         // Show success message
         // alert('Form submitted successfully! Check your downloads.');
-        // console.log('Form data:', formData);
+        console.log('Form data:', formData);
     } catch (error) {
         console.error('Error processing PDF:', error);
         alert('Error processing the form. Please try again.');
