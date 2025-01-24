@@ -15,7 +15,21 @@ const translations = {
         personalInfoTitle: "Personal Information",
         personalInfoSubtitle: "Please enter your name exactly as it appears in your passport",
         back: "Back",
-        next: "Next"
+        next: "Next",
+        birthDetailsTitle: "Birth Details",
+        birthDetailsSubtitle: "Please enter your birth information exactly as it appears in your passport",
+        dateOfBirth: "Date of Birth",
+        dateOfBirthTooltip: "Your date of birth as written in your passport",
+        gender: "Gender",
+        genderTooltip: "Your gender as registered in official documents",
+        genderOptions: {
+            male: "Male",
+            female: "Female",
+            diverse: "Diverse",
+            inter: "Inter",
+            open: "Open",
+            noStatement: "No Statement"
+        }
     },
     de: {
         firstName: "Vorname",
@@ -33,6 +47,20 @@ const translations = {
         personalInfoTitle: "Persönliche Informationen",
         personalInfoSubtitle: "Bitte geben Sie Ihren Namen genau wie im Reisepass ein",
         back: "Zurück",
-        next: "Weiter"
+        next: "Weiter",
+        birthDetailsTitle: "Geburtsdaten",
+        birthDetailsSubtitle: "Bitte geben Sie Ihre Geburtsinformationen genau wie im Reisepass ein",
+        dateOfBirth: "Geburtsdatum",
+        dateOfBirthTooltip: "Ihr Geburtsdatum wie im Reisepass angegeben",
+        gender: "Geschlecht",
+        genderTooltip: "Ihr Geschlecht wie in offiziellen Dokumenten registriert",
+        genderOptions: {
+            male: "Männlich",
+            female: "Weiblich",
+            diverse: "Divers",
+            inter: "Inter",
+            open: "Offen",
+            noStatement: "Keine Angabe"
+        }
     }
 }; 

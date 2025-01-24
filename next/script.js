@@ -30,6 +30,13 @@ function applyDefaultValues(values) {
     if (firstName) firstName.value = values.firstName;
     if (lastName) lastName.value = values.lastName;
     
+    // Set birth details values
+    if (dateOfBirth) dateOfBirth.value = values.dateOfBirth;
+    if (gender) {
+        gender.value = values.gender;
+        validateBirthDetails();
+    }
+    
     // Trigger validation
     validatePersonalInfo();
 }
@@ -73,6 +80,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
 
+    // Add new card elements
+    const birthDetailsCard = document.getElementById('birthDetailsCard');
+    const birthDetailsBackButton = document.getElementById('birthDetailsBackButton');
+    const birthDetailsNextButton = document.getElementById('birthDetailsNextButton');
+    const dateOfBirth = document.getElementById('dateOfBirth');
+    const gender = document.getElementById('gender');
+
     function updateCardLanguage(lang) {
         // Update all text content based on selected language
         welcomeHeader.textContent = translations[lang].welcome;
@@ -98,6 +112,31 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.querySelector('#lastName').nextElementSibling.textContent = translations[lang].lastNameTooltip;
         backButton.textContent = translations[lang].back;
         personalNextButton.textContent = translations[lang].nextButton;
+
+        // Update birth details card
+        document.querySelector('#birthDetailsCard h2').textContent = translations[lang].birthDetailsTitle;
+        document.querySelector('#birthDetailsCard p').textContent = translations[lang].birthDetailsSubtitle;
+        document.querySelector('label[for="dateOfBirth"]').textContent = translations[lang].dateOfBirth;
+        document.querySelector('label[for="gender"]').textContent = translations[lang].gender;
+        document.querySelector('#dateOfBirth').nextElementSibling.textContent = translations[lang].dateOfBirthTooltip;
+        document.querySelector('#gender').nextElementSibling.textContent = translations[lang].genderTooltip;
+
+        // Update gender options
+        const genderSelect = document.getElementById('gender');
+        genderSelect.innerHTML = `
+            <option value="" disabled selected>Select gender</option>
+            <option value="männlich">${translations[lang].genderOptions.male}</option>
+            <option value="weiblich">${translations[lang].genderOptions.female}</option>
+            <option value="divers">${translations[lang].genderOptions.diverse}</option>
+            <option value="inter">${translations[lang].genderOptions.inter}</option>
+            <option value="offen">${translations[lang].genderOptions.open}</option>
+            <option value="keine">${translations[lang].genderOptions.noStatement}</option>
+        `;
+
+        // Update submit button text if fields are valid
+        if (dateOfBirth?.value && gender?.value) {
+            birthDetailsNextButton.textContent = translations[lang].submit;
+        }
     }
 
     // Validate personal info inputs
@@ -106,9 +145,24 @@ document.addEventListener('DOMContentLoaded', async function() {
         personalNextButton.disabled = !isValid;
     }
 
+    // Validate birth details inputs
+    function validateBirthDetails() {
+        const isValid = dateOfBirth.value && gender.value;
+        birthDetailsNextButton.disabled = !isValid;
+        
+        // Update button text based on validation
+        if (isValid) {
+            birthDetailsNextButton.textContent = translations[selectedLanguage].submit;
+        } else {
+            birthDetailsNextButton.textContent = translations[selectedLanguage].next;
+        }
+    }
+
     // Add input listeners
     firstName.addEventListener('input', validatePersonalInfo);
     lastName.addEventListener('input', validatePersonalInfo);
+    dateOfBirth.addEventListener('input', validateBirthDetails);
+    gender.addEventListener('change', validateBirthDetails);
 
     // Handle language selection
     languageButtons.forEach(button => {
@@ -148,11 +202,32 @@ document.addEventListener('DOMContentLoaded', async function() {
     personalNextButton.addEventListener('click', function() {
         if (!firstName.value.trim() || !lastName.value.trim()) return;
         
-        // TODO: Save the form data and proceed to next card
-        console.log('Personal info saved:', {
+        personalCard.style.display = 'none';
+        birthDetailsCard.style.display = 'block';
+    });
+
+    // Handle birth details back button click
+    birthDetailsBackButton.addEventListener('click', function() {
+        birthDetailsCard.style.display = 'none';
+        personalCard.style.display = 'block';
+    });
+
+    // Handle birth details next button click
+    birthDetailsNextButton.addEventListener('click', function() {
+        if (!dateOfBirth.value || !gender.value) return;
+        
+        // Collect all form data
+        const formData = {
+            language: selectedLanguage,
             firstName: firstName.value.trim(),
-            lastName: lastName.value.trim()
-        });
+            lastName: lastName.value.trim(),
+            dateOfBirth: dateOfBirth.value,
+            gender: gender.value
+        };
+        
+        // Show submission alert
+        alert('Form submitted successfully!');
+        console.log('Form data:', formData);
     });
 
     // Load and apply default values if specified
