@@ -1,5 +1,3 @@
-let isDefaultValuesMode = false;
-
 async function loadDefaultValues() {
     const urlParams = new URLSearchParams(window.location.search);
     const defaultValuesSet = urlParams.get('default_values');
@@ -18,8 +16,6 @@ async function loadDefaultValues() {
 
 function applyDefaultValues(values) {
     if (!values) return;
-    
-    isDefaultValuesMode = true;  // Set the flag when applying default values
 
     // Set language
     const languageButton = document.querySelector(`[data-language="${values.language}"]`);
