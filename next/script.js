@@ -2,10 +2,6 @@ import { selectedLanguage, initializeLanguageButtons } from './language.js';
 import { loadDefaultValues, applyDefaultValues } from './values.js';
 import { showToast } from './toast.js';
 
-// function handleSubmit(event) {
-//     event.preventDefault();
-//     alert('Submitted!');
-// }
 
 function validatePersonalCard() {
     const lastName = document.getElementById('lastName');
