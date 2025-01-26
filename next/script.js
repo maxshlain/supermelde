@@ -1,9 +1,19 @@
 import { selectedLanguage, initializeLanguageButtons } from './language.js';
 import { loadDefaultValues, applyDefaultValues } from './values.js';
 
-function handleSubmit(event) {
-    event.preventDefault();
-    alert('Submitted!');
+// function handleSubmit(event) {
+//     event.preventDefault();
+//     alert('Submitted!');
+// }
+
+function validatePersonalCard() {
+    const lastName = document.getElementById('lastName').value;
+    const firstName = document.getElementById('firstName').value;
+    if(lastName === '' || firstName === '') {
+        alert('Please fill out all fields');
+        return false;
+    }
+    return true;
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -37,8 +47,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     personalNextButton.addEventListener('click', () => {
-        personalCard.style.display = 'none';
-        birthDetailsCard.style.display = 'block';
+        if(validatePersonalCard()) {
+            personalCard.style.display = 'none';
+            birthDetailsCard.style.display = 'block';
+        }
     });
 
     birthDetailsBackButton.addEventListener('click', () => {
