@@ -1,5 +1,6 @@
 import { selectedLanguage, initializeLanguageButtons } from './language.js';
 import { loadDefaultValues, applyDefaultValues } from './values.js';
+import { showToast } from './toast.js';
 
 // function handleSubmit(event) {
 //     event.preventDefault();
@@ -34,7 +35,7 @@ function validatePersonalCard() {
         } else if (!firstName.value.trim()) {
             firstName.focus();
         }
-        //alert(translations[selectedLanguage]?.fillRequiredFields || 'Please fill out all required fields');
+        showToast(translations[selectedLanguage]?.fillRequiredFields || 'Please fill out all required fields');
     }
 
     return isValid;
