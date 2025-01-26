@@ -10,6 +10,7 @@ const translations = {
         english: "English",
         german: "German",
         siteExplanation: "Get the meldezettel form filled correctly and quickly. All data stays on your device",
+        fillRequiredFields: "EN Please fill out all required fields",
 
         // Navigation buttons
         back: "Back",
@@ -83,6 +84,7 @@ const translations = {
         english: "Englisch",
         german: "Deutsch",
         siteExplanation: "Füllen Sie das Meldezettel-Formular korrekt und schnell aus. Alle Daten bleiben auf Ihrem Gerät",
+        fillRequiredFields: "Bitte füllen Sie alle erforderlichen Felder aus",
 
         // Navigation buttons
         back: "Zurück",

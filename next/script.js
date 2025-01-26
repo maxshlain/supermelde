@@ -35,7 +35,8 @@ function validatePersonalCard() {
         } else if (!firstName.value.trim()) {
             firstName.focus();
         }
-        showToast(translations[selectedLanguage]?.fillRequiredFields || 'Please fill out all required fields');
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
     }
 
     return isValid;
