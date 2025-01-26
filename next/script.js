@@ -7,13 +7,37 @@ import { loadDefaultValues, applyDefaultValues } from './values.js';
 // }
 
 function validatePersonalCard() {
-    const lastName = document.getElementById('lastName').value;
-    const firstName = document.getElementById('firstName').value;
-    if(lastName === '' || firstName === '') {
-        alert('Please fill out all fields');
-        return false;
+    const lastName = document.getElementById('lastName');
+    const firstName = document.getElementById('firstName');
+    let isValid = true;
+
+    // Clear previous error states
+    [lastName, firstName].forEach(field => {
+        field.closest('.form-group').classList.remove('error');
+    });
+
+    // Validate fields
+    if (!lastName.value.trim()) {
+        lastName.closest('.form-group').classList.add('error');
+        isValid = false;
     }
-    return true;
+    
+    if (!firstName.value.trim()) {
+        firstName.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        // Focus first invalid field
+        if (!lastName.value.trim()) {
+            lastName.focus();
+        } else if (!firstName.value.trim()) {
+            firstName.focus();
+        }
+        //alert(translations[selectedLanguage]?.fillRequiredFields || 'Please fill out all required fields');
+    }
+
+    return isValid;
 }
 
 document.addEventListener('DOMContentLoaded', async function() {

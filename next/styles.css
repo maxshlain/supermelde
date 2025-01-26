@@ -132,7 +132,7 @@ body {
     font-size: 1.25rem;
     border: 2px solid #e0e0e0;
     border-radius: 7.5px;
-    transition: border-color 0.3s ease;
+    transition: all 0.2s ease-in-out;
 }
 
 .form-group input:focus {
@@ -408,4 +408,18 @@ body {
 
 .progress-step.completed::after {
     background: #28a745;
+}
+
+/* Add these validation-related styles */
+.form-group.error input {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+    box-shadow: 0 0 0 1px #dc3545;
+}
+
+/* Remove error state when user starts typing */
+.form-group.error input:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #007bff;
 } 
