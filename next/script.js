@@ -38,6 +38,29 @@ function validatePersonalCard() {
     return isValid;
 }
 
+function validateBirthDetailsCard() {
+    const dateOfBirth = document.getElementById('dateOfBirth');
+    const gender = document.getElementById('gender');
+    let isValid = true;
+
+    if(!dateOfBirth.value.trim()) {
+        dateOfBirth.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if(!gender.value.trim()) {
+        gender.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if(!isValid) {
+       const message = translations[selectedLanguage].fillRequiredFields;
+       showToast(message);
+    }
+
+    return isValid;
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -81,8 +104,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     birthDetailsNextButton.addEventListener('click', () => {
-        birthDetailsCard.style.display = 'none';
-        citizenshipCard.style.display = 'block';
+        const isValid = validateBirthDetailsCard();
+        if(isValid) {
+            birthDetailsCard.style.display = 'none';
+            citizenshipCard.style.display = 'block';
+        }
     });
 
     citizenshipBackButton.addEventListener('click', () => {
