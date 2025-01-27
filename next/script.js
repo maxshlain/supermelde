@@ -181,22 +181,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     citizenshipNextButton.addEventListener('click', () => {
         if (validateCitizenshipCard()) {
-            const formData = {
-                language: selectedLanguage,
-                firstName: document.getElementById('firstName').value.trim(),
-                lastName: document.getElementById('lastName').value.trim(),
-                lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value.trim(),
-                otherName: document.getElementById('otherName').value.trim(),
-                dateOfBirth: document.getElementById('dateOfBirth').value,
-                gender: document.getElementById('gender').value,
-                religionOrCommunity: document.getElementById('religionOrCommunity').value,
-                placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
-                maritalStatus: document.getElementById('maritalStatus').value,
-                nationality: document.getElementById('nationality').value,
-                stateName: document.getElementById('stateName').value.trim()
-            };
-            
-            handleFormSubmit(formData);
+            prepare_and_submit_form();
         }
     });
 
@@ -208,3 +193,22 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     add_change_handlers();
 }); 
+
+function prepare_and_submit_form() {
+    const formData = {
+        language: selectedLanguage,
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value.trim(),
+        otherName: document.getElementById('otherName').value.trim(),
+        dateOfBirth: document.getElementById('dateOfBirth').value,
+        gender: document.getElementById('gender').value,
+        religionOrCommunity: document.getElementById('religionOrCommunity').value,
+        placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
+        maritalStatus: document.getElementById('maritalStatus').value,
+        nationality: document.getElementById('nationality').value,
+        stateName: document.getElementById('stateName').value.trim()
+    };
+    
+    handleFormSubmit(formData);
+}
