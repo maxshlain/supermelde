@@ -102,6 +102,28 @@ function validateCitizenshipCard() {
     return isValid;
 }
 
+function add_change_handlers() {
+    // Add nationality change handler
+    const nationalitySelect = document.getElementById('nationality');
+    const stateNameInput = document.getElementById('stateName');
+    const stateNameLabel = document.querySelector('label[for="stateName"]');
+    
+    nationalitySelect.addEventListener('change', function() {
+        if (this.value === 'anderer Staat') {
+            stateNameInput.disabled = false;
+            stateNameInput.required = true;
+            
+            stateNameLabel.classList.add('required');
+            stateNameInput.value = ''; // Clear any previous value
+        } else {
+            stateNameInput.disabled = true;
+            stateNameInput.required = false;
+            stateNameLabel.classList.remove('required');
+            stateNameInput.value = ''; // Clear the field when disabled
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -184,23 +206,5 @@ document.addEventListener('DOMContentLoaded', async function() {
         applyDefaultValues(defaultValues);
     }
 
-    // Add nationality change handler
-    const nationalitySelect = document.getElementById('nationality');
-    const stateNameInput = document.getElementById('stateName');
-    const stateNameLabel = document.querySelector('label[for="stateName"]');
-    
-    nationalitySelect.addEventListener('change', function() {
-        if (this.value === 'anderer Staat') {
-            stateNameInput.disabled = false;
-            stateNameInput.required = true;
-            
-            stateNameLabel.classList.add('required');
-            stateNameInput.value = ''; // Clear any previous value
-        } else {
-            stateNameInput.disabled = true;
-            stateNameInput.required = false;
-            stateNameLabel.classList.remove('required');
-            stateNameInput.value = ''; // Clear the field when disabled
-        }
-    });
+    add_change_handlers();
 }); 
