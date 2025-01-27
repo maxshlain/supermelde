@@ -61,6 +61,47 @@ function validateBirthDetailsCard() {
     return isValid;
 }
 
+function validateCitizenshipCard() {
+    const placeOfBirth = document.getElementById('placeOfBirth');
+    const maritalStatus = document.getElementById('maritalStatus');
+    const nationality = document.getElementById('nationality');
+    const stateName = document.getElementById('stateName');
+    let isValid = true;
+
+    // Clear previous error states
+    [placeOfBirth, maritalStatus, nationality, stateName].forEach(field => {
+        field.closest('.form-group').classList.remove('error');
+    });
+
+    if (!placeOfBirth.value.trim()) {
+        placeOfBirth.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!maritalStatus.value) {
+        maritalStatus.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!nationality.value) {
+        nationality.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    // Only validate state name if nationality is non-Austrian
+    if (nationality.value === 'anderer Staat' && !stateName.value.trim()) {
+        stateName.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+    }
+
+    return isValid;
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -117,22 +158,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     citizenshipNextButton.addEventListener('click', () => {
-        const formData = {
-            language: selectedLanguage,
-            firstName: document.getElementById('firstName').value.trim(),
-            lastName: document.getElementById('lastName').value.trim(),
-            lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value.trim(),
-            otherName: document.getElementById('otherName').value.trim(),
-            dateOfBirth: document.getElementById('dateOfBirth').value,
-            gender: document.getElementById('gender').value,
-            religionOrCommunity: document.getElementById('religionOrCommunity').value,
-            placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
-            maritalStatus: document.getElementById('maritalStatus').value,
-            nationality: document.getElementById('nationality').value,
-            stateName: document.getElementById('stateName').value.trim(),
-        };
-        
-        handleFormSubmit(formData);
+        if (validateCitizenshipCard()) {
+            const formData = {
+                language: selectedLanguage,
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                lastNameBeforeMarriage: document.getElementById('lastNameBeforeMarriage').value.trim(),
+                otherName: document.getElementById('otherName').value.trim(),
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                gender: document.getElementById('gender').value,
+                religionOrCommunity: document.getElementById('religionOrCommunity').value,
+                placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
+                maritalStatus: document.getElementById('maritalStatus').value,
+                nationality: document.getElementById('nationality').value,
+                stateName: document.getElementById('stateName').value.trim()
+            };
+            
+            handleFormSubmit(formData);
+        }
     });
 
     // Load and apply default values if specified
@@ -140,4 +183,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (defaultValues) {
         applyDefaultValues(defaultValues);
     }
+
+    // Add nationality change handler
+    const nationalitySelect = document.getElementById('nationality');
+    const stateNameInput = document.getElementById('stateName');
+    const stateNameLabel = document.querySelector('label[for="stateName"]');
+    
+    nationalitySelect.addEventListener('change', function() {
+        if (this.value === 'anderer Staat') {
+            stateNameInput.disabled = false;
+            stateNameInput.required = true;
+            
+            stateNameLabel.classList.add('required');
+            stateNameInput.value = ''; // Clear any previous value
+        } else {
+            stateNameInput.disabled = true;
+            stateNameInput.required = false;
+            stateNameLabel.classList.remove('required');
+            stateNameInput.value = ''; // Clear the field when disabled
+        }
+    });
 }); 
