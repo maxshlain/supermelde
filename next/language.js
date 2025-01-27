@@ -98,6 +98,10 @@ function updateCitizenshipCard(lang) {
         <option value="Österreich">${translations[lang].nationalityOptions.yes}</option>
         <option value="anderer Staat">${translations[lang].nationalityOptions.no}</option>
     `;
+
+    // Add state name translations
+    document.querySelector('label[for="stateName"]').textContent = translations[lang].stateName;
+    document.querySelector('#stateName').nextElementSibling.textContent = translations[lang].stateNameTooltip;
 }
 
 // Initialize language buttons

@@ -146,5 +146,8 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.nationality) {
             current_field.select(formData.nationality);
         }
+        else if (current_field_name == fields.nameOfState) {
+            setFieldText(current_field, formData.stateName);
+        }
     });
 }

@@ -9,17 +9,6 @@
     "religionOrCommunity": "Baptist",
     "placeOfBirth": "Pretoria, South Africa",
     "maritalStatus": "geschieden",
-    "isAustrian": "nein",
-    "nameOfState": "United States",
-    "documentType": "Passport",
-    "documentNumber": "123456789",
-    "documentIssueDate": "2020-01-01",
-    "documentIssuingAuthority": "US Department of State",
-    "registrationStreet": "Rocket Road",
-    "registrationHouseNumber": "1",
-    "registrationStaircase": "",
-    "registrationApartmentNumber": "",
-    "registrationPostalCode": "1200",
-    "registrationMunicipality": "Wien",
-    "isMainResidence": "ja"
+    "nationality": "anderer Staat",
+    "stateName": "United States"
 } 

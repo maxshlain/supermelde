@@ -70,7 +70,9 @@ const translations = {
         nationalityOptions: {
             yes: "Yes, I am an Austrian citizen",
             no: "No, I am not an Austrian citizen"
-        }
+        },
+        stateName: "Name of State",
+        stateNameTooltip: "Please enter the name of your country of citizenship"
     },
 
     // --------------------------------------------------------------- //
@@ -144,6 +146,8 @@ const translations = {
         nationalityOptions: {
             yes: "Ja, ich bin österreichischer Staatsbürger",
             no: "Nein, ich bin kein österreichischer Staatsbürger"
-        }
+        },
+        stateName: "Name des Staates",
+        stateNameTooltip: "Bitte geben Sie den Namen Ihres Herkunftslandes ein"
     }
 }; 

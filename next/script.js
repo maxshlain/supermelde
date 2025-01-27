@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             religionOrCommunity: document.getElementById('religionOrCommunity').value,
             placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
             maritalStatus: document.getElementById('maritalStatus').value,
-            nationality: document.getElementById('nationality').value
+            nationality: document.getElementById('nationality').value,
+            stateName: document.getElementById('stateName').value.trim(),
         };
         
         handleFormSubmit(formData);
