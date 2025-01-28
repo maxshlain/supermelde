@@ -469,4 +469,12 @@ body {
         transform: translateX(100%);
         opacity: 0;
     }
+}
+
+.made-with-love {
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 2em;
+    font-style: italic;
 } 

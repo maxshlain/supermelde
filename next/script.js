@@ -246,7 +246,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     add_change_handlers();
 
-    
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 }); 
 
 function prepare_and_submit_form() {
