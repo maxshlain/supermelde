@@ -79,6 +79,7 @@ const translations = {
         foreignPassportSubtitle: "Please enter your passport information exactly as it appears in your passport",
         documentType: "Document Type",
         documentTypeTooltip: "Type of your identification document",
+        documentTypeSelectPrompt: "Select document type",
         documentTypeOptions: {
             passport: "Passport",
             idCard: "ID Card"
@@ -171,6 +172,7 @@ const translations = {
         foreignPassportSubtitle: "Bitte geben Sie Ihre Passinformationen genau wie im Pass ein",
         documentType: "Dokumententyp",
         documentTypeTooltip: "Art Ihres Ausweisdokuments",
+        documentTypeSelectPrompt: "Dokumententyp auswählen",
         documentTypeOptions: {
             passport: "Reisepass",
             idCard: "Personalausweis"

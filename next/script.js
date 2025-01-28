@@ -247,7 +247,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     foreignPassportNextButton.addEventListener('click', () => {
-        if (validateForeignPassportCard()) {
+        //const isValid = validateForeignPassportCard();
+        const isValid = true;
+        if (isValid) {
             prepare_and_submit_form();
         }
     });

@@ -117,7 +117,7 @@ function updateForeignPassportCard(lang) {
     // Update document type options
     const documentTypeSelect = document.getElementById('documentType');
     documentTypeSelect.innerHTML = `
-        <option value="" disabled selected>${translations[lang].documentTypeSelectPrompt || 'Select document type'}</option>
+        <option value="" disabled selected>${translations[lang].documentTypeSelectPrompt}</option>
         <option value="Reisepass">${translations[lang].documentTypeOptions.passport}</option>
         <option value="Personalausweis">${translations[lang].documentTypeOptions.idCard}</option>
     `;
