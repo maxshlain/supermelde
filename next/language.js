@@ -176,8 +176,8 @@ function updateRegistrationAddressCard(lang) {
     const mainResidenceSelect = document.getElementById('isMainResidence');
     mainResidenceSelect.innerHTML = `
         <option value="" disabled selected>${translations[lang].isMainResidenceSelectPrompt}</option>
-        <option value="yes">${translations[lang].isMainResidenceOptions.yes}</option>
-        <option value="no">${translations[lang].isMainResidenceOptions.no}</option>
+        <option value="ja">${translations[lang].isMainResidenceOptions.yes}</option>
+        <option value="nein">${translations[lang].isMainResidenceOptions.no}</option>
     `;
 
     // Update navigation buttons

@@ -163,5 +163,27 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.documentIssuingAuthority) {
             setFieldText(current_field, formData.documentIssuingAuthority);
         }
+        // Registration Address Card
+        else if (current_field_name == fields.registrationStreet) {
+            setFieldText(current_field, formData.registrationStreet);
+        }
+        else if (current_field_name == fields.registrationHouseNumber) {
+            setFieldText(current_field, formData.registrationHouseNumber);
+        }
+        else if (current_field_name == fields.registrationStaircase) {
+            setFieldText(current_field, formData.registrationStaircase);
+        }
+        else if (current_field_name == fields.registrationApartmentNumber) {
+            setFieldText(current_field, formData.registrationApartmentNumber);
+        }
+        else if (current_field_name == fields.registrationPostalCode) {
+            setFieldText(current_field, formData.registrationPostalCode);
+        }
+        else if (current_field_name == fields.registrationMunicipality) {
+            setFieldText(current_field, formData.registrationMunicipality);
+        }
+        else if (current_field_name == fields.isMainResidence) {
+            current_field.select(formData.isMainResidence);
+        }
     });
 }

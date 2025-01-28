@@ -281,13 +281,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         citizenshipCard.style.display = 'block';
     });
 
-    // foreignPassportNextButton.addEventListener('click', () => {
-    //     const isValid = validateForeignPassportCard();
-    //     if (isValid) {
-    //         prepare_and_submit_form();
-    //     }
-    // });
-
     foreignPassportNextButton.addEventListener('click', () => {
         const isValid = validateForeignPassportCard();
         if (isValid) {
@@ -338,7 +331,14 @@ function prepare_and_submit_form() {
         documentType: document.getElementById('documentType')?.value || '',
         documentNumber: document.getElementById('documentNumber')?.value.trim() || '',
         documentIssueDate: document.getElementById('documentIssueDate')?.value || '',
-        documentIssuingAuthority: document.getElementById('documentIssuingAuthority')?.value.trim() || ''
+        documentIssuingAuthority: document.getElementById('documentIssuingAuthority')?.value.trim() || '',
+        registrationStreet: document.getElementById('registrationStreet')?.value.trim() || '',
+        registrationHouseNumber: document.getElementById('registrationHouseNumber')?.value.trim() || '',
+        registrationStaircase: document.getElementById('registrationStaircase')?.value.trim() || '',
+        registrationApartmentNumber: document.getElementById('registrationApartmentNumber')?.value.trim() || '',
+        registrationPostalCode: document.getElementById('registrationPostalCode')?.value.trim() || '',
+        registrationMunicipality: document.getElementById('registrationMunicipality')?.value.trim() || '',
+        isMainResidence: document.getElementById('isMainResidence')?.value || ''
     };
     
     handleFormSubmit(formData);
