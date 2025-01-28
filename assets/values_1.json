@@ -10,5 +10,9 @@
     "placeOfBirth": "Pretoria, South Africa",
     "maritalStatus": "verheiratet",
     "nationality": "anderer Staat",
-    "stateName": "United States"
+    "stateName": "United States",
+    "documentType": "Reisepass",
+    "documentNumber": "1234567890",
+    "documentIssueDate": "2020-01-01",
+    "documentIssuingAuthority": "US Department of State"
 }

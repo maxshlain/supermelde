@@ -108,7 +108,7 @@ function fillPdfFields(form, formData) {
         //     debugger;
         // }
 
-        // first card
+        // personal card
         if (current_field_name == fields.lastName) {
             const capitalized = formData.lastName.toUpperCase();
             setFieldText(current_field, capitalized);
@@ -122,7 +122,7 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.otherName) {
             setFieldText(current_field, formData.otherName);
         }
-        // second card
+        // birth details card
         else if (current_field_name == fields.dateOfBirth) {
             austrian_date = dateToAustrian(formData.dateOfBirth);
             setFieldText(current_field, austrian_date);
@@ -135,7 +135,7 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.religionOrCommunity) {
             setFieldText(current_field, formData.religionOrCommunity);
         }
-        // third card
+        // citizenship card
         else if (current_field_name == fields.placeOfBirth) {
             setFieldText(current_field, formData.placeOfBirth);
         }
@@ -148,6 +148,20 @@ function fillPdfFields(form, formData) {
         }
         else if (current_field_name == fields.nameOfState) {
             setFieldText(current_field, formData.stateName);
+        }
+        // Foreign Passport fields
+        else if (current_field_name == fields.documentType) {
+            setFieldText(current_field, formData.documentType);
+        }
+        else if (current_field_name == fields.documentNumber) {
+            setFieldText(current_field, formData.documentNumber);
+        }
+        else if (current_field_name == fields.documentIssueDate) {
+            const austrianDate = dateToAustrian(formData.documentIssueDate);
+            setFieldText(current_field, austrianDate);
+        }
+        else if (current_field_name == fields.documentIssuingAuthority) {
+            setFieldText(current_field, formData.documentIssuingAuthority);
         }
     });
 }

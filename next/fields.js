@@ -17,10 +17,10 @@ const fields = {
 
     // next
     nameOfState: "Name des Staates", // Name des Staates
-    documentType: "Reisedokument bei Fremden / Art des Dokuments", // Reisedokument Art
-    documentNumber: "Reisedokument bei Fremden / Nummer", // Reisedokument Nummer
-    documentIssueDate: "Reisedokument bei Fremden / Ausstellungsdatum", // Reisedokument Ausstellungsdatum
-    documentIssuingAuthority: "Reisedokument bei Fremden / ausstellende Behörde, Staat", // Reisedokument ausstellende Behörde
+    documentType: "Reisedokument bei Fremden / Art des Dokuments", // Document Type
+    documentNumber: "Reisedokument bei Fremden / Nummer", // Document Number
+    documentIssueDate: "Reisedokument bei Fremden / Ausstellungsdatum", // Issue Date
+    documentIssuingAuthority: "Reisedokument bei Fremden / ausstellende Behörde, Staat", // Issuing Authority
 
     registrationStreet: "Anmeldung der Unterkunft in Straße (Platz) bzw. Ort ohne Straßennamen", // Anmeldung der Unterkunft Straße
     registrationHouseNumber: "Anmeldung der Unterkunft in Haus Nr", // Anmeldung der Unterkunft Haus Nr
