@@ -90,7 +90,30 @@ const translations = {
         documentIssueDate: "Issue Date",
         documentIssueDateTooltip: "The date when your document was issued",
         documentIssuingAuthority: "Issuing Authority",
-        documentIssuingAuthorityTooltip: "Authority that issued your document, e.g. \"US Department of State\""
+        documentIssuingAuthorityTooltip: "Authority that issued your document, e.g. \"US Department of State\"",
+
+        // Registration Address Card
+        registrationAddressTitle: "Registration Address",
+        registrationAddressSubtitle: "Please enter your new address in Vienna",
+        registrationStreet: "Street",
+        registrationStreetTooltip: "Street name of your residence in Vienna",
+        registrationHouseNumber: "House Number",
+        registrationHouseNumberTooltip: "Building number",
+        registrationStaircase: "Staircase",
+        registrationStaircaseTooltip: "Staircase number if applicable",
+        registrationApartmentNumber: "Door Number",
+        registrationApartmentNumberTooltip: "Apartment/Door number if applicable",
+        registrationPostalCode: "Postal Code",
+        registrationPostalCodeTooltip: "Vienna postal code (4 digits)",
+        registrationMunicipality: "Municipality",
+        registrationMunicipalityTooltip: "Municipality (Wien)",
+        isMainResidence: "Main Residence",
+        isMainResidenceTooltip: "Is this your main residence (Hauptwohnsitz)?",
+        isMainResidenceSelectPrompt: "Select residence type",
+        isMainResidenceOptions: {
+            yes: "Yes, this is my main residence",
+            no: "No, this is my secondary residence"
+        }
     },
 
     // --------------------------------------------------------------- //
@@ -184,6 +207,29 @@ const translations = {
         documentIssueDate: "Ausstellungsdatum",
         documentIssueDateTooltip: "Das Datum, an dem Ihr Dokument ausgestellt wurde",
         documentIssuingAuthority: "Ausstellende Behörde",
-        documentIssuingAuthorityTooltip: "Behörde, die Ihr Dokument ausgestellt hat, z.B. \"US Department of State\""
+        documentIssuingAuthorityTooltip: "Behörde, die Ihr Dokument ausgestellt hat, z.B. \"US Department of State\"",
+
+        // Registration Address Card
+        registrationAddressTitle: "Meldeadresse",
+        registrationAddressSubtitle: "Bitte geben Sie Ihre neue Adresse in Wien ein",
+        registrationStreet: "Straße",
+        registrationStreetTooltip: "Straßenname Ihrer Wohnung in Wien",
+        registrationHouseNumber: "Hausnummer",
+        registrationHouseNumberTooltip: "Gebäudenummer",
+        registrationStaircase: "Stiege",
+        registrationStaircaseTooltip: "Stiegennummer falls zutreffend",
+        registrationApartmentNumber: "Türnummer",
+        registrationApartmentNumberTooltip: "Wohnungs-/Türnummer falls zutreffend",
+        registrationPostalCode: "Postleitzahl",
+        registrationPostalCodeTooltip: "Wiener Postleitzahl (4 Ziffern)",
+        registrationMunicipality: "Gemeinde",
+        registrationMunicipalityTooltip: "Gemeinde (Wien)",
+        isMainResidence: "Hauptwohnsitz",
+        isMainResidenceTooltip: "Ist dies Ihr Hauptwohnsitz?",
+        isMainResidenceSelectPrompt: "Wohnsitzart auswählen",
+        isMainResidenceOptions: {
+            yes: "Ja, dies ist mein Hauptwohnsitz",
+            no: "Nein, dies ist mein Nebenwohnsitz"
+        }
     }    
 }; 

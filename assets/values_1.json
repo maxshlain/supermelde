@@ -14,5 +14,12 @@
     "documentType": "Reisepass",
     "documentNumber": "1234567890",
     "documentIssueDate": "2020-01-01",
-    "documentIssuingAuthority": "US Department of State"
+    "documentIssuingAuthority": "US Department of State",
+    "registrationStreet": "Nordbahnhofstraße",
+    "registrationHouseNumber": "47",
+    "registrationStaircase": "5",
+    "registrationApartmentNumber": "5151",
+    "registrationPostalCode": "1020",
+    "registrationMunicipality": "Wien",
+    "isMainResidence": "yes"
 }

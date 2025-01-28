@@ -142,6 +142,53 @@ function validateForeignPassportCard() {
     return isValid;
 }
 
+function validateRegistrationAddressCard() {
+    const registrationStreet = document.getElementById('registrationStreet');
+    const registrationHouseNumber = document.getElementById('registrationHouseNumber');
+    const registrationPostalCode = document.getElementById('registrationPostalCode');
+    const registrationMunicipality = document.getElementById('registrationMunicipality');
+    const isMainResidence = document.getElementById('isMainResidence');
+    let isValid = true;
+
+    // Clear previous error states
+    [registrationStreet, registrationHouseNumber, registrationPostalCode, 
+     registrationMunicipality, isMainResidence].forEach(field => {
+        field.closest('.form-group').classList.remove('error');
+    });
+
+    if (!registrationStreet.value.trim()) {
+        registrationStreet.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!registrationHouseNumber.value.trim()) {
+        registrationHouseNumber.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!registrationPostalCode.value.trim() || !/^[0-9]{4}$/.test(registrationPostalCode.value)) {
+        registrationPostalCode.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!registrationMunicipality.value.trim()) {
+        registrationMunicipality.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isMainResidence.value) {
+        isMainResidence.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+    }
+
+    return isValid;
+}
+
 function add_change_handlers() {
     // Add nationality change handler
     const nationalitySelect = document.getElementById('nationality');
@@ -178,6 +225,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     const citizenshipCard = document.getElementById('citizenshipCard');
     const citizenshipBackButton = document.getElementById('citizenshipBackButton');
     const citizenshipNextButton = document.getElementById('citizenshipNextButton');
+    const registrationAddressCard = document.getElementById('registrationAddressCard');
+    const registrationAddressBackButton = document.getElementById('registrationAddressBackButton');
+    const registrationAddressNextButton = document.getElementById('registrationAddressNextButton');
 
     // Initialize language functionality
     initializeLanguageButtons();
@@ -231,12 +281,33 @@ document.addEventListener('DOMContentLoaded', async function() {
         citizenshipCard.style.display = 'block';
     });
 
+    // foreignPassportNextButton.addEventListener('click', () => {
+    //     const isValid = validateForeignPassportCard();
+    //     if (isValid) {
+    //         prepare_and_submit_form();
+    //     }
+    // });
+
     foreignPassportNextButton.addEventListener('click', () => {
         const isValid = validateForeignPassportCard();
+        if (isValid) {
+            foreignPassportCard.style.display = 'none';
+            registrationAddressCard.style.display = 'block';
+        }
+    });
+
+    registrationAddressBackButton.addEventListener('click', () => {
+        registrationAddressCard.style.display = 'none';
+        foreignPassportCard.style.display = 'block';
+    });
+
+    registrationAddressNextButton.addEventListener('click', () => {
+        const isValid = validateRegistrationAddressCard();
         if (isValid) {
             prepare_and_submit_form();
         }
     });
+
 
     // Load and apply default values if specified
     const defaultValues = await loadDefaultValues();
@@ -247,7 +318,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     add_change_handlers();
 
     // Set current year in footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    // document.getElementById('currentYear').textContent = new Date().getFullYear();
 }); 
 
 function prepare_and_submit_form() {

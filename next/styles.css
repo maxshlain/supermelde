@@ -477,4 +477,15 @@ body {
     color: #666;
     margin-top: 2em;
     font-style: italic;
+}
+
+/* Postal code input */
+#registrationPostalCode {
+    max-width: 120px;
+}
+
+/* Municipality input (readonly) */
+#registrationMunicipality[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
 } 

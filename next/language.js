@@ -23,6 +23,7 @@ function updateCardLanguage(lang) {
     updateBirthDetailsCard(lang);
     updateCitizenshipCard(lang);
     updateForeignPassportCard(lang);
+    updateRegistrationAddressCard(lang);
 
     // Update made with love text
     const currentYear = new Date().getFullYear();
@@ -142,6 +143,46 @@ function updateForeignPassportCard(lang) {
     // Update navigation buttons
     document.querySelector('#foreignPassportBackButton').textContent = translations[lang].back;
     document.querySelector('#foreignPassportNextButton').textContent = translations[lang].submit;
+}
+
+function updateRegistrationAddressCard(lang) {
+    // Update card title and subtitle
+    document.querySelector('#registrationAddressCard h2').textContent = translations[lang].registrationAddressTitle;
+    document.querySelector('#registrationAddressCard p').textContent = translations[lang].registrationAddressSubtitle;
+    
+    // Update field labels and tooltips
+    document.querySelector('label[for="registrationStreet"]').textContent = translations[lang].registrationStreet;
+    document.querySelector('#registrationStreet').nextElementSibling.textContent = translations[lang].registrationStreetTooltip;
+    
+    document.querySelector('label[for="registrationHouseNumber"]').textContent = translations[lang].registrationHouseNumber;
+    document.querySelector('#registrationHouseNumber').nextElementSibling.textContent = translations[lang].registrationHouseNumberTooltip;
+    
+    document.querySelector('label[for="registrationStaircase"]').textContent = translations[lang].registrationStaircase;
+    document.querySelector('#registrationStaircase').nextElementSibling.textContent = translations[lang].registrationStaircaseTooltip;
+    
+    document.querySelector('label[for="registrationApartmentNumber"]').textContent = translations[lang].registrationApartmentNumber;
+    document.querySelector('#registrationApartmentNumber').nextElementSibling.textContent = translations[lang].registrationApartmentNumberTooltip;
+    
+    document.querySelector('label[for="registrationPostalCode"]').textContent = translations[lang].registrationPostalCode;
+    document.querySelector('#registrationPostalCode').nextElementSibling.textContent = translations[lang].registrationPostalCodeTooltip;
+    
+    document.querySelector('label[for="registrationMunicipality"]').textContent = translations[lang].registrationMunicipality;
+    document.querySelector('#registrationMunicipality').nextElementSibling.textContent = translations[lang].registrationMunicipalityTooltip;
+    
+    document.querySelector('label[for="isMainResidence"]').textContent = translations[lang].isMainResidence;
+    document.querySelector('#isMainResidence').nextElementSibling.textContent = translations[lang].isMainResidenceTooltip;
+
+    // Update main residence select options
+    const mainResidenceSelect = document.getElementById('isMainResidence');
+    mainResidenceSelect.innerHTML = `
+        <option value="" disabled selected>${translations[lang].isMainResidenceSelectPrompt}</option>
+        <option value="yes">${translations[lang].isMainResidenceOptions.yes}</option>
+        <option value="no">${translations[lang].isMainResidenceOptions.no}</option>
+    `;
+
+    // Update navigation buttons
+    document.querySelector('#registrationAddressBackButton').textContent = translations[lang].back;
+    document.querySelector('#registrationAddressNextButton').textContent = translations[lang].next;
 }
 
 // Initialize language buttons
