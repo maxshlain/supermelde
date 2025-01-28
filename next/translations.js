@@ -72,7 +72,23 @@ const translations = {
             no: "other country"
         },
         stateName: "Name of State",
-        stateNameTooltip: "Please enter the name of your country of citizenship"
+        stateNameTooltip: "Please enter the name of your country of citizenship",
+
+        // Foreign Passport Card
+        foreignPassportTitle: "Foreign Passport Details",
+        foreignPassportSubtitle: "Please enter your passport information exactly as it appears in your passport",
+        documentType: "Document Type",
+        documentTypeTooltip: "Type of your identification document",
+        documentTypeOptions: {
+            passport: "Passport",
+            idCard: "ID Card"
+        },
+        documentNumber: "Document Number",
+        documentNumberTooltip: "The number of your passport or ID card",
+        documentIssueDate: "Issue Date",
+        documentIssueDateTooltip: "The date when your document was issued",
+        documentIssuingAuthority: "Issuing Authority",
+        documentIssuingAuthorityTooltip: "Authority that issued your document, e.g. \"US Department of State\""
     },
 
     // --------------------------------------------------------------- //
@@ -148,6 +164,22 @@ const translations = {
             no: "anderer Staat"
         },
         stateName: "Name des Staates",
-        stateNameTooltip: "Bitte geben Sie den Namen Ihres Herkunftslandes ein"
+        stateNameTooltip: "Bitte geben Sie den Namen Ihres Herkunftslandes ein",
+
+        // Foreign Passport Card
+        foreignPassportTitle: "Ausweisdokument Details",
+        foreignPassportSubtitle: "Bitte geben Sie Ihre Passinformationen genau wie im Pass ein",
+        documentType: "Dokumententyp",
+        documentTypeTooltip: "Art Ihres Ausweisdokuments",
+        documentTypeOptions: {
+            passport: "Reisepass",
+            idCard: "Personalausweis"
+        },
+        documentNumber: "Dokumentennummer",
+        documentNumberTooltip: "Die Nummer Ihres Passes oder Personalausweises",
+        documentIssueDate: "Ausstellungsdatum",
+        documentIssueDateTooltip: "Das Datum, an dem Ihr Dokument ausgestellt wurde",
+        documentIssuingAuthority: "Ausstellende Behörde",
+        documentIssuingAuthorityTooltip: "Behörde, die Ihr Dokument ausgestellt hat, z.B. \"US Department of State\""
     }
 }; 

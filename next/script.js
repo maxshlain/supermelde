@@ -102,6 +102,46 @@ function validateCitizenshipCard() {
     return isValid;
 }
 
+function validateForeignPassportCard() {
+    const documentType = document.getElementById('documentType');
+    const documentNumber = document.getElementById('documentNumber');
+    const documentIssueDate = document.getElementById('documentIssueDate');
+    const documentIssuingAuthority = document.getElementById('documentIssuingAuthority');
+    let isValid = true;
+
+    // Clear previous error states
+    [documentType, documentNumber, documentIssueDate, documentIssuingAuthority].forEach(field => {
+        field.closest('.form-group').classList.remove('error');
+    });
+
+    if (!documentType.value) {
+        documentType.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!documentNumber.value.trim()) {
+        documentNumber.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!documentIssueDate.value) {
+        documentIssueDate.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!documentIssuingAuthority.value.trim()) {
+        documentIssuingAuthority.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+    }
+
+    return isValid;
+}
+
 function add_change_handlers() {
     // Add nationality change handler
     const nationalitySelect = document.getElementById('nationality');
@@ -112,7 +152,6 @@ function add_change_handlers() {
         if (this.value === 'anderer Staat') {
             stateNameInput.disabled = false;
             stateNameInput.required = true;
-            
             stateNameLabel.classList.add('required');
             stateNameInput.value = ''; // Clear any previous value
         } else {
@@ -122,6 +161,21 @@ function add_change_handlers() {
             stateNameInput.value = ''; // Clear the field when disabled
         }
     });
+
+    // const foreignPassportCard = document.getElementById('foreignPassportCard');
+    // const foreignPassportBackButton = document.getElementById('foreignPassportBackButton');
+    // const foreignPassportNextButton = document.getElementById('foreignPassportNextButton');
+
+    // foreignPassportBackButton.addEventListener('click', () => {
+    //     foreignPassportCard.style.display = 'none';
+    //     citizenshipCard.style.display = 'block';
+    // });
+
+    // foreignPassportNextButton.addEventListener('click', () => {
+    //     if (validateForeignPassportCard()) {
+    //         prepare_and_submit_form();
+    //     }
+    // });
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -180,7 +234,20 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     citizenshipNextButton.addEventListener('click', () => {
-        if (validateCitizenshipCard()) {
+        const isValid = validateCitizenshipCard();
+        if (isValid) {
+            citizenshipCard.style.display = 'none';
+            foreignPassportCard.style.display = 'block';
+        }
+    });
+
+    foreignPassportBackButton.addEventListener('click', () => {
+        foreignPassportCard.style.display = 'none';
+        citizenshipCard.style.display = 'block';
+    });
+
+    foreignPassportNextButton.addEventListener('click', () => {
+        if (validateForeignPassportCard()) {
             prepare_and_submit_form();
         }
     });
@@ -192,6 +259,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     add_change_handlers();
+
+    
 }); 
 
 function prepare_and_submit_form() {
@@ -207,7 +276,11 @@ function prepare_and_submit_form() {
         placeOfBirth: document.getElementById('placeOfBirth').value.trim(),
         maritalStatus: document.getElementById('maritalStatus').value,
         nationality: document.getElementById('nationality').value,
-        stateName: document.getElementById('stateName').value.trim()
+        stateName: document.getElementById('stateName').value.trim(),
+        documentType: document.getElementById('documentType')?.value || '',
+        documentNumber: document.getElementById('documentNumber')?.value.trim() || '',
+        documentIssueDate: document.getElementById('documentIssueDate')?.value || '',
+        documentIssuingAuthority: document.getElementById('documentIssuingAuthority')?.value.trim() || ''
     };
     
     handleFormSubmit(formData);

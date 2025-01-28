@@ -181,7 +181,58 @@
 
             <div class="wizard-navigation">
                 <button class="back-button" id="citizenshipBackButton">Back</button>
-                <button class="next-button" id="citizenshipNextButton">Submit</button>
+                <button class="next-button" id="citizenshipNextButton">Next</button>
+            </div>
+        </div>
+
+        <!-- --------------------------------------------------------------- -->
+        <!--                     Foreign Passport Card                       -->
+        <!-- --------------------------------------------------------------- -->
+        <div class="wizard-card" id="foreignPassportCard" style="display: none;">
+            <div class="progress-indicator">
+                <div class="progress-step completed">1</div>
+                <div class="progress-step completed">2</div>
+                <div class="progress-step completed">3</div>
+                <div class="progress-step active">4</div>
+            </div>
+            <h2>Foreign Passport Details</h2>
+            <p>Please enter your passport information exactly as it appears in your passport</p>
+            
+            <div class="form-group">
+                <label for="documentType" class="required">Document Type</label>
+                <select id="documentType" required>
+                    <option value="" disabled selected>Select document type</option>
+                    <option value="Reisepass">Passport</option>
+                    <option value="Personalausweis">ID Card</option>
+                </select>
+                <div class="tooltip">Type of your identification document</div>
+            </div>
+
+            <div class="form-group">
+                <label for="documentNumber" class="required">Document Number</label>
+                <input type="text" id="documentNumber" required>
+                <div class="tooltip">The number of your passport or ID card</div>
+            </div>
+
+            <div class="form-group">
+                <label for="documentIssueDate" class="required">Issue Date</label>
+                <input type="date" id="documentIssueDate" required>
+                <div class="tooltip">The date when your document was issued</div>
+            </div>
+
+            <div class="form-group">
+                <label for="documentIssuingAuthority" class="required">Issuing Authority</label>
+                <input type="text" id="documentIssuingAuthority" required>
+                <div class="tooltip">Authority that issued your document, e.g. "US Department of State"</div>
+            </div>
+
+            <div class="required-fields-note">
+                <span>*</span> Required fields
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="back-button" id="foreignPassportBackButton">Back</button>
+                <button class="next-button" id="foreignPassportNextButton">Next</button>
             </div>
         </div>
 
