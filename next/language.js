@@ -106,9 +106,37 @@ function updateCitizenshipCard(lang) {
 }
 
 function updateForeignPassportCard(lang) {
+    // Update card title and subtitle
+    document.querySelector('#foreignPassportCard h2').textContent = translations[lang].foreignPassportTitle;
+    document.querySelector('#foreignPassportCard p').textContent = translations[lang].foreignPassportSubtitle;
     
+    // Update document type field
+    document.querySelector('label[for="documentType"]').textContent = translations[lang].documentType;
+    document.querySelector('#documentType').nextElementSibling.textContent = translations[lang].documentTypeTooltip;
+    
+    // Update document type options
+    const documentTypeSelect = document.getElementById('documentType');
+    documentTypeSelect.innerHTML = `
+        <option value="" disabled selected>${translations[lang].documentTypeSelectPrompt || 'Select document type'}</option>
+        <option value="Reisepass">${translations[lang].documentTypeOptions.passport}</option>
+        <option value="Personalausweis">${translations[lang].documentTypeOptions.idCard}</option>
+    `;
+
+    // Update document number field
+    document.querySelector('label[for="documentNumber"]').textContent = translations[lang].documentNumber;
+    document.querySelector('#documentNumber').nextElementSibling.textContent = translations[lang].documentNumberTooltip;
+
+    // Update issue date field
+    document.querySelector('label[for="documentIssueDate"]').textContent = translations[lang].documentIssueDate;
+    document.querySelector('#documentIssueDate').nextElementSibling.textContent = translations[lang].documentIssueDateTooltip;
+
+    // Update issuing authority field
+    document.querySelector('label[for="documentIssuingAuthority"]').textContent = translations[lang].documentIssuingAuthority;
+    document.querySelector('#documentIssuingAuthority').nextElementSibling.textContent = translations[lang].documentIssuingAuthorityTooltip;
+
+    // Update navigation buttons
     document.querySelector('#foreignPassportBackButton').textContent = translations[lang].back;
-    document.querySelector('#foreignPassportNextButton').textContent = translations[lang].next;
+    document.querySelector('#foreignPassportNextButton').textContent = translations[lang].submit;
 }
 
 // Initialize language buttons
