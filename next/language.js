@@ -22,6 +22,7 @@ function updateCardLanguage(lang) {
     updatePersonalCard(lang);
     updateBirthDetailsCard(lang);
     updateCitizenshipCard(lang);
+    updateForeignPassportCard(lang);
 }
 
 function updatePersonalCard(lang) {
@@ -70,7 +71,7 @@ function updateCitizenshipCard(lang) {
     document.querySelector('label[for="placeOfBirth"]').textContent = translations[lang].placeOfBirth;
     document.querySelector('#placeOfBirth').nextElementSibling.textContent = translations[lang].placeOfBirthTooltip;
     document.querySelector('#citizenshipBackButton').textContent = translations[lang].back;
-    document.querySelector('#citizenshipNextButton').textContent = translations[lang].submit;
+    document.querySelector('#citizenshipNextButton').textContent = translations[lang].next;
 
     // Update marital status field
     document.querySelector('label[for="maritalStatus"]').textContent = translations[lang].maritalStatus;
@@ -102,6 +103,12 @@ function updateCitizenshipCard(lang) {
     // Add state name translations
     document.querySelector('label[for="stateName"]').textContent = translations[lang].stateName;
     document.querySelector('#stateName').nextElementSibling.textContent = translations[lang].stateNameTooltip;
+}
+
+function updateForeignPassportCard(lang) {
+    
+    document.querySelector('#foreignPassportBackButton').textContent = translations[lang].back;
+    document.querySelector('#foreignPassportNextButton').textContent = translations[lang].next;
 }
 
 // Initialize language buttons

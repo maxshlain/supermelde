@@ -39,7 +39,6 @@ function applyDefaultValues(values) {
     nextButton.disabled = false;
     personalNextButton.disabled = false;
     birthDetailsNextButton.disabled = false;
-    birthDetailsNextButton.textContent = translations[values.language]?.submit || 'Submit';
 }
 
 export {
