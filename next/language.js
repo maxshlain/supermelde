@@ -23,6 +23,11 @@ function updateCardLanguage(lang) {
     updateBirthDetailsCard(lang);
     updateCitizenshipCard(lang);
     updateForeignPassportCard(lang);
+
+    // Update made with love text
+    const currentYear = new Date().getFullYear();
+    const madeWithLoveText = translations[lang].madeWithLove.replace('{year}', currentYear);
+    document.getElementById('madeWithLove').textContent = madeWithLoveText
 }
 
 function updatePersonalCard(lang) {

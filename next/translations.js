@@ -11,6 +11,7 @@ const translations = {
         german: "German",
         siteExplanation: "Get the meldezettel form filled correctly and quickly. All data stays on your device",
         fillRequiredFields: "EN Please fill out all required fields",
+        madeWithLove: "Made with ❤️ to Vienna in 2024-{year}",
 
         // Navigation buttons
         back: "Back",
@@ -104,6 +105,7 @@ const translations = {
         german: "Deutsch",
         siteExplanation: "Füllen Sie das Meldezettel-Formular korrekt und schnell aus. Alle Daten bleiben auf Ihrem Gerät",
         fillRequiredFields: "Bitte füllen Sie alle erforderlichen Felder aus",
+        madeWithLove: "Mit ❤️ für Wien gemacht in 2024-{year}",
 
         // Navigation buttons
         back: "Zurück",
@@ -183,5 +185,5 @@ const translations = {
         documentIssueDateTooltip: "Das Datum, an dem Ihr Dokument ausgestellt wurde",
         documentIssuingAuthority: "Ausstellende Behörde",
         documentIssuingAuthorityTooltip: "Behörde, die Ihr Dokument ausgestellt hat, z.B. \"US Department of State\""
-    }
+    }    
 }; 
