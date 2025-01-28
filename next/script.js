@@ -161,21 +161,6 @@ function add_change_handlers() {
             stateNameInput.value = ''; // Clear the field when disabled
         }
     });
-
-    // const foreignPassportCard = document.getElementById('foreignPassportCard');
-    // const foreignPassportBackButton = document.getElementById('foreignPassportBackButton');
-    // const foreignPassportNextButton = document.getElementById('foreignPassportNextButton');
-
-    // foreignPassportBackButton.addEventListener('click', () => {
-    //     foreignPassportCard.style.display = 'none';
-    //     citizenshipCard.style.display = 'block';
-    // });
-
-    // foreignPassportNextButton.addEventListener('click', () => {
-    //     if (validateForeignPassportCard()) {
-    //         prepare_and_submit_form();
-    //     }
-    // });
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
