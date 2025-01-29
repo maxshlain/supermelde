@@ -397,7 +397,13 @@ function prepare_and_submit_form() {
         registrationApartmentNumber: document.getElementById('registrationApartmentNumber')?.value.trim() || '',
         registrationPostalCode: document.getElementById('registrationPostalCode')?.value.trim() || '',
         registrationMunicipality: document.getElementById('registrationMunicipality')?.value.trim() || '',
-        isMainResidence: document.getElementById('isMainResidence')?.value || ''
+        isMainResidence: document.getElementById('isMainResidence')?.value || '',
+        previousResidenceStreet: document.getElementById('previousResidenceStreet')?.value.trim() || '',
+        previousResidenceHouseNumber: document.getElementById('previousResidenceHouseNumber')?.value.trim() || '',
+        previousResidenceStaircase: document.getElementById('previousResidenceStaircase')?.value.trim() || '',
+        previousResidenceApartmentNumber: document.getElementById('previousResidenceApartmentNumber')?.value.trim() || '',
+        previousResidencePostalCode: document.getElementById('previousResidencePostalCode')?.value.trim() || '',
+        previousResidenceMunicipality: document.getElementById('previousResidenceMunicipality')?.value.trim() || '',
     };
     
     handleFormSubmit(formData);

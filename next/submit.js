@@ -185,5 +185,23 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.isMainResidence) {
             current_field.select(formData.isMainResidence);
         }
+        else if (current_field_name == fields.previousResidenceStreet) {
+            setFieldText(current_field, formData.previousResidenceStreet);
+        }
+        else if (current_field_name == fields.previousResidenceHouseNumber) {
+            setFieldText(current_field, formData.previousResidenceHouseNumber);
+        }
+        else if (current_field_name == fields.previousResidenceStaircase) {
+            setFieldText(current_field, formData.previousResidenceStaircase);
+        }
+        else if (current_field_name == fields.previousResidenceApartmentNumber) {
+            setFieldText(current_field, formData.previousResidenceApartmentNumber);
+        }
+        else if (current_field_name == fields.previousResidencePostalCode) {
+            setFieldText(current_field, formData.previousResidencePostalCode);
+        }
+        else if (current_field_name == fields.previousResidenceMunicipality) {
+            setFieldText(current_field, formData.previousResidenceMunicipality);
+        }
     });
 }
