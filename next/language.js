@@ -213,7 +213,7 @@ function updatePreviousResidenceCard(lang) {
 
     // Update navigation buttons
     document.querySelector('#previousResidenceBackButton').textContent = translations[lang].back;
-    document.querySelector('#previousResidenceNextButton').textContent = translations[lang].submit;
+    document.querySelector('#previousResidenceNextButton').textContent = translations[lang].next;
 }
 
 function updateDeregistrationCard(lang) {
