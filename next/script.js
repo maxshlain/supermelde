@@ -189,6 +189,47 @@ function validateRegistrationAddressCard() {
     return isValid;
 }
 
+function validatePreviousResidenceCard() {
+    const previousResidenceStreet = document.getElementById('previousResidenceStreet');
+    const previousResidenceHouseNumber = document.getElementById('previousResidenceHouseNumber');
+    const previousResidencePostalCode = document.getElementById('previousResidencePostalCode');
+    const previousResidenceMunicipality = document.getElementById('previousResidenceMunicipality');
+    let isValid = true;
+
+    // Clear previous error states
+    [previousResidenceStreet, previousResidenceHouseNumber, 
+     previousResidencePostalCode, previousResidenceMunicipality].forEach(field => {
+        field.closest('.form-group').classList.remove('error');
+    });
+
+    if (!previousResidenceStreet.value.trim()) {
+        previousResidenceStreet.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!previousResidenceHouseNumber.value.trim()) {
+        previousResidenceHouseNumber.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!previousResidencePostalCode.value.trim()) {
+        previousResidencePostalCode.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!previousResidenceMunicipality.value.trim()) {
+        previousResidenceMunicipality.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+    }
+
+    return isValid;
+}
+
 function add_change_handlers() {
     // Add nationality change handler
     const nationalitySelect = document.getElementById('nationality');
@@ -228,6 +269,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     const registrationAddressCard = document.getElementById('registrationAddressCard');
     const registrationAddressBackButton = document.getElementById('registrationAddressBackButton');
     const registrationAddressNextButton = document.getElementById('registrationAddressNextButton');
+    const previousResidenceCard = document.getElementById('previousResidenceCard');
+    const previousResidenceBackButton = document.getElementById('previousResidenceBackButton');
+    const previousResidenceNextButton = document.getElementById('previousResidenceNextButton');
 
     // Initialize language functionality
     initializeLanguageButtons();
@@ -297,10 +341,25 @@ document.addEventListener('DOMContentLoaded', async function() {
     registrationAddressNextButton.addEventListener('click', () => {
         const isValid = validateRegistrationAddressCard();
         if (isValid) {
-            prepare_and_submit_form();
+            //const isMainResidence = document.getElementById('isMainResidence').value;
+            registrationAddressCard.style.display = 'none';
+            previousResidenceCard.style.display = 'block';
         }
     });
 
+    previousResidenceBackButton.addEventListener('click', () => {
+        previousResidenceCard.style.display = 'none';
+        registrationAddressCard.style.display = 'block';
+    });
+
+    previousResidenceNextButton.addEventListener('click', () => {
+        const isValid = validatePreviousResidenceCard();
+        if (isValid) {
+            prepare_and_submit_form();
+            // previousResidenceCard.style.display = 'none';
+            // deregistrationCard.style.display = 'block';
+        }
+    });
 
     // Load and apply default values if specified
     const defaultValues = await loadDefaultValues();

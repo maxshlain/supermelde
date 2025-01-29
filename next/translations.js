@@ -113,7 +113,23 @@ const translations = {
         isMainResidenceOptions: {
             yes: "Yes, this is my main residence",
             no: "No, this is my secondary residence"
-        }
+        },
+
+        // Previous Residence Card
+        previousResidenceTitle: "Main Residence Address",
+        previousResidenceSubtitle: "Please enter your main residence address",
+        previousResidenceStreet: "Street",
+        previousResidenceStreetTooltip: "Street name of your main residence",
+        previousResidenceHouseNumber: "House Number",
+        previousResidenceHouseNumberTooltip: "Building number",
+        previousResidenceStaircase: "Staircase",
+        previousResidenceStaircaseTooltip: "Staircase number if applicable",
+        previousResidenceApartmentNumber: "Door Number",
+        previousResidenceApartmentNumberTooltip: "Apartment/Door number if applicable",
+        previousResidencePostalCode: "Postal Code",
+        previousResidencePostalCodeTooltip: "Postal code",
+        previousResidenceMunicipality: "Municipality",
+        previousResidenceMunicipalityTooltip: "Municipality and state/province"
     },
 
     // --------------------------------------------------------------- //
@@ -230,6 +246,22 @@ const translations = {
         isMainResidenceOptions: {
             yes: "Ja, dies ist mein Hauptwohnsitz",
             no: "Nein, dies ist mein Nebenwohnsitz"
-        }
+        },
+
+        // Previous Residence Card
+        previousResidenceTitle: "Hauptwohnsitz Adresse",
+        previousResidenceSubtitle: "Bitte geben Sie Ihre Hauptwohnsitz-Adresse ein",
+        previousResidenceStreet: "Straße",
+        previousResidenceStreetTooltip: "Straßenname Ihres Hauptwohnsitzes",
+        previousResidenceHouseNumber: "Hausnummer",
+        previousResidenceHouseNumberTooltip: "Gebäudenummer",
+        previousResidenceStaircase: "Stiege",
+        previousResidenceStaircaseTooltip: "Stiegennummer falls zutreffend",
+        previousResidenceApartmentNumber: "Türnummer",
+        previousResidenceApartmentNumberTooltip: "Wohnungs-/Türnummer falls zutreffend",
+        previousResidencePostalCode: "Postleitzahl",
+        previousResidencePostalCodeTooltip: "Postleitzahl",
+        previousResidenceMunicipality: "Gemeinde",
+        previousResidenceMunicipalityTooltip: "Gemeinde und Bundesland"
     }    
 }; 

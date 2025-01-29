@@ -318,6 +318,67 @@
             </div>
         </div>
 
+        <!-- --------------------------------------------------------------- -->
+        <!--                     Previous Residence Card                     -->
+        <!-- --------------------------------------------------------------- -->
+        <div class="wizard-card" id="previousResidenceCard" style="display: none;">
+            <div class="progress-indicator">
+                <div class="progress-step completed">1</div>
+                <div class="progress-step completed">2</div>
+                <div class="progress-step completed">3</div>
+                <div class="progress-step completed">4</div>
+                <div class="progress-step completed">5</div>
+                <div class="progress-step active">6</div>
+            </div>
+            <h2>Main Residence Address</h2>
+            <p>Please enter your main residence address</p>
+            
+            <div class="form-group">
+                <label for="previousResidenceStreet" class="required">Street</label>
+                <input type="text" id="previousResidenceStreet" required>
+                <div class="tooltip">Street name of your main residence</div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousResidenceHouseNumber" class="required">House Number</label>
+                <input type="text" id="previousResidenceHouseNumber" required>
+                <div class="tooltip">Building number</div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousResidenceStaircase" class="optional">Staircase</label>
+                <input type="text" id="previousResidenceStaircase">
+                <div class="tooltip">Staircase number if applicable</div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousResidenceApartmentNumber" class="optional">Door Number</label>
+                <input type="text" id="previousResidenceApartmentNumber">
+                <div class="tooltip">Apartment/Door number if applicable</div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousResidencePostalCode" class="required">Postal Code</label>
+                <input type="text" id="previousResidencePostalCode" required>
+                <div class="tooltip">Postal code</div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousResidenceMunicipality" class="required">Municipality</label>
+                <input type="text" id="previousResidenceMunicipality" required>
+                <div class="tooltip">Municipality and state/province</div>
+            </div>
+
+            <div class="required-fields-note">
+                <span>*</span> Required fields
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="back-button" id="previousResidenceBackButton">Back</button>
+                <button class="next-button" id="previousResidenceNextButton">Submit</button>
+            </div>
+        </div>
+
     <!-- End of wizard-container -->
     </div> <!-- End of wizard-container -->
     <!-- End of wizard-container -->

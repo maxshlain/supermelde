@@ -24,6 +24,7 @@ function updateCardLanguage(lang) {
     updateCitizenshipCard(lang);
     updateForeignPassportCard(lang);
     updateRegistrationAddressCard(lang);
+    updatePreviousResidenceCard(lang);
 
     // Update made with love text
     const currentYear = new Date().getFullYear();
@@ -183,6 +184,35 @@ function updateRegistrationAddressCard(lang) {
     // Update navigation buttons
     document.querySelector('#registrationAddressBackButton').textContent = translations[lang].back;
     document.querySelector('#registrationAddressNextButton').textContent = translations[lang].next;
+}
+
+function updatePreviousResidenceCard(lang) {
+    // Update card title and subtitle
+    document.querySelector('#previousResidenceCard h2').textContent = translations[lang].previousResidenceTitle;
+    document.querySelector('#previousResidenceCard p').textContent = translations[lang].previousResidenceSubtitle;
+    
+    // Update field labels and tooltips
+    document.querySelector('label[for="previousResidenceStreet"]').textContent = translations[lang].previousResidenceStreet;
+    document.querySelector('#previousResidenceStreet').nextElementSibling.textContent = translations[lang].previousResidenceStreetTooltip;
+    
+    document.querySelector('label[for="previousResidenceHouseNumber"]').textContent = translations[lang].previousResidenceHouseNumber;
+    document.querySelector('#previousResidenceHouseNumber').nextElementSibling.textContent = translations[lang].previousResidenceHouseNumberTooltip;
+    
+    document.querySelector('label[for="previousResidenceStaircase"]').textContent = translations[lang].previousResidenceStaircase;
+    document.querySelector('#previousResidenceStaircase').nextElementSibling.textContent = translations[lang].previousResidenceStaircaseTooltip;
+    
+    document.querySelector('label[for="previousResidenceApartmentNumber"]').textContent = translations[lang].previousResidenceApartmentNumber;
+    document.querySelector('#previousResidenceApartmentNumber').nextElementSibling.textContent = translations[lang].previousResidenceApartmentNumberTooltip;
+    
+    document.querySelector('label[for="previousResidencePostalCode"]').textContent = translations[lang].previousResidencePostalCode;
+    document.querySelector('#previousResidencePostalCode').nextElementSibling.textContent = translations[lang].previousResidencePostalCodeTooltip;
+    
+    document.querySelector('label[for="previousResidenceMunicipality"]').textContent = translations[lang].previousResidenceMunicipality;
+    document.querySelector('#previousResidenceMunicipality').nextElementSibling.textContent = translations[lang].previousResidenceMunicipalityTooltip;
+
+    // Update navigation buttons
+    document.querySelector('#previousResidenceBackButton').textContent = translations[lang].back;
+    document.querySelector('#previousResidenceNextButton').textContent = translations[lang].submit;
 }
 
 // Initialize language buttons
