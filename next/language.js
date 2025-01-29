@@ -249,7 +249,7 @@ function updateDeregistrationCard(lang) {
 
     // Update navigation buttons
     document.querySelector('#deregistrationBackButton').textContent = translations[lang].back;
-    document.querySelector('#deregistrationNextButton').textContent = translations[lang].submit;
+    document.querySelector('#deregistrationNextButton').textContent = translations[lang].next;
 }
 
 function updateFinalCard(lang) {
