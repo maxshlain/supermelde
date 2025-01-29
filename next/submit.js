@@ -203,5 +203,30 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.previousResidenceMunicipality) {
             setFieldText(current_field, formData.previousResidenceMunicipality);
         }
+        else if (current_field_name == fields.movedFromAbroad) {
+            current_field.select(formData.movedFromAbroad);
+        }
+        else if (current_field_name == fields.previousCountry) {
+            setFieldText(current_field, formData.previousCountry);
+        }
+        // Deregistration Card
+        else if (current_field_name == fields.deregistrationStreet) {
+            setFieldText(current_field, formData.deregistrationStreet);
+        }
+        else if (current_field_name == fields.deregistrationHouseNumber) {
+            setFieldText(current_field, formData.deregistrationHouseNumber);
+        }
+        else if (current_field_name == fields.deregistrationStaircase) {
+            setFieldText(current_field, formData.deregistrationStaircase);
+        }
+        else if (current_field_name == fields.deregistrationApartmentNumber) {
+            setFieldText(current_field, formData.deregistrationApartmentNumber);
+        }
+        else if (current_field_name == fields.deregistrationPostalCode) {
+            setFieldText(current_field, formData.deregistrationPostalCode);
+        }
+        else if (current_field_name == fields.deregistrationMunicipality) {
+            setFieldText(current_field, formData.deregistrationMunicipality);
+        }
     });
 }

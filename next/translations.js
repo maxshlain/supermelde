@@ -129,7 +129,28 @@ const translations = {
         previousResidencePostalCode: "Postal Code",
         previousResidencePostalCodeTooltip: "Postal code",
         previousResidenceMunicipality: "Municipality",
-        previousResidenceMunicipalityTooltip: "Municipality and state/province"
+        previousResidenceMunicipalityTooltip: "Municipality and state/province",
+
+        // Deregistration Card
+        deregistrationTitle: "Previous Address",
+        deregistrationSubtitle: "Please enter the address you're moving from",
+        deregistrationStreet: "Street",
+        deregistrationStreetTooltip: "Street name of your previous residence",
+        deregistrationHouseNumber: "House Number",
+        deregistrationHouseNumberTooltip: "Building number",
+        deregistrationStaircase: "Staircase",
+        deregistrationStaircaseTooltip: "Staircase number if applicable",
+        deregistrationApartmentNumber: "Door Number",
+        deregistrationApartmentNumberTooltip: "Apartment/Door number if applicable",
+        deregistrationPostalCode: "Postal Code",
+        deregistrationPostalCodeTooltip: "Postal code",
+        deregistrationMunicipality: "Municipality",
+        deregistrationMunicipalityTooltip: "Municipality and state/province",
+        movedFromAbroad: "Moving from Abroad",
+        movedFromAbroadTooltip: "Are you moving from abroad?",
+        movedFromAbroadSelectPrompt: "Select option",
+        previousCountry: "Previous Country",
+        previousCountryTooltip: "If moving from abroad, enter your previous country"
     },
 
     // --------------------------------------------------------------- //
@@ -262,6 +283,27 @@ const translations = {
         previousResidencePostalCode: "Postleitzahl",
         previousResidencePostalCodeTooltip: "Postleitzahl",
         previousResidenceMunicipality: "Gemeinde",
-        previousResidenceMunicipalityTooltip: "Gemeinde und Bundesland"
+        previousResidenceMunicipalityTooltip: "Gemeinde und Bundesland",
+
+        // Deregistration Card
+        deregistrationTitle: "Bisherige Adresse",
+        deregistrationSubtitle: "Bitte geben Sie die Adresse ein, von der Sie wegziehen",
+        deregistrationStreet: "Straße",
+        deregistrationStreetTooltip: "Straßenname Ihrer bisherigen Wohnung",
+        deregistrationHouseNumber: "Hausnummer",
+        deregistrationHouseNumberTooltip: "Gebäudenummer",
+        deregistrationStaircase: "Stiege",
+        deregistrationStaircaseTooltip: "Stiegennummer falls zutreffend",
+        deregistrationApartmentNumber: "Türnummer",
+        deregistrationApartmentNumberTooltip: "Wohnungs-/Türnummer falls zutreffend",
+        deregistrationPostalCode: "Postleitzahl",
+        deregistrationPostalCodeTooltip: "Postleitzahl",
+        deregistrationMunicipality: "Gemeinde",
+        deregistrationMunicipalityTooltip: "Gemeinde und Bundesland",
+        movedFromAbroad: "Zuzug aus dem Ausland",
+        movedFromAbroadTooltip: "Kommen Sie aus dem Ausland?",
+        movedFromAbroadSelectPrompt: "Option wählen",
+        previousCountry: "Bisheriges Land",
+        previousCountryTooltip: "Bei Zuzug aus dem Ausland, geben Sie Ihr bisheriges Land ein"
     }    
 }; 

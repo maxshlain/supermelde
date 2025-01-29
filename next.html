@@ -384,6 +384,84 @@
             </div>
         </div>
 
+        <!-- --------------------------------------------------------------- -->
+        <!--                     Deregistration Card                         -->
+        <!-- --------------------------------------------------------------- -->
+        <div class="wizard-card" id="deregistrationCard" style="display: none;">
+            <div class="progress-indicator">
+                <div class="progress-step completed">1</div>
+                <div class="progress-step completed">2</div>
+                <div class="progress-step completed">3</div>
+                <div class="progress-step completed">4</div>
+                <div class="progress-step completed">5</div>
+                <div class="progress-step completed">6</div>
+                <div class="progress-step active">7</div>
+            </div>
+            <h2>Previous Address</h2>
+            <p>Please enter the address you're moving from</p>
+            
+            <div class="form-group">
+                <label for="deregistrationStreet" class="required">Street</label>
+                <input type="text" id="deregistrationStreet" required>
+                <div class="tooltip">Street name of your previous residence</div>
+            </div>
+
+            <div class="form-group">
+                <label for="deregistrationHouseNumber" class="required">House Number</label>
+                <input type="text" id="deregistrationHouseNumber" required>
+                <div class="tooltip">Building number</div>
+            </div>
+
+            <div class="form-group">
+                <label for="deregistrationStaircase" class="optional">Staircase</label>
+                <input type="text" id="deregistrationStaircase">
+                <div class="tooltip">Staircase number if applicable</div>
+            </div>
+
+            <div class="form-group">
+                <label for="deregistrationApartmentNumber" class="optional">Door Number</label>
+                <input type="text" id="deregistrationApartmentNumber">
+                <div class="tooltip">Apartment/Door number if applicable</div>
+            </div>
+
+            <div class="form-group">
+                <label for="deregistrationPostalCode" class="required">Postal Code</label>
+                <input type="text" id="deregistrationPostalCode" required>
+                <div class="tooltip">Postal code</div>
+            </div>
+
+            <div class="form-group">
+                <label for="deregistrationMunicipality" class="required">Municipality</label>
+                <input type="text" id="deregistrationMunicipality" required>
+                <div class="tooltip">Municipality and state/province</div>
+            </div>
+
+            <div class="form-group">
+                <label for="movedFromAbroad" class="required">Moving from Abroad</label>
+                <select id="movedFromAbroad" required>
+                    <option value="" disabled selected>Select option</option>
+                    <option value="ja">Yes</option>
+                    <option value="nein">No</option>
+                </select>
+                <div class="tooltip">Are you moving from abroad?</div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousCountry" class="optional">Previous Country</label>
+                <input type="text" id="previousCountry">
+                <div class="tooltip">If moving from abroad, enter your previous country</div>
+            </div>
+
+            <div class="required-fields-note">
+                <span>*</span> Required fields
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="back-button" id="deregistrationBackButton">Back</button>
+                <button class="next-button" id="deregistrationNextButton">Submit</button>
+            </div>
+        </div>
+
     <!-- End of wizard-container -->
     </div> <!-- End of wizard-container -->
     <!-- End of wizard-container -->

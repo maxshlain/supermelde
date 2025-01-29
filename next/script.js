@@ -230,6 +230,54 @@ function validatePreviousResidenceCard() {
     return isValid;
 }
 
+function validateDeregistrationCard() {
+    const deregistrationStreet = document.getElementById('deregistrationStreet');
+    const deregistrationHouseNumber = document.getElementById('deregistrationHouseNumber');
+    const deregistrationPostalCode = document.getElementById('deregistrationPostalCode');
+    const deregistrationMunicipality = document.getElementById('deregistrationMunicipality');
+    const movedFromAbroad = document.getElementById('movedFromAbroad');
+    let isValid = true;
+
+    // Clear previous error states
+    [deregistrationStreet, deregistrationHouseNumber, 
+     deregistrationPostalCode, deregistrationMunicipality,
+     movedFromAbroad].forEach(field => {
+        field.closest('.form-group').classList.remove('error');
+    });
+
+    if (!deregistrationStreet.value.trim()) {
+        deregistrationStreet.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!deregistrationHouseNumber.value.trim()) {
+        deregistrationHouseNumber.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!deregistrationPostalCode.value.trim()) {
+        deregistrationPostalCode.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!deregistrationMunicipality.value.trim()) {
+        deregistrationMunicipality.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!movedFromAbroad.value) {
+        movedFromAbroad.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+    }
+
+    return isValid;
+}
+
 function add_change_handlers() {
     // Add nationality change handler
     const nationalitySelect = document.getElementById('nationality');
@@ -272,6 +320,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     const previousResidenceCard = document.getElementById('previousResidenceCard');
     const previousResidenceBackButton = document.getElementById('previousResidenceBackButton');
     const previousResidenceNextButton = document.getElementById('previousResidenceNextButton');
+    const deregistrationCard = document.getElementById('deregistrationCard');
+    const deregistrationBackButton = document.getElementById('deregistrationBackButton');
+    const deregistrationNextButton = document.getElementById('deregistrationNextButton');
 
     // Initialize language functionality
     initializeLanguageButtons();
@@ -353,11 +404,20 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     previousResidenceNextButton.addEventListener('click', () => {
-        const isValid = validatePreviousResidenceCard();
-        if (isValid) {
+        if (validatePreviousResidenceCard()) {
+            previousResidenceCard.style.display = 'none';
+            deregistrationCard.style.display = 'block';
+        }
+    });
+
+    deregistrationBackButton.addEventListener('click', () => {
+        deregistrationCard.style.display = 'none';
+        previousResidenceCard.style.display = 'block';
+    });
+
+    deregistrationNextButton.addEventListener('click', () => {
+        if (validateDeregistrationCard()) {
             prepare_and_submit_form();
-            // previousResidenceCard.style.display = 'none';
-            // deregistrationCard.style.display = 'block';
         }
     });
 
@@ -404,6 +464,14 @@ function prepare_and_submit_form() {
         previousResidenceApartmentNumber: document.getElementById('previousResidenceApartmentNumber')?.value.trim() || '',
         previousResidencePostalCode: document.getElementById('previousResidencePostalCode')?.value.trim() || '',
         previousResidenceMunicipality: document.getElementById('previousResidenceMunicipality')?.value.trim() || '',
+        deregistrationStreet: document.getElementById('deregistrationStreet')?.value.trim() || '',
+        deregistrationHouseNumber: document.getElementById('deregistrationHouseNumber')?.value.trim() || '',
+        deregistrationStaircase: document.getElementById('deregistrationStaircase')?.value.trim() || '',
+        deregistrationApartmentNumber: document.getElementById('deregistrationApartmentNumber')?.value.trim() || '',
+        deregistrationPostalCode: document.getElementById('deregistrationPostalCode')?.value.trim() || '',
+        deregistrationMunicipality: document.getElementById('deregistrationMunicipality')?.value.trim() || '',
+        movedFromAbroad: document.getElementById('movedFromAbroad')?.value || '',
+        previousCountry: document.getElementById('previousCountry')?.value.trim() || ''
     };
     
     handleFormSubmit(formData);

@@ -25,6 +25,7 @@ function updateCardLanguage(lang) {
     updateForeignPassportCard(lang);
     updateRegistrationAddressCard(lang);
     updatePreviousResidenceCard(lang);
+    updateDeregistrationCard(lang);
 
     // Update made with love text
     const currentYear = new Date().getFullYear();
@@ -213,6 +214,41 @@ function updatePreviousResidenceCard(lang) {
     // Update navigation buttons
     document.querySelector('#previousResidenceBackButton').textContent = translations[lang].back;
     document.querySelector('#previousResidenceNextButton').textContent = translations[lang].submit;
+}
+
+function updateDeregistrationCard(lang) {
+    // Update card title and subtitle
+    document.querySelector('#deregistrationCard h2').textContent = translations[lang].deregistrationTitle;
+    document.querySelector('#deregistrationCard p').textContent = translations[lang].deregistrationSubtitle;
+    
+    // Update field labels and tooltips
+    document.querySelector('label[for="deregistrationStreet"]').textContent = translations[lang].deregistrationStreet;
+    document.querySelector('#deregistrationStreet').nextElementSibling.textContent = translations[lang].deregistrationStreetTooltip;
+    
+    document.querySelector('label[for="deregistrationHouseNumber"]').textContent = translations[lang].deregistrationHouseNumber;
+    document.querySelector('#deregistrationHouseNumber').nextElementSibling.textContent = translations[lang].deregistrationHouseNumberTooltip;
+    
+    document.querySelector('label[for="deregistrationStaircase"]').textContent = translations[lang].deregistrationStaircase;
+    document.querySelector('#deregistrationStaircase').nextElementSibling.textContent = translations[lang].deregistrationStaircaseTooltip;
+    
+    document.querySelector('label[for="deregistrationApartmentNumber"]').textContent = translations[lang].deregistrationApartmentNumber;
+    document.querySelector('#deregistrationApartmentNumber').nextElementSibling.textContent = translations[lang].deregistrationApartmentNumberTooltip;
+    
+    document.querySelector('label[for="deregistrationPostalCode"]').textContent = translations[lang].deregistrationPostalCode;
+    document.querySelector('#deregistrationPostalCode').nextElementSibling.textContent = translations[lang].deregistrationPostalCodeTooltip;
+    
+    document.querySelector('label[for="deregistrationMunicipality"]').textContent = translations[lang].deregistrationMunicipality;
+    document.querySelector('#deregistrationMunicipality').nextElementSibling.textContent = translations[lang].deregistrationMunicipalityTooltip;
+
+    document.querySelector('label[for="movedFromAbroad"]').textContent = translations[lang].movedFromAbroad;
+    document.querySelector('#movedFromAbroad').nextElementSibling.textContent = translations[lang].movedFromAbroadTooltip;
+
+    document.querySelector('label[for="previousCountry"]').textContent = translations[lang].previousCountry;
+    document.querySelector('#previousCountry').nextElementSibling.textContent = translations[lang].previousCountryTooltip;
+
+    // Update navigation buttons
+    document.querySelector('#deregistrationBackButton').textContent = translations[lang].back;
+    document.querySelector('#deregistrationNextButton').textContent = translations[lang].submit;
 }
 
 // Initialize language buttons
