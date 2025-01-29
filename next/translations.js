@@ -150,7 +150,13 @@ const translations = {
         movedFromAbroadTooltip: "Are you moving from abroad?",
         movedFromAbroadSelectPrompt: "Select option",
         previousCountry: "Previous Country",
-        previousCountryTooltip: "If moving from abroad, enter your previous country"
+        previousCountryTooltip: "If moving from abroad, enter your previous country",
+
+        // Final Card
+        finalTitle: "Landlord Information",
+        finalSubtitle: "Please enter your landlord's details",
+        landlordName: "Landlord Name",
+        landlordNameTooltip: "Full name of your landlord or property manager"
     },
 
     // --------------------------------------------------------------- //
@@ -304,6 +310,12 @@ const translations = {
         movedFromAbroadTooltip: "Kommen Sie aus dem Ausland?",
         movedFromAbroadSelectPrompt: "Option wählen",
         previousCountry: "Bisheriges Land",
-        previousCountryTooltip: "Bei Zuzug aus dem Ausland, geben Sie Ihr bisheriges Land ein"
+        previousCountryTooltip: "Bei Zuzug aus dem Ausland, geben Sie Ihr bisheriges Land ein",
+
+        // Final Card
+        finalTitle: "Vermieter Information",
+        finalSubtitle: "Bitte geben Sie die Daten Ihres Vermieters ein",
+        landlordName: "Name des Vermieters",
+        landlordNameTooltip: "Vollständiger Name Ihres Vermieters oder Hausverwalters"
     }    
 }; 

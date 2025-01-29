@@ -26,6 +26,7 @@ function updateCardLanguage(lang) {
     updateRegistrationAddressCard(lang);
     updatePreviousResidenceCard(lang);
     updateDeregistrationCard(lang);
+    updateFinalCard(lang);
 
     // Update made with love text
     const currentYear = new Date().getFullYear();
@@ -249,6 +250,20 @@ function updateDeregistrationCard(lang) {
     // Update navigation buttons
     document.querySelector('#deregistrationBackButton').textContent = translations[lang].back;
     document.querySelector('#deregistrationNextButton').textContent = translations[lang].submit;
+}
+
+function updateFinalCard(lang) {
+    // Update card title and subtitle
+    document.querySelector('#finalCard h2').textContent = translations[lang].finalTitle;
+    document.querySelector('#finalCard p').textContent = translations[lang].finalSubtitle;
+    
+    // Update field labels and tooltips
+    document.querySelector('label[for="landlordName"]').textContent = translations[lang].landlordName;
+    document.querySelector('#landlordName').nextElementSibling.textContent = translations[lang].landlordNameTooltip;
+
+    // Update navigation buttons
+    document.querySelector('#finalBackButton').textContent = translations[lang].back;
+    document.querySelector('#finalNextButton').textContent = translations[lang].submit;
 }
 
 // Initialize language buttons

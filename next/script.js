@@ -278,6 +278,26 @@ function validateDeregistrationCard() {
     return isValid;
 }
 
+function validateFinalCard() {
+    const landlordName = document.getElementById('landlordName');
+    let isValid = true;
+
+    // Clear previous error states
+    landlordName.closest('.form-group').classList.remove('error');
+
+    if (!landlordName.value.trim()) {
+        landlordName.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+    }
+
+    return isValid;
+}
+
 function add_change_handlers() {
     // Add nationality change handler
     const nationalitySelect = document.getElementById('nationality');
@@ -323,6 +343,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     const deregistrationCard = document.getElementById('deregistrationCard');
     const deregistrationBackButton = document.getElementById('deregistrationBackButton');
     const deregistrationNextButton = document.getElementById('deregistrationNextButton');
+    const finalCard = document.getElementById('finalCard');
+    const finalBackButton = document.getElementById('finalBackButton');
+    const finalNextButton = document.getElementById('finalNextButton');
 
     // Initialize language functionality
     initializeLanguageButtons();
@@ -417,6 +440,19 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     deregistrationNextButton.addEventListener('click', () => {
         if (validateDeregistrationCard()) {
+            deregistrationCard.style.display = 'none';
+            finalCard.style.display = 'block';
+        }
+    });
+
+    // Add navigation handlers for final card
+    finalBackButton.addEventListener('click', () => {
+        finalCard.style.display = 'none';
+        deregistrationCard.style.display = 'block';
+    });
+
+    finalNextButton.addEventListener('click', () => {
+        if (validateFinalCard()) {
             prepare_and_submit_form();
         }
     });
@@ -471,7 +507,8 @@ function prepare_and_submit_form() {
         deregistrationPostalCode: document.getElementById('deregistrationPostalCode')?.value.trim() || '',
         deregistrationMunicipality: document.getElementById('deregistrationMunicipality')?.value.trim() || '',
         movedFromAbroad: document.getElementById('movedFromAbroad')?.value || '',
-        previousCountry: document.getElementById('previousCountry')?.value.trim() || ''
+        previousCountry: document.getElementById('previousCountry')?.value.trim() || '',
+        landlordName: document.getElementById('landlordName')?.value.trim() || ''
     };
     
     handleFormSubmit(formData);

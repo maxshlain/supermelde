@@ -35,5 +35,6 @@
     "deregistrationStaircase": "99",
     "deregistrationApartmentNumber": "8888",
     "deregistrationPostalCode": "1010",
-    "deregistrationMunicipality": "Wien"
+    "deregistrationMunicipality": "Wien",
+    "landlordName": "John Smith"
 }

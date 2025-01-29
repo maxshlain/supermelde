@@ -228,5 +228,8 @@ function fillPdfFields(form, formData) {
         else if (current_field_name == fields.deregistrationMunicipality) {
             setFieldText(current_field, formData.deregistrationMunicipality);
         }
+        else if (current_field_name == fields.landlordName) {
+            setFieldText(current_field, formData.landlordName);
+        }
     });
 }
