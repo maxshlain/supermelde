@@ -229,7 +229,8 @@ function fillPdfFields(form, formData) {
             setFieldText(current_field, formData.deregistrationMunicipality);
         }
         else if (current_field_name == fields.landlordName) {
-            setFieldText(current_field, formData.landlordName);
+            const capitalized = formData.landlordName.toUpperCase();
+            setFieldText(current_field, capitalized);
         }
     });
 }

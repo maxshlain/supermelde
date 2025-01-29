@@ -145,7 +145,7 @@ function updateForeignPassportCard(lang) {
 
     // Update navigation buttons
     document.querySelector('#foreignPassportBackButton').textContent = translations[lang].back;
-    document.querySelector('#foreignPassportNextButton').textContent = translations[lang].submit;
+    document.querySelector('#foreignPassportNextButton').textContent = translations[lang].next;
 }
 
 function updateRegistrationAddressCard(lang) {
