@@ -247,6 +247,18 @@ function updateDeregistrationCard(lang) {
     document.querySelector('label[for="previousCountry"]').textContent = translations[lang].previousCountry;
     document.querySelector('#previousCountry').nextElementSibling.textContent = translations[lang].previousCountryTooltip;
 
+    // Add translation for deregistration required field
+    document.querySelector('label[for="deregistrationRequired"]').textContent = translations[lang].deregistrationRequired;
+    document.querySelector('#deregistrationRequired').nextElementSibling.textContent = translations[lang].deregistrationRequiredTooltip;
+
+    // Update deregistration required select options
+    const deregistrationRequiredSelect = document.getElementById('deregistrationRequired');
+    deregistrationRequiredSelect.innerHTML = `
+        <option value="" disabled selected>${translations[lang].deregistrationRequiredSelectPrompt}</option>
+        <option value="ja">${translations[lang].deregistrationRequiredOptions.yes}</option>
+        <option value="nein">${translations[lang].deregistrationRequiredOptions.no}</option>
+    `;
+
     // Update navigation buttons
     document.querySelector('#deregistrationBackButton').textContent = translations[lang].back;
     document.querySelector('#deregistrationNextButton').textContent = translations[lang].next;

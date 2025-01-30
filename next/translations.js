@@ -134,6 +134,13 @@ const translations = {
         // Deregistration Card
         deregistrationTitle: "Previous Address",
         deregistrationSubtitle: "Please enter the address you're moving from",
+        deregistrationRequired: "I want to deregister from another address",
+        deregistrationRequiredTooltip: "Select if you want to deregister from another address",
+        deregistrationRequiredSelectPrompt: "Select option",
+        deregistrationRequiredOptions: {
+            yes: "Yes",
+            no: "No"
+        },
         deregistrationStreet: "Street",
         deregistrationStreetTooltip: "Street name of your previous residence",
         deregistrationHouseNumber: "House Number",
@@ -294,6 +301,13 @@ const translations = {
         // Deregistration Card
         deregistrationTitle: "Bisherige Adresse",
         deregistrationSubtitle: "Bitte geben Sie die Adresse ein, von der Sie wegziehen",
+        deregistrationRequired: "Ich möchte mich von einer anderen Adresse abmelden",
+        deregistrationRequiredTooltip: "Wählen Sie aus, ob Sie sich von einer anderen Adresse abmelden möchten",
+        deregistrationRequiredSelectPrompt: "Option wählen",
+        deregistrationRequiredOptions: {
+            yes: "Ja",
+            no: "Nein"
+        },
         deregistrationStreet: "Straße",
         deregistrationStreetTooltip: "Straßenname Ihrer bisherigen Wohnung",
         deregistrationHouseNumber: "Hausnummer",
