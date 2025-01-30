@@ -30,6 +30,7 @@
     "previousResidenceMunicipality": "Wien",
     "movedFromAbroad": "nein",
     "previousCountry": "Germany",
+    "deregistrationRequired": "nein",
     "deregistrationStreet": "Westbahnhofstraße",
     "deregistrationHouseNumber": "3333",
     "deregistrationStaircase": "99",

@@ -204,7 +204,9 @@ function fillPdfFields(form, formData) {
             setFieldText(current_field, formData.previousResidenceMunicipality);
         }
         else if (current_field_name == fields.movedFromAbroad) {
-            current_field.select(formData.movedFromAbroad);
+            if (formData.movedFromAbroad) {
+                current_field.select(formData.movedFromAbroad);
+            }
         }
         else if (current_field_name == fields.previousCountry) {
             setFieldText(current_field, formData.previousCountry);
