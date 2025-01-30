@@ -298,25 +298,43 @@ function validateFinalCard() {
     return isValid;
 }
 
-function add_change_handlers() {
+function togglle_state_name_on_citizenship() {
     // Add nationality change handler
     const nationalitySelect = document.getElementById('nationality');
     const stateNameInput = document.getElementById('stateName');
     const stateNameLabel = document.querySelector('label[for="stateName"]');
     
     nationalitySelect.addEventListener('change', function() {
-        if (this.value === 'anderer Staat') {
-            stateNameInput.disabled = false;
-            stateNameInput.required = true;
-            stateNameLabel.classList.add('required');
-            stateNameInput.value = ''; // Clear any previous value
-        } else {
-            stateNameInput.disabled = true;
-            stateNameInput.required = false;
-            stateNameLabel.classList.remove('required');
-            stateNameInput.value = ''; // Clear the field when disabled
+        if (this.value === 'anderer Staat') { // If the user is not an Austrian citizen
+            show_state_name_field();
+        } else { // If the user is an Austrian citizen
+            hide_state_name_field();
         }
     });
+}
+
+function show_state_name_field() {
+    const stateNameInput = document.getElementById('stateName');
+    const stateNameLabel = document.querySelector('label[for="stateName"]');
+    stateNameInput.disabled = false;
+    stateNameInput.required = true;
+    stateNameLabel.classList.add('required');
+    stateNameInput.value = ''; // Clear any previous value
+    
+    const stateNameGroup = document.getElementById('stateName').closest('.form-group');
+    stateNameGroup.style.display = 'block';
+}
+
+function hide_state_name_field() {
+    const stateNameInput = document.getElementById('stateName');
+    const stateNameLabel = document.querySelector('label[for="stateName"]');
+    stateNameInput.disabled = true;
+    stateNameInput.required = false;
+    stateNameLabel.classList.remove('required');
+    stateNameInput.value = ''; // Clear the field when disabled
+    
+    const stateNameGroup = document.getElementById('stateName').closest('.form-group');
+    stateNameGroup.style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -463,7 +481,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         applyDefaultValues(defaultValues);
     }
 
-    add_change_handlers();
+    togglle_state_name_on_citizenship();
 
     // Set current year in footer
     // document.getElementById('currentYear').textContent = new Date().getFullYear();
