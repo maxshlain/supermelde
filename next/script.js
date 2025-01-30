@@ -298,19 +298,21 @@ function validateFinalCard() {
     return isValid;
 }
 
-function togglle_state_name_on_citizenship() {
-    // Add nationality change handler
+function subscribe_to_nationality_change() {
     const nationalitySelect = document.getElementById('nationality');
-    const stateNameInput = document.getElementById('stateName');
-    const stateNameLabel = document.querySelector('label[for="stateName"]');
     
     nationalitySelect.addEventListener('change', function() {
-        if (this.value === 'anderer Staat') { // If the user is not an Austrian citizen
-            show_state_name_field();
-        } else { // If the user is an Austrian citizen
-            hide_state_name_field();
-        }
+        on_nationality_select_change();
     });
+}
+
+function on_nationality_select_change() {
+    const nationalitySelect = document.getElementById('nationality');
+    if (nationalitySelect.value === 'anderer Staat') { // If the user is not an Austrian citizen
+        show_state_name_field();
+    } else { // If the user is an Austrian citizen
+        hide_state_name_field();
+    }
 }
 
 function show_state_name_field() {
@@ -479,12 +481,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     const defaultValues = await loadDefaultValues();
     if (defaultValues) {
         applyDefaultValues(defaultValues);
+
+        // maybe nationality value forces hide
+        on_nationality_select_change();
     }
-
-    togglle_state_name_on_citizenship();
-
-    // Set current year in footer
-    // document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    subscribe_to_nationality_change();
 }); 
 
 function prepare_and_submit_form() {

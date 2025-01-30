@@ -40,15 +40,6 @@ function applyDefaultValues(values) {
             inputElement.value = value;
         }
     }
-
-    // Enable all buttons in default values mode
-    const nextButton = document.getElementById('nextButton');
-    const personalNextButton = document.getElementById('personalNextButton');
-    const birthDetailsNextButton = document.getElementById('birthDetailsNextButton');
-    
-    nextButton.disabled = false;
-    personalNextButton.disabled = false;
-    birthDetailsNextButton.disabled = false;
 }
 
 export {
