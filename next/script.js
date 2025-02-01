@@ -190,6 +190,13 @@ function validateRegistrationAddressCard() {
 }
 
 function validatePreviousResidenceCard() {
+
+    const isMainResidence = document.getElementById('isMainResidence').value === 'ja';
+
+    if (isMainResidence) {
+        return true;
+    }
+
     const previousResidenceStreet = document.getElementById('previousResidenceStreet');
     const previousResidenceHouseNumber = document.getElementById('previousResidenceHouseNumber');
     const previousResidencePostalCode = document.getElementById('previousResidencePostalCode');
