@@ -524,11 +524,11 @@ function on_moved_from_abroad_change() {
 function subscribe_to_main_residence_change() {
     const isMainResidenceSelect = document.getElementById('isMainResidence');
     isMainResidenceSelect.addEventListener('change', function() {
-        updatePreviousResidenceCard();
+        on_main_residence_selection_change();
     });
 }
 
-function updatePreviousResidenceCard() {
+function on_main_residence_selection_change() {
     const isMainResidence = document.getElementById('isMainResidence').value === 'ja';
     const previousResidenceCard = document.getElementById('previousResidenceCard');
     const formGroups = previousResidenceCard.querySelectorAll('.form-group');
@@ -710,6 +710,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         on_nationality_select_change();
         on_deregistration_required_change();
         on_moved_from_abroad_change();
+        on_main_residence_selection_change();
     }
     
     subscribe_to_nationality_change();
