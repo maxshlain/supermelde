@@ -541,14 +541,6 @@ function updatePreviousResidenceCard() {
         if (requiredFieldsNote) {
             requiredFieldsNote.style.display = 'none';
         }
-        
-        // Auto-advance after 2 seconds
-        setTimeout(() => {
-            const nextButton = document.getElementById('previousResidenceNextButton');
-            if (nextButton) {
-                nextButton.click();
-            }
-        }, 2000);
     } else {
         // Show all form groups
         formGroups.forEach(group => {

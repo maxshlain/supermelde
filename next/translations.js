@@ -130,7 +130,7 @@ const translations = {
         previousResidencePostalCodeTooltip: "Postal code",
         previousResidenceMunicipality: "Municipality",
         previousResidenceMunicipalityTooltip: "Municipality and state/province",
-        previousResidenceSkipMessage: "This step can be skipped because you selected this address as your main residence. Proceeding automatically...",
+        previousResidenceSkipMessage: "This step can be skipped because you selected this address as your main residence.",
 
         // Deregistration Card
         deregistrationTitle: "Previous Address",
@@ -298,7 +298,7 @@ const translations = {
         previousResidencePostalCodeTooltip: "Postleitzahl",
         previousResidenceMunicipality: "Gemeinde",
         previousResidenceMunicipalityTooltip: "Gemeinde und Bundesland",
-        previousResidenceSkipMessage: "Dieser Schritt kann übersprungen werden, da Sie diese Adresse als Hauptwohnsitz ausgewählt haben. Wird automatisch fortgesetzt...",
+        previousResidenceSkipMessage: "Dieser Schritt kann übersprungen werden, da Sie diese Adresse als Hauptwohnsitz ausgewählt haben.",
 
         // Deregistration Card
         deregistrationTitle: "Bisherige Adresse",
