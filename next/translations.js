@@ -114,6 +114,10 @@ const translations = {
             yes: "Yes, this is my main residence",
             no: "No, this is my secondary residence"
         },
+        registrationInViennaRequired: "I want to register a new address in Vienna",
+        registrationInViennaRequiredTooltip: "Select if you want to register a new address in Vienna",
+        registrationInViennaRequiredSelectPrompt: "Select option",
+        registrationInViennaSkipMessage: "This step can be skipped because you selected not to register a new address.",
 
         // Previous Residence Card
         previousResidenceTitle: "Main Residence Address",
@@ -159,6 +163,11 @@ const translations = {
         movedFromAbroadSelectPrompt: "Select option",
         previousCountry: "Previous Country",
         previousCountryTooltip: "If moving from abroad, enter your previous country",
+        movingAbroad: "Moving Abroad",
+        movingAbroadTooltip: "Are you moving abroad?",
+        movingAbroadSelectPrompt: "Select option",
+        destinationCountry: "Destination Country",
+        destinationCountryTooltip: "If moving abroad, enter your destination country",
 
         // Final Card
         finalTitle: "Landlord Information",
@@ -282,6 +291,10 @@ const translations = {
             yes: "Ja, dies ist mein Hauptwohnsitz",
             no: "Nein, dies ist mein Nebenwohnsitz"
         },
+        registrationInViennaRequired: "Ich möchte eine neue Adresse in Wien anmelden",
+        registrationInViennaRequiredTooltip: "Wählen Sie aus, ob Sie eine neue Adresse in Wien anmelden möchten",
+        registrationInViennaRequiredSelectPrompt: "Option wählen",
+        registrationInViennaSkipMessage: "Dieser Schritt kann übersprungen werden, da Sie keine neue Adresse anmelden möchten.",
 
         // Previous Residence Card
         previousResidenceTitle: "Hauptwohnsitz Adresse",
@@ -327,6 +340,11 @@ const translations = {
         movedFromAbroadSelectPrompt: "Option wählen",
         previousCountry: "Bisheriges Land",
         previousCountryTooltip: "Bei Zuzug aus dem Ausland, geben Sie Ihr bisheriges Land ein",
+        movingAbroad: "Wegzug ins Ausland",
+        movingAbroadTooltip: "Ziehen Sie ins Ausland?",
+        movingAbroadSelectPrompt: "Option wählen",
+        destinationCountry: "Zielland",
+        destinationCountryTooltip: "Bei Wegzug ins Ausland, geben Sie Ihr Zielland ein",
 
         // Final Card
         finalTitle: "Vermieter Information",

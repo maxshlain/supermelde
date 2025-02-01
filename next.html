@@ -277,7 +277,17 @@
             </div>
             <h2>Registration Address</h2>
             <p>Please enter your new address in Vienna</p>
-            
+
+            <div class="form-group">
+                <label for="registrationInViennaRequired" class="required">I want to register a new address in Vienna</label>
+                <select id="registrationInViennaRequired" required>
+                    <option value="" disabled selected>Select option</option>
+                    <option value="ja">Yes</option>
+                    <option value="nein">No</option>
+                </select>
+                <div class="tooltip">Select if you want to register a new address in Vienna</div>
+            </div>
+
             <div class="form-group">
                 <label for="registrationStreet" class="required">Street</label>
                 <input type="text" id="registrationStreet" required>
@@ -474,6 +484,22 @@
                 <label for="deregistrationMunicipality" class="required">Municipality</label>
                 <input type="text" id="deregistrationMunicipality" required>
                 <div class="tooltip">Municipality and state/province</div>
+            </div>
+
+            <div class="form-group">
+                <label for="movingAbroad" class="required">Moving Abroad</label>
+                <select id="movingAbroad" required>
+                    <option value="" disabled selected>Select option</option>
+                    <option value="ja">Yes</option>
+                    <option value="nein">No</option>
+                </select>
+                <div class="tooltip">Are you moving abroad?</div>
+            </div>
+
+            <div class="form-group">
+                <label for="destinationCountry" class="optional">Destination Country</label>
+                <input type="text" id="destinationCountry">
+                <div class="tooltip">If moving abroad, enter your destination country</div>
             </div>
 
             <div class="required-fields-note">

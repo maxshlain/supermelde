@@ -143,6 +143,19 @@ function validateForeignPassportCard() {
 }
 
 function validateRegistrationAddressCard() {
+    const registrationInViennaRequired = document.getElementById('registrationInViennaRequired');
+    
+    if (!registrationInViennaRequired.value) {
+        registrationInViennaRequired.closest('.form-group').classList.add('error');
+        const message = translations[selectedLanguage].fillRequiredFields;
+        showToast(message);
+        return false;
+    }
+
+    if (registrationInViennaRequired.value === 'nein') {
+        return true;
+    }
+
     const registrationStreet = document.getElementById('registrationStreet');
     const registrationHouseNumber = document.getElementById('registrationHouseNumber');
     const registrationPostalCode = document.getElementById('registrationPostalCode');
@@ -261,13 +274,14 @@ function validateDeregistrationCard() {
     const deregistrationHouseNumber = document.getElementById('deregistrationHouseNumber');
     const deregistrationPostalCode = document.getElementById('deregistrationPostalCode');
     const deregistrationMunicipality = document.getElementById('deregistrationMunicipality');
-    const movedFromAbroad = document.getElementById('movedFromAbroad');
+    const movingAbroad = document.getElementById('movingAbroad');
+    const destinationCountry = document.getElementById('destinationCountry');
     let isValid = true;
 
     // Clear previous error states
     [deregistrationStreet, deregistrationHouseNumber, 
      deregistrationPostalCode, deregistrationMunicipality,
-     movedFromAbroad].forEach(field => {
+     movingAbroad, destinationCountry].forEach(field => {
         field.closest('.form-group').classList.remove('error');
     });
 
@@ -291,8 +305,14 @@ function validateDeregistrationCard() {
         isValid = false;
     }
 
-    if (!movedFromAbroad.value) {
-        movedFromAbroad.closest('.form-group').classList.add('error');
+    if (!movingAbroad.value) {
+        movingAbroad.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    // Validate destination country only if moving abroad is "yes"
+    if (movingAbroad.value === 'ja' && !destinationCountry.value.trim()) {
+        destinationCountry.closest('.form-group').classList.add('error');
         isValid = false;
     }
 
@@ -564,6 +584,67 @@ function on_main_residence_selection_change() {
     }
 }
 
+function subscribe_to_moving_abroad_change() {
+    const movingAbroadSelect = document.getElementById('movingAbroad');
+    movingAbroadSelect.addEventListener('change', function() {
+        on_moving_abroad_change();
+    });
+}
+
+function on_moving_abroad_change() {
+    const movingAbroadSelect = document.getElementById('movingAbroad');
+    const destinationCountryInput = document.getElementById('destinationCountry');
+    const destinationCountryLabel = document.querySelector('label[for="destinationCountry"]');
+    const destinationCountryGroup = destinationCountryInput.closest('.form-group');
+    
+    if (movingAbroadSelect.value === 'ja') {
+        destinationCountryGroup.style.display = 'block';
+        destinationCountryInput.required = true;
+        destinationCountryLabel.classList.remove('optional');
+        destinationCountryLabel.classList.add('required');
+    } else {
+        destinationCountryGroup.style.display = 'none';
+        destinationCountryInput.required = false;
+        destinationCountryLabel.classList.remove('required');
+        destinationCountryLabel.classList.add('optional');
+        destinationCountryInput.value = '';
+    }
+}
+
+function subscribe_to_registration_required_change() {
+    const registrationRequiredSelect = document.getElementById('registrationInViennaRequired');
+    registrationRequiredSelect.addEventListener('change', function() {
+        on_registration_required_change();
+    });
+}
+
+function on_registration_required_change() {
+    const registrationRequired = document.getElementById('registrationInViennaRequired').value === 'ja';
+    const registrationAddressCard = document.getElementById('registrationAddressCard');
+    const formGroups = registrationAddressCard.querySelectorAll('.form-group');
+    const subtitle = registrationAddressCard.querySelector('p');
+    const requiredFieldsNote = registrationAddressCard.querySelector('.required-fields-note');
+    
+    formGroups.forEach(group => {
+        // Skip the registration required field itself
+        if (group.querySelector('#registrationInViennaRequired')) return;
+        
+        if (registrationRequired) {
+            group.style.display = 'block';
+            subtitle.textContent = translations[selectedLanguage].registrationAddressSubtitle;
+            if (requiredFieldsNote) {
+                requiredFieldsNote.style.display = 'block';
+            }
+        } else {
+            group.style.display = 'none';
+            subtitle.textContent = translations[selectedLanguage].registrationInViennaSkipMessage;
+            if (requiredFieldsNote) {
+                requiredFieldsNote.style.display = 'none';
+            }
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -717,6 +798,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     subscribe_to_deregistration_required_change();
     subscribe_to_moved_from_abroad_change();
     subscribe_to_main_residence_change();
+    subscribe_to_moving_abroad_change();
+    subscribe_to_registration_required_change();
     subscribe_to_space_key();
 }); 
 
@@ -759,7 +842,9 @@ function prepare_and_submit_form() {
         deregistrationMunicipality: document.getElementById('deregistrationMunicipality')?.value.trim() || '',
         movedFromAbroad: document.getElementById('movedFromAbroad')?.value || '',
         previousCountry: document.getElementById('previousCountry')?.value.trim() || '',
-        landlordName: document.getElementById('landlordName')?.value.trim() || ''
+        landlordName: document.getElementById('landlordName')?.value.trim() || '',
+        movingAbroad: document.getElementById('movingAbroad')?.value || '',
+        destinationCountry: document.getElementById('destinationCountry')?.value.trim() || ''
     };
     
     handleFormSubmit(formData);

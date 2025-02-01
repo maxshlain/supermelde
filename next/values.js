@@ -21,6 +21,17 @@ async function loadDefaultValues() {
             console.error('Error loading default values:', error);
         }
     }
+
+    if (defaultValuesSet === '3') {
+        try {
+            const response = await fetch('assets/values_3.json');
+            const defaultValues = await response.json();
+            return defaultValues;
+        } catch (error) {
+            console.error('Error loading default values:', error);
+        }
+    }
+
     return null;
 }
 
