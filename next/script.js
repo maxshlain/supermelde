@@ -514,6 +514,57 @@ function on_moved_from_abroad_change() {
     }
 }
 
+function subscribe_to_main_residence_change() {
+    const isMainResidenceSelect = document.getElementById('isMainResidence');
+    isMainResidenceSelect.addEventListener('change', function() {
+        updatePreviousResidenceCard();
+    });
+}
+
+function updatePreviousResidenceCard() {
+    const isMainResidence = document.getElementById('isMainResidence').value === 'ja';
+    const previousResidenceCard = document.getElementById('previousResidenceCard');
+    const formGroups = previousResidenceCard.querySelectorAll('.form-group');
+    const subtitle = previousResidenceCard.querySelector('p');
+    const requiredFieldsNote = previousResidenceCard.querySelector('.required-fields-note');
+    
+    if (isMainResidence) {
+        // Hide all form groups
+        formGroups.forEach(group => {
+            group.style.display = 'none';
+        });
+        
+        // Update subtitle to show skip message
+        subtitle.textContent = translations[selectedLanguage].previousResidenceSkipMessage;
+        
+        // Hide required fields note
+        if (requiredFieldsNote) {
+            requiredFieldsNote.style.display = 'none';
+        }
+        
+        // Auto-advance after 2 seconds
+        setTimeout(() => {
+            const nextButton = document.getElementById('previousResidenceNextButton');
+            if (nextButton) {
+                nextButton.click();
+            }
+        }, 2000);
+    } else {
+        // Show all form groups
+        formGroups.forEach(group => {
+            group.style.display = 'block';
+        });
+        
+        // Restore original subtitle
+        subtitle.textContent = translations[selectedLanguage].previousResidenceSubtitle;
+        
+        // Show required fields note
+        if (requiredFieldsNote) {
+            requiredFieldsNote.style.display = 'block';
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -665,6 +716,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     subscribe_to_nationality_change();
     subscribe_to_deregistration_required_change();
     subscribe_to_moved_from_abroad_change();
+    subscribe_to_main_residence_change();
     subscribe_to_space_key();
 }); 
 
