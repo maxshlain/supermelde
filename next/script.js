@@ -358,40 +358,40 @@ function show_deregistration_fields() {
     // show street field, mandatory
     const deregistrationStreet = document.getElementById('deregistrationStreet');
     deregistrationStreet.classList.add('required');
-    deregistrationStreet.value = '';
+    // deregistrationStreet.value = '';
     const deregistrationStreetGroup = deregistrationStreet.closest('.form-group');
     deregistrationStreetGroup.style.display = 'block';
 
     // show house number field, mandatory
     const deregistrationHouseNumber = document.getElementById('deregistrationHouseNumber');
     deregistrationHouseNumber.classList.add('required');
-    deregistrationHouseNumber.value = '';
+    // deregistrationHouseNumber.value = '';
     const deregistrationHouseNumberGroup = deregistrationHouseNumber.closest('.form-group');
     deregistrationHouseNumberGroup.style.display = 'block';
 
     // show staircase field
     const deregistrationStaircase = document.getElementById('deregistrationStaircase');
-    deregistrationStaircase.value = '';
+    // deregistrationStaircase.value = '';
     const deregistrationStaircaseGroup = deregistrationStaircase.closest('.form-group');
     deregistrationStaircaseGroup.style.display = 'block';
 
     // apartment number field
     const deregistrationApartmentNumber = document.getElementById('deregistrationApartmentNumber');
-    deregistrationApartmentNumber.value = '';
+    // deregistrationApartmentNumber.value = '';
     const deregistrationApartmentNumberGroup = deregistrationApartmentNumber.closest('.form-group');
     deregistrationApartmentNumberGroup.style.display = 'block';
 
     // show postal code field, mandatory
     const deregistrationPostalCode = document.getElementById('deregistrationPostalCode');
     deregistrationPostalCode.classList.add('required');
-    deregistrationPostalCode.value = '';
+    // deregistrationPostalCode.value = '';
     const deregistrationPostalCodeGroup = deregistrationPostalCode.closest('.form-group');
     deregistrationPostalCodeGroup.style.display = 'block';
 
     // show municipality field, mandatory
     const deregistrationMunicipality = document.getElementById('deregistrationMunicipality');
     deregistrationMunicipality.classList.add('required');
-    deregistrationMunicipality.value = '';
+    // deregistrationMunicipality.value = '';
     const deregistrationMunicipalityGroup = deregistrationMunicipality.closest('.form-group');
     deregistrationMunicipalityGroup.style.display = 'block';
 }
