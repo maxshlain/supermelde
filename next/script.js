@@ -194,11 +194,14 @@ function validatePreviousResidenceCard() {
     const previousResidenceHouseNumber = document.getElementById('previousResidenceHouseNumber');
     const previousResidencePostalCode = document.getElementById('previousResidencePostalCode');
     const previousResidenceMunicipality = document.getElementById('previousResidenceMunicipality');
+    const movedFromAbroad = document.getElementById('movedFromAbroad');
+    const previousCountry = document.getElementById('previousCountry');
     let isValid = true;
 
     // Clear previous error states
     [previousResidenceStreet, previousResidenceHouseNumber, 
-     previousResidencePostalCode, previousResidenceMunicipality].forEach(field => {
+     previousResidencePostalCode, previousResidenceMunicipality,
+     movedFromAbroad, previousCountry].forEach(field => {
         field.closest('.form-group').classList.remove('error');
     });
 
@@ -219,6 +222,17 @@ function validatePreviousResidenceCard() {
 
     if (!previousResidenceMunicipality.value.trim()) {
         previousResidenceMunicipality.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    if (!movedFromAbroad.value) {
+        movedFromAbroad.closest('.form-group').classList.add('error');
+        isValid = false;
+    }
+
+    // Validate previous country only if moved from abroad is "yes"
+    if (movedFromAbroad.value === 'ja' && !previousCountry.value.trim()) {
+        previousCountry.closest('.form-group').classList.add('error');
         isValid = false;
     }
 
@@ -473,6 +487,33 @@ function simulateNextButtonClick() {
     }
 }
 
+function subscribe_to_moved_from_abroad_change() {
+    const movedFromAbroadSelect = document.getElementById('movedFromAbroad');
+    movedFromAbroadSelect.addEventListener('change', function() {
+        on_moved_from_abroad_change();
+    });
+}
+
+function on_moved_from_abroad_change() {
+    const movedFromAbroadSelect = document.getElementById('movedFromAbroad');
+    const previousCountryInput = document.getElementById('previousCountry');
+    const previousCountryLabel = document.querySelector('label[for="previousCountry"]');
+    const previousCountryGroup = previousCountryInput.closest('.form-group');
+    
+    if (movedFromAbroadSelect.value === 'ja') {
+        previousCountryGroup.style.display = 'block';
+        previousCountryInput.required = true;
+        previousCountryLabel.classList.remove('optional');
+        previousCountryLabel.classList.add('required');
+    } else {
+        previousCountryGroup.style.display = 'none';
+        previousCountryInput.required = false;
+        previousCountryLabel.classList.remove('required');
+        previousCountryLabel.classList.add('optional');
+        previousCountryInput.value = '';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -618,10 +659,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         // maybe nationality value forces hide
         on_nationality_select_change();
         on_deregistration_required_change();
+        on_moved_from_abroad_change();
     }
     
     subscribe_to_nationality_change();
     subscribe_to_deregistration_required_change();
+    subscribe_to_moved_from_abroad_change();
     subscribe_to_space_key();
 }); 
 
