@@ -37,7 +37,9 @@ const fields = {
     previousResidenceApartmentNumber: "wenn nein, Hauptwohnsitz bleibt in Tür Nr", // Hauptwohnsitz bleibt Tür Nr
     previousResidencePostalCode: "wenn nein, Hauptwohnsitz bleibt in Postleitzahl", // Hauptwohnsitz bleibt PLZ
     previousResidenceMunicipality: "wenn nein, Hauptwohnsitz bleibt in Ortsgemeinde, Bundesland", // Hauptwohnsitz bleibt Ortsgemeinde
+    
     movedFromAbroad: "Zuzug aus dem Ausland", // Zuzug aus dem Ausland
+    
     previousCountry: "Name des Staates bei Zuzug", // Name des Staates bei Zuzug
     deregistrationStreet: "Abmeldung der Unterkunft in Straße (Platz) bzw. Ort ohne Straßennamen", // Abmeldung Straße
     deregistrationHouseNumber: "Abmeldung der Unterkunft in Haus Nr", // Abmeldung Haus Nr

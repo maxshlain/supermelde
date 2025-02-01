@@ -373,18 +373,6 @@ function show_deregistration_fields() {
     deregistrationMunicipality.value = '';
     const deregistrationMunicipalityGroup = deregistrationMunicipality.closest('.form-group');
     deregistrationMunicipalityGroup.style.display = 'block';
-
-    // show moved from abroad field
-    const movedFromAbroad = document.getElementById('movedFromAbroad');
-    movedFromAbroad.value = '';
-    const movedFromAbroadGroup = movedFromAbroad.closest('.form-group');
-    movedFromAbroadGroup.style.display = 'block';
-
-    // show previous country field
-    const previousCountry = document.getElementById('previousCountry');
-    previousCountry.value = '';
-    const previousCountryGroup = previousCountry.closest('.form-group');
-    previousCountryGroup.style.display = 'block';
 }
 
 function hide_deregistration_fields() {
@@ -425,18 +413,6 @@ function hide_deregistration_fields() {
     deregistrationMunicipality.value = '';
     const deregistrationMunicipalityGroup = deregistrationMunicipality.closest('.form-group');
     deregistrationMunicipalityGroup.style.display = 'none';
-
-    // hide moved from abroad field
-    const movedFromAbroad = document.getElementById('movedFromAbroad');
-    movedFromAbroad.value = '';
-    const movedFromAbroadGroup = movedFromAbroad.closest('.form-group');
-    movedFromAbroadGroup.style.display = 'none';
-
-    // hide previous country field
-    const previousCountry = document.getElementById('previousCountry');
-    previousCountry.value = '';
-    const previousCountryGroup = previousCountry.closest('.form-group');
-    previousCountryGroup.style.display = 'none';    
 }
 
 function subscribe_to_nationality_change() {
