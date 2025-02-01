@@ -303,6 +303,19 @@ function validateFinalCard() {
     return isValid;
 }
 
+function subscribe_to_space_key() {
+    document.addEventListener('keydown', function(event) {
+        // Only handle space key when it's not pressed in an input or select element
+        if (event.code === 'Space' && 
+            document.activeElement.tagName !== 'INPUT' && 
+            document.activeElement.tagName !== 'SELECT' && 
+            document.activeElement.tagName !== 'TEXTAREA') {
+            event.preventDefault(); // Prevent page scroll
+            simulateNextButtonClick();
+        }
+    });
+}
+
 function subscribe_to_deregistration_required_change() {
     const deregistrationRequired = document.getElementById('deregistrationRequired');
     deregistrationRequired.addEventListener('change', function() {
@@ -464,6 +477,26 @@ function hide_state_name_field() {
     stateNameGroup.style.display = 'none';
 }
 
+function getCurrentVisibleCard() {
+    const cards = document.querySelectorAll('.wizard-card');
+    for (const card of cards) {
+        if (card.style.display !== 'none') {
+            return card;
+        }
+    }
+    return null;
+}
+
+function simulateNextButtonClick() {
+    const currentCard = getCurrentVisibleCard();
+    if (!currentCard) return;
+    
+    const nextButton = currentCard.querySelector('.next-button');
+    if (nextButton) {
+        nextButton.click();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -613,6 +646,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     subscribe_to_nationality_change();
     subscribe_to_deregistration_required_change();
+    subscribe_to_space_key();
 }); 
 
 function prepare_and_submit_form() {
