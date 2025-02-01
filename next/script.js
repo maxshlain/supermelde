@@ -446,10 +446,8 @@ function on_nationality_select_change() {
 function show_state_name_field() {
     const stateNameInput = document.getElementById('stateName');
     const stateNameLabel = document.querySelector('label[for="stateName"]');
-    stateNameInput.disabled = false;
     stateNameInput.required = true;
     stateNameLabel.classList.add('required');
-    stateNameInput.value = ''; // Clear any previous value
     
     const stateNameGroup = document.getElementById('stateName').closest('.form-group');
     stateNameGroup.style.display = 'block';
@@ -458,10 +456,9 @@ function show_state_name_field() {
 function hide_state_name_field() {
     const stateNameInput = document.getElementById('stateName');
     const stateNameLabel = document.querySelector('label[for="stateName"]');
-    stateNameInput.disabled = true;
     stateNameInput.required = false;
+    stateNameInput.value = '';
     stateNameLabel.classList.remove('required');
-    stateNameInput.value = ''; // Clear the field when disabled
     
     const stateNameGroup = document.getElementById('stateName').closest('.form-group');
     stateNameGroup.style.display = 'none';
