@@ -4,8 +4,8 @@ let selectedLanguage = null;
 // Function to update language across all cards
 function updateCardLanguage(lang) {
     // Update all text content based on selected language
-    document.querySelector('.wizard-card h2').textContent = translations[lang].welcome;
-    document.querySelector('.wizard-card p').textContent = translations[lang].selectLanguage;
+    document.querySelector('#languageCard h2').textContent = translations[lang].welcome;
+    document.querySelector('#languageCard p').textContent = translations[lang].selectLanguage;
     document.querySelector('#nextButton').textContent = translations[lang].startButton;
     
     // Update language button texts
