@@ -489,3 +489,15 @@ body {
     background-color: #f8f9fa;
     cursor: not-allowed;
 }
+
+/* Add styles for the about content links */
+.about-content-wrapper a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-content-wrapper a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
