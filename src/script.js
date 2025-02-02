@@ -673,6 +673,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     const finalBackButton = document.getElementById('finalBackButton');
     const finalNextButton = document.getElementById('finalNextButton');
 
+    const aboutButton = document.getElementById('aboutButton');
+    const aboutCard = document.getElementById('aboutCard');
+    const aboutBackButton = document.getElementById('aboutBackButton');
+
+    // Add about navigation handlers
+    aboutButton.addEventListener('click', () => {
+        languageCard.style.display = 'none';
+        aboutCard.style.display = 'block';
+    });
+
+    aboutBackButton.addEventListener('click', () => {
+        aboutCard.style.display = 'none';
+        languageCard.style.display = 'block';
+    });
+
     // Initialize language functionality
     initializeLanguageButtons();
 

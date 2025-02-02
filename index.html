@@ -9,6 +9,25 @@
 </head>
 <body>
     <div class="wizard-container">
+        
+        <!-- --------------------------------------------------------------- -->
+        <!--                     About Selection Card                     -->
+        <!-- --------------------------------------------------------------- -->
+        <div class="wizard-card" id="aboutCard" style="display: none;">
+            <h2>About Supermelde</h2>
+            <p>Making Vienna Registration Simple</p>
+            
+            <div class="about-content-wrapper">
+                <p>Supermelde helps you fill out the Vienna registration form (Meldezettel) quickly and correctly.</p>
+                <p>Your data stays in your browser - we don't store anything.</p>
+                <p>Made with ❤️ in Vienna</p>
+            </div>
+
+            <div class="wizard-navigation">
+                <button class="next-button" id="aboutBackButton">OK</button>
+            </div>
+        </div>
+
         <!-- --------------------------------------------------------------- -->
         <!--                     Language Selection Card                     -->
         <!-- --------------------------------------------------------------- -->
@@ -29,7 +48,8 @@
 
             <span class="site-explanation">Get the meldezettel form filled correctly and quickly. All data stays on your device</span>
 
-            <div class="wizard-navigation start-navigation">
+            <div class="wizard-navigation">
+                <button class="back-button" id="aboutButton">About</button>
                 <button class="next-button" id="nextButton">Start</button>
             </div>
 
@@ -37,8 +57,6 @@
                 <span id="madeWithLove"></span>
             </div>
         </div>
-
-        
         <!-- --------------------------------------------------------------- -->
         <!--                     Personal Information Card                   -->
         <!-- --------------------------------------------------------------- -->
