@@ -15,6 +15,7 @@
     "documentNumber": "1234567890",
     "documentIssueDate": "2020-01-01",
     "documentIssuingAuthority": "US Department of State",
+    "registrationInViennaRequired": "ja",
     "registrationStreet": "Nordbahnhofstraße",
     "registrationHouseNumber": "47",
     "registrationStaircase": "5",
@@ -37,5 +38,7 @@
     "deregistrationApartmentNumber": "8888",
     "deregistrationPostalCode": "1010",
     "deregistrationMunicipality": "Wien",
+    "movingAbroad": "ja",
+    "destinationCountry": "Texas, USA",
     "landlordName": "John Smith"
 }
