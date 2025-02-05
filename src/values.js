@@ -1,38 +1,24 @@
 async function loadDefaultValues() {
     const urlParams = new URLSearchParams(window.location.search);
-    const defaultValuesSet = urlParams.get('default_values');
-    
-    if (defaultValuesSet === '1') {
-        try {
-            const response = await fetch('assets/values_1.json');
-            const defaultValues = await response.json();
-            return defaultValues;
-        } catch (error) {
-            console.error('Error loading default values:', error);
-        }
+    const setNumber = urlParams.get('set');
+    console.log(setNumber);
+
+    if (!setNumber) {
+        return null;
     }
 
-    if (defaultValuesSet === '2') {
-        try {
-            const response = await fetch('assets/values_2.json');
-            const defaultValues = await response.json();
-            return defaultValues;
-        } catch (error) {
-            console.error('Error loading default values:', error);
+    try {
+        // Load the values from the corresponding set file
+        const response = await fetch(`assets/set_${setNumber}.json`);
+        if (!response.ok) {
+            console.error(`Failed to load set_${setNumber}.json`);
+            return null;
         }
+        return await response.json();
+    } catch (error) {
+        console.error('Error loading default values:', error);
+        return null;
     }
-
-    if (defaultValuesSet === '3') {
-        try {
-            const response = await fetch('assets/values_3.json');
-            const defaultValues = await response.json();
-            return defaultValues;
-        } catch (error) {
-            console.error('Error loading default values:', error);
-        }
-    }
-
-    return null;
 }
 
 function applyDefaultValues(values) {
