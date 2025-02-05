@@ -118,6 +118,10 @@ const translations = {
         registrationInViennaRequiredTooltip: "Select if you want to register a new address in Vienna",
         registrationInViennaRequiredSelectPrompt: "Select option",
         registrationInViennaSkipMessage: "This step can be skipped because you selected not to register a new address.",
+        registrationInViennaRequiredOptions: {
+            yes: "Yes",
+            no: "No"
+        },
 
         // Previous Residence Card
         previousResidenceTitle: "Main Residence Address",
@@ -295,6 +299,11 @@ const translations = {
         registrationInViennaRequiredTooltip: "Wählen Sie aus, ob Sie eine neue Adresse in Wien anmelden möchten",
         registrationInViennaRequiredSelectPrompt: "Option wählen",
         registrationInViennaSkipMessage: "Dieser Schritt kann übersprungen werden, da Sie keine neue Adresse anmelden möchten.",
+        registrationInViennaRequiredOptions: {
+            yes: "Ja",
+            no: "Nein"
+        },
+
 
         // Previous Residence Card
         previousResidenceTitle: "Hauptwohnsitz Adresse",

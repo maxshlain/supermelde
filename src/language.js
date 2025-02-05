@@ -153,6 +153,18 @@ function updateRegistrationAddressCard(lang) {
     document.querySelector('#registrationAddressCard h2').textContent = translations[lang].registrationAddressTitle;
     document.querySelector('#registrationAddressCard p').textContent = translations[lang].registrationAddressSubtitle;
     
+    // Update registrationInViennaRequired
+    document.querySelector('label[for="registrationInViennaRequired"]').textContent = translations[lang].registrationInViennaRequired;
+    document.querySelector('#registrationInViennaRequired').nextElementSibling.textContent = translations[lang].registrationInViennaRequiredTooltip;
+
+    // Update registrationInViennaRequired select options    
+    const requiredSelect = document.getElementById('registrationInViennaRequired');
+    requiredSelect.innerHTML = `
+        <option value="" disabled selected>${translations[lang].registrationInViennaRequiredSelectPrompt}</option>
+        <option value="ja">${translations[lang].registrationInViennaRequiredOptions.yes}</option>
+        <option value="nein">${translations[lang].registrationInViennaRequiredOptions.no}</option>
+    `;
+
     // Update field labels and tooltips
     document.querySelector('label[for="registrationStreet"]').textContent = translations[lang].registrationStreet;
     document.querySelector('#registrationStreet').nextElementSibling.textContent = translations[lang].registrationStreetTooltip;
