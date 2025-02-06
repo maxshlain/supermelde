@@ -170,6 +170,10 @@ const translations = {
         movingAbroad: "Moving Abroad",
         movingAbroadTooltip: "Are you moving abroad?",
         movingAbroadSelectPrompt: "Select option",
+        movingAbroadOptions: {
+            yes: "Yes",
+            no: "No"
+        },
         destinationCountry: "Destination Country",
         destinationCountryTooltip: "If moving abroad, enter your destination country",
 
@@ -352,6 +356,10 @@ const translations = {
         movingAbroad: "Wegzug ins Ausland",
         movingAbroadTooltip: "Ziehen Sie ins Ausland?",
         movingAbroadSelectPrompt: "Option wählen",
+        movingAbroadOptions: {
+            yes: "Ja",
+            no: "Nein"
+        },
         destinationCountry: "Zielland",
         destinationCountryTooltip: "Bei Wegzug ins Ausland, geben Sie Ihr Zielland ein",
 

@@ -271,6 +271,18 @@ function updateDeregistrationCard(lang) {
         <option value="nein">${translations[lang].deregistrationRequiredOptions.no}</option>
     `;
 
+    // Update moving abroad field
+    document.querySelector('label[for="movingAbroad"]').textContent = translations[lang].movingAbroad;
+    document.querySelector('#movingAbroad').nextElementSibling.textContent = translations[lang].movingAbroadTooltip;
+
+    // Update moving abroad select options
+    const movingAbroadSelect = document.getElementById('movingAbroad');
+    movingAbroadSelect.innerHTML = `
+        <option value="" disabled selected>${translations[lang].movingAbroadSelectPrompt}</option>
+        <option value="ja">${translations[lang].movingAbroadOptions.yes}</option>
+        <option value="nein">${translations[lang].movingAbroadOptions.no}</option>
+    `;
+
     // Update navigation buttons
     document.querySelector('#deregistrationBackButton').textContent = translations[lang].back;
     document.querySelector('#deregistrationNextButton').textContent = translations[lang].next;

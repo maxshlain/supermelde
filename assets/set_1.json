@@ -38,5 +38,7 @@
     "deregistrationApartmentNumber": "3",
     "deregistrationPostalCode": "5020",
     "deregistrationMunicipality": "Salzburg",
+    "movingAbroad": "nein",
+    "destinationCountry": "",
     "landlordName": "Johann von Trattner"
 } 
