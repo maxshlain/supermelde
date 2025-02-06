@@ -283,6 +283,10 @@ function updateDeregistrationCard(lang) {
         <option value="nein">${translations[lang].movingAbroadOptions.no}</option>
     `;
 
+    // Update destination country field
+    document.querySelector('label[for="destinationCountry"]').textContent = translations[lang].destinationCountry;
+    document.querySelector('#destinationCountry').nextElementSibling.textContent = translations[lang].destinationCountryTooltip;
+
     // Update navigation buttons
     document.querySelector('#deregistrationBackButton').textContent = translations[lang].back;
     document.querySelector('#deregistrationNextButton').textContent = translations[lang].next;
