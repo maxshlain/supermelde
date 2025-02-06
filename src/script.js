@@ -645,6 +645,13 @@ function on_registration_required_change() {
     });
 }
 
+function updateRequiredFieldsNotes() {
+    const requiredFieldsNotes = document.querySelectorAll('.required-fields-note');
+    requiredFieldsNotes.forEach(note => {
+        note.innerHTML = `<span>*</span> ${translations[selectedLanguage].requiredFieldsNote}`;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -816,6 +823,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     subscribe_to_moving_abroad_change();
     subscribe_to_registration_required_change();
     subscribe_to_space_key();
+
+    // Update required fields notes when language changes
+    const languageButtons = document.querySelectorAll('.language-button');
+    languageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            updateRequiredFieldsNotes();
+        });
+    });
+
+    // Initial update of required fields notes
+    updateRequiredFieldsNotes();
 }); 
 
 function prepare_and_submit_form() {

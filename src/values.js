@@ -1,7 +1,6 @@
 async function loadDefaultValues() {
     const urlParams = new URLSearchParams(window.location.search);
     const setNumber = urlParams.get('set');
-    console.log(setNumber);
 
     if (!setNumber) {
         return null;
