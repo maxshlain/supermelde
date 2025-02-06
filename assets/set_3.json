@@ -15,6 +15,7 @@
     "documentNumber": "1234567890",
     "documentIssueDate": "1956-05-06",
     "documentIssuingAuthority": "US Department of State",
+    "registrationInViennaRequired": "nein",
     "registrationStreet": "",
     "registrationHouseNumber": "",
     "registrationStaircase": "",
@@ -28,7 +29,7 @@
     "previousResidenceApartmentNumber": "9797",
     "previousResidencePostalCode": "1010",
     "previousResidenceMunicipality": "Berlin",
-    "movedFromAbroad": "",
+    "movedFromAbroad": "nein",
     "previousCountry": "",
     "deregistrationRequired": "ja",
     "deregistrationStreet": "Westbahnhofstraße",
@@ -37,5 +38,7 @@
     "deregistrationApartmentNumber": "8888",
     "deregistrationPostalCode": "1010",
     "deregistrationMunicipality": "Wien",
+    "movingAbroad": "nein",
+    "destinationCountry": "",
     "landlordName": "John Smith"
 }
