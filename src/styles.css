@@ -113,9 +113,11 @@ body {
 .form-group {
     margin-bottom: 2.5rem;
     text-align: left;
-    max-width: calc(100% - 5rem);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .form-group label {
@@ -126,29 +128,20 @@ body {
     color: #333;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.25rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 7.5px;
-    transition: all 0.2s ease-in-out;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
+.form-group input,
 .form-group select {
     width: 100%;
     padding: 1rem;
     font-size: 1.25rem;
     border: 2px solid #e0e0e0;
     border-radius: 7.5px;
-    transition: border-color 0.3s ease;
-    background-color: white;
-    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
 }
 
 .form-group select:focus {
@@ -228,8 +221,7 @@ body {
     }
 
     .wizard-card {
-        padding: 1.5rem;
-        border-radius: 10px;
+        padding: 1.5rem 0.5rem;
     }
 
     .wizard-card h2 {
@@ -259,8 +251,7 @@ body {
     }
 
     .form-group {
-        margin-bottom: 1.5rem;
-        max-width: 100%;
+        padding: 0 0.75rem;
     }
 
     .form-group label {
@@ -292,6 +283,10 @@ body {
         font-size: 1rem;
         max-width: 100%;
         margin: 1.5rem auto;
+    }
+
+    .required-fields-note {
+        padding: 0 0.75rem;
     }
 }
 
@@ -350,9 +345,11 @@ body {
     font-size: 0.9rem;
     margin-top: 1.5rem;
     text-align: left;
-    max-width: calc(100% - 5rem);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .required-fields-note span {
