@@ -288,6 +288,10 @@ body {
     .required-fields-note {
         padding: 0 0.75rem;
     }
+
+    header {
+        margin-bottom: 1rem;
+    }
 }
 
 /* Additional adjustments for very small screens */
@@ -497,4 +501,23 @@ body {
 .about-content-wrapper a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+/* Add these styles for the new semantic elements */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 0; /* Hide visually but keep for SEO */
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #666;
+    font-size: 0.8rem;
 }
