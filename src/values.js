@@ -13,7 +13,14 @@ async function loadDefaultValues() {
             console.error(`Failed to load set_${setNumber}.json`);
             return null;
         }
-        return await response.json();
+        const data = await response.json();
+        
+        // Set the page title if title is provided in the set
+        if (data.title) {
+            document.title = `${data.title} - Supermelde`;
+        }
+        
+        return data;
     } catch (error) {
         console.error('Error loading default values:', error);
         return null;
