@@ -652,6 +652,16 @@ function updateRequiredFieldsNotes() {
     });
 }
 
+// Add this function to handle GA events
+function sendGAEvent(cardName) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'wizard_progress', {
+            'event_category': 'Navigation',
+            'event_label': cardName
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     // Element references
     const nextButton = document.getElementById('nextButton');
@@ -702,6 +712,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     nextButton.addEventListener('click', () => {
         languageCard.style.display = 'none';
         personalCard.style.display = 'block';
+        sendGAEvent('Personal Information');
     });
 
     backButton.addEventListener('click', () => {
@@ -713,6 +724,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if(validatePersonalCard()) {
             personalCard.style.display = 'none';
             birthDetailsCard.style.display = 'block';
+            sendGAEvent('Birth Details');
         }
     });
 
@@ -726,6 +738,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if(isValid) {
             birthDetailsCard.style.display = 'none';
             citizenshipCard.style.display = 'block';
+            sendGAEvent('Citizenship');
         }
     });
 
@@ -739,6 +752,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (isValid) {
             citizenshipCard.style.display = 'none';
             foreignPassportCard.style.display = 'block';
+            sendGAEvent('Foreign Passport');
         }
     });
 
@@ -752,6 +766,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (isValid) {
             foreignPassportCard.style.display = 'none';
             registrationAddressCard.style.display = 'block';
+            sendGAEvent('Registration Address');
         }
     });
 
@@ -765,6 +780,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (isValid) {
             registrationAddressCard.style.display = 'none';
             previousResidenceCard.style.display = 'block';
+            sendGAEvent('Previous Residence');
         }
     });
 
@@ -777,6 +793,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (validatePreviousResidenceCard()) {
             previousResidenceCard.style.display = 'none';
             deregistrationCard.style.display = 'block';
+            sendGAEvent('Deregistration');
         }
     });
 
@@ -789,6 +806,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (validateDeregistrationCard()) {
             deregistrationCard.style.display = 'none';
             finalCard.style.display = 'block';
+            sendGAEvent('Landlord Information');
         }
     });
 
@@ -800,6 +818,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     finalNextButton.addEventListener('click', () => {
         if (validateFinalCard()) {
+            sendGAEvent('Form Submission');
             prepare_and_submit_form();
         }
     });
