@@ -901,7 +901,7 @@ async function prepare_and_submit_form() {
     
     try {
         await handleFormSubmit(formData);
-        window.location.href = '/thankyou.html';
+        window.location.href = `/thankyou.html?lang=${selectedLanguage}`;
         sendGAEvent('Form Completed');
     } catch (error) {
         console.error('Error submitting form:', error);

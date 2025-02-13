@@ -182,7 +182,16 @@ const translations = {
         finalTitle: "Landlord Information",
         finalSubtitle: "Please enter your landlord's details",
         landlordName: "Landlord Name",
-        landlordNameTooltip: "Full name of your landlord or property manager"
+        landlordNameTooltip: "Full name of your landlord or property manager",
+        thankYou: "Thank You!",
+        formGeneratedSuccess: "Your Meldezettel form has been generated successfully.",
+        nextStepsTitle: "Next Steps:",
+        nextSteps: {
+            print: "Print the downloaded form",
+            signature: "Get your landlord's signature",
+            submit: "Submit the form at your local registration office"
+        },
+        startOver: "Start Over"
     },
 
     // --------------------------------------------------------------- //
@@ -369,6 +378,15 @@ const translations = {
         finalTitle: "Vermieter Information",
         finalSubtitle: "Bitte geben Sie die Daten Ihres Vermieters ein",
         landlordName: "Name des Vermieters",
-        landlordNameTooltip: "Vollständiger Name Ihres Vermieters oder Hausverwalters"
+        landlordNameTooltip: "Vollständiger Name Ihres Vermieters oder Hausverwalters",
+        thankYou: "Vielen Dank!",
+        formGeneratedSuccess: "Ihr Meldezettel wurde erfolgreich erstellt.",
+        nextStepsTitle: "Nächste Schritte:",
+        nextSteps: {
+            print: "Drucken Sie das heruntergeladene Formular aus",
+            signature: "Holen Sie sich die Unterschrift Ihres Vermieters",
+            submit: "Reichen Sie das Formular bei Ihrem zuständigen Meldeamt ein"
+        },
+        startOver: "Neu starten"
     }    
 }; 

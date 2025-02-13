@@ -51,22 +51,43 @@
     <main>
         <div class="wizard-container">
             <div class="wizard-card">
-                <h2>Thank You!</h2>
-                <p>Your Meldezettel form has been generated successfully.</p>
+                <h2 id="thankYouTitle">Thank You!</h2>
+                <p id="successMessage">Your Meldezettel form has been generated successfully.</p>
                 
                 <div class="next-steps">
-                    <h3>Next Steps:</h3>
+                    <h3 id="nextStepsTitle">Next Steps:</h3>
                     <ol>
-                        <li>Print the downloaded form</li>
-                        <li>Get your landlord's signature</li>
-                        <li>Submit the form at your local registration office</li>
+                        <li id="stepPrint">Print the downloaded form</li>
+                        <li id="stepSignature">Get your landlord's signature</li>
+                        <li id="stepSubmit">Submit the form at your local registration office</li>
                     </ol>
                 </div>
 
-                <button class="restart-button" onclick="window.location.href='/'">Start Over</button>
+                <button class="restart-button" id="startOverButton" onclick="window.location.href='/'">Start Over</button>
             </div>
         </div>
     </main>
+
+    <script src="src/translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get language from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const language = urlParams.get('lang') || 'en';
+            
+            // Set HTML lang attribute
+            document.documentElement.lang = language;
+            
+            // Update content with translations
+            document.getElementById('thankYouTitle').textContent = translations[language].thankYou;
+            document.getElementById('successMessage').textContent = translations[language].formGeneratedSuccess;
+            document.getElementById('nextStepsTitle').textContent = translations[language].nextStepsTitle;
+            document.getElementById('stepPrint').textContent = translations[language].nextSteps.print;
+            document.getElementById('stepSignature').textContent = translations[language].nextSteps.signature;
+            document.getElementById('stepSubmit').textContent = translations[language].nextSteps.submit;
+            document.getElementById('startOverButton').textContent = translations[language].startOver;
+        });
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKEEQZZ1J4"></script>
