@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for using Supermelde - Your Vienna registration form is ready">
+    <title>Thank You - Supermelde</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        .next-steps {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .next-steps h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .next-steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .next-steps li {
+            margin: 10px 0;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .restart-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .restart-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="wizard-container">
+            <div class="wizard-card">
+                <h2>Thank You!</h2>
+                <p>Your Meldezettel form has been generated successfully.</p>
+                
+                <div class="next-steps">
+                    <h3>Next Steps:</h3>
+                    <ol>
+                        <li>Print the downloaded form</li>
+                        <li>Get your landlord's signature</li>
+                        <li>Submit the form at your local registration office</li>
+                    </ol>
+                </div>
+
+                <button class="restart-button" onclick="window.location.href='/'">Start Over</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKEEQZZ1J4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XKEEQZZ1J4');
+        
+        // Track thank you page view
+        gtag('event', 'form_completion_success', {
+            'event_category': 'Form',
+            'event_label': 'Success'
+        });
+    </script>
+</body>
+</html> 

@@ -855,7 +855,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     updateRequiredFieldsNotes();
 }); 
 
-function prepare_and_submit_form() {
+async function prepare_and_submit_form() {
     const formData = {
         language: selectedLanguage,
         firstName: document.getElementById('firstName').value.trim(),
@@ -899,5 +899,13 @@ function prepare_and_submit_form() {
         destinationCountry: document.getElementById('destinationCountry')?.value.trim() || ''
     };
     
-    handleFormSubmit(formData);
+    try {
+        await handleFormSubmit(formData);
+        window.location.href = '/thankyou.html';
+        sendGAEvent('Form Completed');
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        showToast('An error occurred while generating your form. Please try again.');
+        sendGAEvent('Form Error', { error_message: error.message });
+    }
 }
