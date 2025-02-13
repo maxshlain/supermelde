@@ -71,9 +71,10 @@
     <script src="src/translations.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get language from URL parameter
+            // Get URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const language = urlParams.get('lang') || 'en';
+            const setParam = urlParams.get('set');
             
             // Set HTML lang attribute
             document.documentElement.lang = language;
@@ -86,6 +87,14 @@
             document.getElementById('stepSignature').textContent = translations[language].nextSteps.signature;
             document.getElementById('stepSubmit').textContent = translations[language].nextSteps.submit;
             document.getElementById('startOverButton').textContent = translations[language].startOver;
+            
+            // Update start over button URL to include set parameter if present
+            const startOverButton = document.getElementById('startOverButton');
+            if (setParam) {
+                startOverButton.onclick = () => {
+                    window.location.href = `/?set=${setParam}`;
+                };
+            }
         });
     </script>
 

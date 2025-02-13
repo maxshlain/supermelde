@@ -901,7 +901,18 @@ async function prepare_and_submit_form() {
     
     try {
         await handleFormSubmit(formData);
-        window.location.href = `/thankyou.html?lang=${selectedLanguage}`;
+        
+        // Get current URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const setParam = urlParams.get('set');
+        
+        // Build thank you page URL with both lang and set parameters
+        let thankYouUrl = `/thankyou.html?lang=${selectedLanguage}`;
+        if (setParam) {
+            thankYouUrl += `&set=${setParam}`;
+        }
+        
+        window.location.href = thankYouUrl;
         sendGAEvent('Form Completed');
     } catch (error) {
         console.error('Error submitting form:', error);
