@@ -1,10 +1,13 @@
 # Supermelde - Vienna Registration Made Easy
 
-A tool to simplify the Vienna city registration process by helping users fill out the Meldezettel form correctly.
+Produce ready-to-sign Meldezettel form in less than 2 minutes
 
 ## Live Demo
-- [Live Version](https://supermelde.com)
-- [Sample set 1](https://supermelde.com?default_values=1)
+
+- [Production Version](https://supermelde.com/)
+- [Pre-filled Mozart details](https://supermelde.com/?set=1)
+- [Pre-filled Elon Musk details](https://supermelde.com/?set=2)
+
 ## Development Mode
 
 You can load the form with pre-filled sample data by adding the `default_values=1` parameter to the URL:
